@@ -1,0 +1,169 @@
+{
+  "xda.html": {
+    "banner_url": "https://labs-public-dl.xda-cdn.com/images/b11200e2-d0cf-4e93-90b0-b9328597dcf4.png",
+    "price": 0.0,
+    "category_names": ["Productivity", "Tools"],
+    "xda_forum": {
+      "url": "http://forum.xda-developers.com/showthread.php?t\u003d2770533",
+      "title": "[APP] Hangar for Android",
+      "last_post_date": "07/25/2017 4:19 PM",
+      "last_post_username": "test_user",
+      "last_post_userid": 144221,
+      "replies_count": "520",
+      "views_count": "250K"
+    },
+    "fingerprint": "055FC93B217E6225BFD7B56FFA3FF4C94DDE179209604D33F585F89C06120ADC",
+    "screenshots": [
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/45adc6d1-560f-44e1-8580-52ebb2774964.png",
+          "width": 1080,
+          "height": 1920
+        },
+        "name": "Notification drawer",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/54e4ae1c-2209-401d-99b6-5f0f86c59f00.png",
+          "width": 300,
+          "height": 533
+        }
+      },
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/834c5301-9a95-4a61-9ccb-c12c03b91ec4.png",
+          "width": 1080,
+          "height": 1920
+        },
+        "name": "Stats widget",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/a08a5f34-fe20-46e0-a778-691a0373fed3.png",
+          "width": 300,
+          "height": 533
+        }
+      },
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/32bb9576-c47c-40d3-ad52-672163385d2c.png",
+          "width": 1080,
+          "height": 1920
+        },
+        "name": "Apps Widget",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/7238725e-5b3b-4137-bb77-b7c58a193b8b.png",
+          "width": 300,
+          "height": 533
+        }
+      },
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/f89f4674-f085-420c-a035-3a337f6d58d6.png",
+          "width": 1280,
+          "height": 800
+        },
+        "name": "Lollipop on tablets",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/c686d135-8d8d-4cbe-a96f-535fe9eaae63.png",
+          "width": 900,
+          "height": 562
+        }
+      },
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/f11b9f8f-b8ad-4d57-8a99-14fb29b0d861.png",
+          "width": 1080,
+          "height": 1920
+        },
+        "name": "Lollipop lockscreen",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/dcace079-8632-48aa-997f-7a181a4b714c.png",
+          "width": 300,
+          "height": 533
+        }
+      },
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/4350bd85-31a6-4439-9d26-e46dc612d218.png",
+          "width": 1080,
+          "height": 1920
+        },
+        "name": "Lollipop notification drawer",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/4863d133-29c4-43bb-a7e5-6d7241c4022f.png",
+          "width": 300,
+          "height": 533
+        }
+      },
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/bb7e6b1e-97c2-4794-992f-07df4ba0e398.png",
+          "width": 1080,
+          "height": 1920
+        },
+        "name": "Lollipop lockscreen #2",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/2b8b878e-887c-413e-a04f-47e2fc02c6cb.png",
+          "width": 300,
+          "height": 533
+        }
+      },
+      {
+        "image": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/50eb7be5-a6a2-42f7-88fc-839bc301e8ce.png",
+          "width": 1280,
+          "height": 800
+        },
+        "name": "Kitkat tablet",
+        "thumbnail": {
+          "url": "https://labs-public-dl.xda-cdn.com/screenshots/03017a36-6546-4a8d-8e99-989a4f55e540.png",
+          "width": 900,
+          "height": 562
+        }
+      }
+    ],
+    "price_types": {
+      "paypal": false,
+      "bitcoin": true
+    },
+    "ratings": [{"username": "not_assigned_name", "build_id": 2271, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "", "userid": "7969493", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "BlankFX", "build_id": 2271, "avatar_url": "", "score": 2, "date": "2.4.2017", "review": "Keeping it at top of notifications dies not work in Lollipop, even with properly set priority permissions.", "userid": "7894174", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "mohammadmashum@gmail.com", "build_id": 2271, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "", "userid": "7777896", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "LMR1200", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar3321702_1.gif", "score": 5, "date": "2.4.2017", "review": "", "userid": "3321702", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "MrNothingPersonal", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar4953695_9.gif", "score": 5, "date": "2.4.2017", "review": "awesome.. keep it up dev.. :)", "userid": "4953695", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "rienriant", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar5025316_2.gif", "score": 5, "date": "2.4.2017", "review": "Perfect. It's like setting my life to \"easy\".", "userid": "5025316", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "gustavomp", "build_id": 2271, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "Very nice. Works very well. ", "userid": "4063268", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "roy1xx", "build_id": 1, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "", "userid": "7309829", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "MSF Jarvis", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar6552280_7.gif", "score": 5, "date": "2.4.2017", "review": "Works perfectly, has become  my go to shortcut menu.", "userid": "6552280", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "Tama Gochi", "build_id": 1, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "very good app..useful,clean and sexy", "userid": "6597119", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "oak", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar333246_1.gif", "score": 5, "date": "2.4.2017", "review": "Cool app. ", "userid": "333246", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "Heisenberg", "build_id": 2271, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar4153349_20.gif", "score": 5, "date": "2.4.2017", "review": "Can't fault it. Best simple app launcher I've ever used.", "userid": "4153349", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "The Merovingian", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar5302753_75.gif", "score": 5, "date": "2.4.2017", "review": "Outstanding.", "userid": "5302753", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "panic602", "build_id": 1, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "6/5! Hangar is best app. If it was a person it would be my best friend and I'd name it Mr. Squiggles.", "userid": "6875406", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "blk_jack", "build_id": 2271, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar2637227_1.gif", "score": 5, "date": "2.4.2017", "review": "Red wizard needs food badly ", "userid": "2637227", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}],
+    "uuid": "ea758891-8a51-49da-b8e4-51651cd14679",
+    "total_ratings": 15,
+    "dates": {
+      "last_build": "1477430198",
+      "modified": "1485214391",
+      "created": "1420070400"
+    },
+    "description": "Hangar is an Android app that provides easy, relevant shortcuts in your notification drawer to your most used and relied upon apps.<br /><br />This lightweight notification bar gives you convenient access to these apps from anywhere in Android while intelligently updating the priority and order of the shortcuts based on your daily use.<br /><br />With the new pinned apps feature, favorite apps can be pinned alongside the ones Hangar has set.  Want a fresh look on those shortcuts?  Hangar now supports custom icons, letting you set a stylized theme by installing one of the many gorgeous icon packs available on the Play Store.<br /><br />Hangar also keeps track of app usage statistics and includes 2 highly customizable widgets.<br /><br /><br />\u003cb\u003eFeatures include:\u003c/b\u003e<br /><br />• Auto-updating notification drawer shortcuts containing your most used and important apps<br />• Sort and display apps based on user specified weight factors<br />• Pin apps to always display<br />• Launch shortcuts from lockscreen (Lollipop)<br />• Support for icon packs and custom icons<br />• Optional second row of icons<br />• Blacklist unwanted apps<br />• Fully customizable!  Change the number of shortcuts, icon color, icon size, background and more.<br />• Additional re-sizeable widget to launch apps<br />• Re-sizeable widget to view app use statistics with color coded bar graphs<br />• Widgets intelligently scale according to size and device<br /><br />\u003cb\u003eGot questions?\u003c/b\u003e  You\u0027re not alone!  <br />I try to answer them in the FAQ here:<br />https://github.com/corcoran/Hangar/blob/master/README.md#faq<br /><br />Google+ community for beta testing and discussion:<br />http://goo.gl/ZD7e6n<br /><br />Milestones, planned features and issues:<br />https://github.com/corcoran/Hangar/issues<br /><br />Hangar is licensed under the GPLv3 from the Free Software Foundation.<br />https://github.com/corcoran/Hangar<br /><br /><br />\u003cb\u003eNote:\u003c/b\u003e In-app Purchases permission is used for the donation page in settings. Hangar is free, fully featured and does not have ads.",
+    "builds": [
+      {
+        "build_id": 2271,
+        "type": "Stable",
+        "changelog": "* [Fix!] Bring back position setting for MM/L users<br />* [New!] Hangar Settings shortcut from Notification/App settings<br />* Updated translations",
+        "permission_ids": [
+          143,
+          142,
+          11,
+          67
+        ],
+        "timestamp": "1477430198",
+        "version_code": 75,
+        "version_name": "2.7",
+        "size": "1.7 MB"
+      }
+    ],
+    "title": "Hangar",
+    "icon_url": "https://labs-public-dl.xda-cdn.com/images/fac64684-3562-44e5-9ef8-9df7a35303c7.png",
+    "avg_rating": 4.8,
+    "on_watchlist": false,
+    "dev": {
+      "username": "blk_jack",
+      "display_name": "blk_jack",
+      "email": "support@mimic.ca"
+    },
+    "category_ids": [
+      18,
+      22
+    ],
+    "paid_for": false,
+    "package_name": "ca.mimic.apphangar",
+    "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/39a3f64a-e653-4fb4-9956-36d8efc2116a.png"
+  }
+}

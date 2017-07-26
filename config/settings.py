@@ -103,4 +103,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TEMPLATE_FIX = "store/data.yaml"
+TEMPLATE_FIX = "store/data.json"
