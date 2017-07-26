@@ -242,11 +242,14 @@
 
                 <tbody>
                   <tr>
-                    <td><a class="xda-thread-title" target="_blank">{{ xda_forum.title }}</a></td>
-                    <td><a id="last_post" target="_blank">{{ xda_forum.last_post_date }}</a> by <a id="last_poster" href="https://forum.xda-developers.com/member.php?u={{ xda_forum.last_post_userid }}" target="_blank">{{ xda_forum.last_post_userid }}</a></td>
+                    <td><a class="xda-thread-title" href="{{ xda_forum_url }}" target="_blank"></a></td>
+                    <td><p>
+                                            <a id="last_post" target="_blank" href="#"></a> by
+                                            <a id="last_poster" target="_blank" href="#"></a>
+                                        </p></td>
                     <td>
-                      <p>Replies: {{ xda_forum.replies_count }}</p>
-                      <p>Views: {{ xda_forum.views_count }}</p>
+                      <p>Replies: <span id="reply_count"></span></p>
+                      <p>Views: <span id="view_count"></span></p>
                     </td>
                   </tr>
                 </tbody>
@@ -311,6 +314,56 @@
           count = 1;
         }
       }
+      function parseUnixTimestamp(ts) {
+                                      var d = new Date(ts * 1000);
+
+                                      var month = ("0" + (d.getMonth() + 1)).slice(-2);
+                                      var day = ("0" + d.getDate()).slice(-2);
+                                      var year = d.getFullYear();
+
+                                      var time = formatAMPM(d);
+                                      var result = month.toString() + "/" + day.toString() + "/" + year.toString();
+                                      result += " " + time;
+
+                                      return result;
+                                  }
+
+                                  function formatAMPM(date) {
+                                      var hours = date.getHours();
+                                      hours = hours + 5;
+                                      var minutes = date.getMinutes();
+                                      var ampm = hours >= 12 ? 'PM' : 'AM';
+
+                                      hours = hours % 12;
+                                      hours = hours ? hours : 12; // the hour '0' should be '12'
+                                      minutes = minutes < 10 ? '0' + minutes : minutes;
+                                      var strTime = hours + ':' + minutes + " " + ampm;
+                                      return strTime;
+                                  }
+      jQuery(document).ready(function ($) {
+                                var thread_id = {{ xda_thread_id }};
+
+                                    $.getJSON("http://dev.api.xda-developers.com/v2/threads/threadinfo?threadid=" + thread_id, function (r) {
+                                    $(".xda-thread-title").html(r.title);
+
+                                    // Last post
+                                    $("#last_post").attr("href", "http://forum.xda-developers.com/showthread.php?p=" + r.lastpostid);
+                                    console.log(r.lastpostid)
+                                    $("#last_post").text(parseUnixTimestamp(r.lastpost.dateline));
+
+                                    // Last post by
+                                    $("#last_poster").attr("href", "http://forum.xda-developers.com/member.php?u=" + r.lastpost.userid);
+                                    $("#last_poster").text(r.lastpost.username);
+
+                                    // Reply count
+                                    $("#reply_count").text(r.replycount);
+
+                                    // View count
+                                    $("#view_count").text(r.views);
+
+                                });
+
+                            });
     </script>
   </main>
   <footer class="page-footer transparent">
