@@ -209,7 +209,7 @@
                 {% for build in builds %}
                 <div class="valign-wrapper">
                   <p class="valign-wrapper">
-                  <b>Version {{ build.version_name }} </b> <br><div class="chip" style="margin-left: 5px">{{ build.type }}</div>
+                    <span style="margin-right: 5px"><b>Version {{ build.version_name }} </b></span> <span style="margin-right: 5px"> on {{ build.date }}</span> <div class="chip" style="margin-left: 5px">{{ build.type }}</div><br><div class="chip" style="margin-left: 5px">{{ build.size }}</div>
                 </div>
                 <p>{{ build.changelog|safe }}</p>
                 <a href="https://labs.xda-developers.com/store/app/download/{{ package_name }}/{{ build.build_id }}" class="waves-effect waves-light btn z-depth-0" style="background-color: #ff9800; margin-top: 10px; {% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>
