@@ -180,10 +180,10 @@
 
               {% for item in other_apps %}
 
-                <div class="card valign-wrapper z-depth-0" style="padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
+                <div class="card valign-wrapper z-depth-0" style="padding: 10px; padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
     border-top: 1px solid grey;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
                   <div style="margin-left: 10px;">
-                    <p><a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br>Price: {% if item.price = 0.0 %}FREE{% else %}${{ item.price }}{% endif %}  <br>&#x2605; {{item.avg_rating}}</p>
+                    <p><a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{item.avg_rating}}</p>
                   </div>
                 </div>
 
