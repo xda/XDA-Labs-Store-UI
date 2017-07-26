@@ -43,13 +43,6 @@
     src: url(/static/fonts/TitilliumWeb-SemiBold.ttf) format('truetype');
   }
 
-  @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'), local('MaterialIcons-Regular'), url(/static/fonts/material-icons.c77332f.woff2) format('woff2');
-  }
-
   .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -139,9 +132,14 @@
           <div class="card">
             <div class="card-image">
               <img src="{{ banner_square_url }}" />
+              {% if price == 0.0 %}<a href="https://labs.xda-developers.com/store/app/download/{{ package_name }}" class="btn-floating btn-large halfway-fab waves-effect waves-light orange"><i class="material-icons">file_download</i></a>{% endif %}
             </div>
-            <div class="card-content"> <span class="card-title">{{ title }}</span>
-              <p>by <a>{{ dev.display_name }}</a></p>
+            <div class="card-content">
+              <img src="{{ icon_url }}" style="float: left; height: 65px; width: 65px; margin-right: 14px">
+              <div style="height: 65px">
+                <span class="card-title">{{ title }}</span>
+                <p>by <a>{{ dev.display_name }}</a></p>
+              </div>
             </div>
           </div>
 
