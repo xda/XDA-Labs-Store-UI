@@ -152,7 +152,7 @@
 
 
           </div>
-
+          <div class="hide-on-med-and-down">
           <div class="card" style="height: 600px">
             <div class="card-content" style="height: 548px">
               <span class="card-title">Screenshots</span>
@@ -171,7 +171,7 @@
 
           <div class="card {% if other_apps|length == 0 %}hide{% endif %}">
             <div class="card-content" style="padding: 0px;">
-              <span class="card-title" style="padding: 24px; padding-bottom: 20px;">Other Apps by Developer</span>
+              <span class="card-title" style="padding: 24px; padding-bottom: 15px;">Other Apps by Developer</span>
               <!--<div class="carousel carousel-slider">
                 <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
                 <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
@@ -181,7 +181,7 @@
               {% for item in other_apps %}
 
                 <div class="card valign-wrapper z-depth-0" style="padding: 10px; padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
-    border-top: 1px solid grey;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
+    border-top: 1px solid #e0e0e0;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
                   <div style="margin-left: 10px;">
                     <p><a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{item.avg_rating}}</p>
                   </div>
@@ -194,7 +194,7 @@
 
 
           </div>
-
+</div>
         </div>
         <div class="col m12 l8">
 
@@ -227,7 +227,49 @@
               </div>
             </div>
           </div>
+          <div class="hide-on-large-only">
+          <div class="card" style="height: 600px">
+            <div class="card-content" style="height: 548px">
+              <span class="card-title">Screenshots</span>
+              <!--<div class="carousel carousel-slider">
+                <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
+                <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
+                <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
+              </div>-->
+              {% for item in screenshots %}
+              <div id="img{{ forloop.counter }}" style="height: 100%; width: 100%; text-align: center" class="{% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img" src="{{ item.thumbnail.url }}"></div>
+              {% endfor %}
 
+            </div>
+
+          </div>
+
+          <div class="card {% if other_apps|length == 0 %}hide{% endif %}">
+            <div class="card-content" style="padding: 0px;">
+              <span class="card-title" style="padding: 24px; padding-bottom: 15px;">Other Apps by Developer</span>
+              <!--<div class="carousel carousel-slider">
+                <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
+                <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
+                <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
+              </div>-->
+
+              {% for item in other_apps %}
+
+                <div class="card valign-wrapper z-depth-0" style="padding: 10px; padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
+    border-top: 1px solid #e0e0e0;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
+                  <div style="margin-left: 10px;">
+                    <p><a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{item.avg_rating}}</p>
+                  </div>
+                </div>
+
+              {% endfor %}
+
+            </div>
+
+
+
+          </div>
+</div>
           <div class="card">
             <div class="card-content ">
               <span class="card-title">XDA Forum Thread</span>
@@ -260,6 +302,7 @@
                     <td>
                       <p>Replies: <span id="reply_count">...</span></p>
                       <p>Views: <span id="view_count">...</span></p>
+
                     </td>
                   </tr>
                 </tbody>
@@ -325,6 +368,7 @@
         }
       }
       function parseUnixTimestamp(ts) {
+<<<<<<< HEAD
           var d = new Date(ts * 1000);
 
           var month = ("0" + (d.getMonth() + 1)).slice(-2);
@@ -385,14 +429,13 @@
           });
       }
 
-      jQuery(document).ready(fetchForumData());
 
     </script>
   </main>
   <footer class="page-footer transparent">
     <div class="footer-copyright grey darken-3">
       <div class="container">
-        Website by <a class="white-text" href="http://goo.gl/jULEUS"><b>Jackson Hayes</b></a>
+        XDA Labs, an XDA service</a>
       </div>
     </div>
   </footer>
