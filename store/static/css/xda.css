@@ -15,6 +15,9 @@
     font-size: 16px;
     color: #f59714;
 }
+.hide {
+    visibility: hidden;
+}
 .title i {
     position: relative;
     left: -10px;

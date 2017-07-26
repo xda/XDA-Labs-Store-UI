@@ -170,8 +170,8 @@
 
           </div>
 
-          <div class="card">
-            <div class="card-content" onLoad="runSlide()">
+          <div class="card" style="height: 600px">
+            <div class="card-content" style="height: 548px">
               <span class="card-title">Screenshots</span>
               <!--<div class="carousel carousel-slider">
                 <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
@@ -179,7 +179,7 @@
                 <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
               </div>-->
               {% for item in screenshots %}
-              <div id="img{{ forloop.counter }}" class="{% if forloop.counter > 1 %}hide{% endif %}"><img class="responsive-img" src="{{ item.thumbnail.url }}"></div>
+              <div id="img{{ forloop.counter }}" style="height: 100%; width: 100%; text-align: center" class="{% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img"  src="{{ item.thumbnail.url }}"></div>
               {% endfor %}
 
             </div>
@@ -285,7 +285,7 @@
       let count = 2;
 
       function runSlide() {
-        setInterval(swapSlide, 3000);
+        setInterval(swapSlide, 5000);
       }
 
       function swapSlide() {
