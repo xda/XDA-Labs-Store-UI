@@ -138,10 +138,10 @@
         <div class="col m12 l4">
           <div class="card">
             <div class="card-image">
-              <img src="https://jacksonhayes.me/images/labsredesign.jpg" />
+              <img src="{{ banner_square_url }}" />
             </div>
-            <div class="card-content"> <span class="card-title">Android App</span>
-              <p>by <a>developer</a></p>
+            <div class="card-content"> <span class="card-title">{{ title }}</span>
+              <p>by <a>{{ dev.display_name }}</a></p>
             </div>
           </div>
 
@@ -149,22 +149,21 @@
             <section class="tab">
               <div class="title"><i class="fa fa-usd"></i> Price</div>
               <div class="content">
-                FREE
+                {% if price == 0.0 %}FREE{% else %}${{ price }}{% endif %}
               </div>
             </section>
             <section class="tab">
               <div class="title"><i class="fa fa-list"></i> Category</div>
               <div class="content">
-                <div class="chip">Lifestyle</div>
-                <div class="chip"> Personalization</div>
-                <div class="chip">Productivity</div>
-                <div class="chip">Tools</div>
+                {% for category in category_names %}
+                <div class="chip">{{ category }}</div>
+                {% endfor %}
               </div>
             </section>
             <section class="tab">
               <div class="title"><i class="fa fa-bar-chart"></i> Avg. Rating</div>
               <div class="content">
-                4.4 (324 Reviews)
+                {{ avg_rating }} ({{ total_ratings }} Reviews)
               </div>
             </section>
 
@@ -179,10 +178,9 @@
                 <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
                 <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
               </div>-->
-              <div id="img1" class=""><img class="responsive-img" src="/static/images/mainImage.jpg"></div>
-              <div id="img2" class="hide"><img class="responsive-img" src="/static/images/shortcuts.jpg"></div>
-              <div id="img3" class="hide"><img class="responsive-img" src="/static/images/settings.jpg"></div>
-
+              {% for item in screenshots %}
+              <div id="img{{ forloop.counter }}" class="{% if forloop.counter > 1 %}hide{% endif %}"><img class="responsive-img" src="{{ item.thumbnail.url }}"></div>
+              {% endfor %}
 
             </div>
 
@@ -202,28 +200,20 @@
             </div>
             <div class="card-content">
               <div id="test1" class="active">
-                <p>Do you love Android Apps? Guess what, here's another one!
-
-                </p><br>
-
-                <p>With plenty of features, this app will feel like any other app sitting on your phone. You probably will probably never use this app.</p>
-                <br>
-                <p>Features:</p>
-                <br>
-<div class="chip">Material Design</div>
-                  <div class="chip">Bug-free</div>
-                  <div class="chip">Supports toasters</div>
-                  <div class="chip">Uninstallable</div>
-                  <div class="chip">And Much More!</div>
-
-
+                <p>
+                  {{ description | safe }}
+                </p>
               </div>
 
               <div id="test3" style="display: none;">
+                {% for build in builds %}
                 <div class="valign-wrapper">
-                  <p class="valign-wrapper"><b>Version 1 </b> <br><div class="chip" style="margin-left: 5px">Stable</div></p></div>
-                  <p>Initial release!</p>
-                  <a class="waves-effect waves-light btn z-depth-0" style="background-color: #ff9800; margin-top: 10px;">DOWNLOAD</a>
+                  <p class="valign-wrapper">
+                  <b>Version {{ build.version_name }} </b> <br><div class="chip" style="margin-left: 5px">{{ build.type }}</div>
+                </div>
+                <p>{{ build.changelog|safe }}</p>
+                <a href="https://labs.xda-developers.com/store/app/download/{{ package_name }}/{{ build.build_id }}" class="waves-effect waves-light btn z-depth-0" style="background-color: #ff9800; margin-top: 10px; {% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>
+                {% endfor %}
 
               </div>
             </div>
@@ -243,11 +233,11 @@
 
                 <tbody>
                   <tr>
-                    <td><a class="xda-thread-title" target="_blank">Android App - Official Thread</a></td>
-                    <td><a id="last_post" target="_blank">07/19/2017 2:40 PM</a> by <a id="last_poster" target="_blank" >xdauser7</a></td>
+                    <td><a class="xda-thread-title" target="_blank">{{ xda_forum.title }}</a></td>
+                    <td><a id="last_post" target="_blank">{{ xda_forum.last_post_date }}</a> by <a id="last_poster" href="https://forum.xda-developers.com/member.php?u={{ xda_forum.last_post_userid }}" target="_blank" >{{ xda_forum.last_post_userid }}</a></td>
                     <td>
-                      <p>Replies: 817</p>
-                      <p>Views: 600K</p>
+                      <p>Replies: {{ xda_forum.replies_count }}</p>
+                      <p>Views: {{ xda_forum.views_count }}</p>
                     </td>
                   </tr>
                 </tbody>
@@ -265,61 +255,16 @@
             <div class="card-content" style="padding: 0px;">
               <div id="test2" class="active">
                 <ul class="collection" style="margin-top: 0px;">
+                  {% for rating in ratings %}
                   <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="" class="circle">
+                    <img src="{% if rating.avatar_url == '' %}/static/images/no_avatar.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle">
 
-                    <p>by <a>san4kall </a>on 6.7.17<br> OMG THIS IS AN AMAZING APP!
+                    <p>by <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}">{{ rating.username }} </a>on {{ rating.date }}<br> {{ rating.review }}
                     </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_up</i></a>   </a>
+<a href="#!" class="secondary-content"><i class="material-icons orange-text">{% if rating.score > 2.5 %}thumb_up{% else %}thumb_down{% endif %}</i></a>
                   </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="" class="circle">
-
-                    <p>by <a>JoseMallory </a> <br> Very nice app. I love it! Sometimes slow, though. Pls fix.
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_down</i></a>                    </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="" class="circle">
-
-                    <p>by <a>JamesAndroid </a> <br> nice
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_up</i></a>                     </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="" class="circle">
-
-                    <p>by <a>lovedove </a> <br>
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_up</i></a>                    </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="" class="circle">
-                    <p>by <a>buttface </a> <br> not working
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_down</i></a>                     </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/women/18.jpg" alt="" class="circle">
-
-                    <p>by <a>cameraloverandroid4 </a> <br>
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_down</i></a>                     </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="" class="circle">
-                    <p>by <a>bugdroidftw77 </a> <br> cool
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_up</i></a>                     </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/men/84.jpg" alt="" class="circle">
-
-                    <p>by <a>sorryididit </a> <br>
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_up</i></a>                     </li>
-                  <li class="collection-item avatar">
-                    <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="" class="circle">
-                    <p>by <a>crappola </a> <br> very nice
-                    </p>
-<a href="#!" class="secondary-content"><i class="material-icons orange-text">thumb_up</i></a>                  </li>
+                  {% endfor %}
                 </ul>
-
-
 
               </div>
             </div>
