@@ -1,6 +1,8 @@
 # labs-store-ui
 XDA Labs Store interface
 
+This repo contains a light Django install that renders HTML templates of the XDA Labs store with hard-coded data dumps to simulate how the store UI would work on the full production stack.
+
 ## Getting started
 
 ### Install requirements
