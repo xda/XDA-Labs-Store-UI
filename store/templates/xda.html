@@ -169,7 +169,7 @@
 
           </div>
 
-          <div class="card">
+          <div class="card {% if other_apps|length == 0 %}hide{% endif %}">
             <div class="card-content" style="padding: 0px;">
               <span class="card-title" style="padding: 24px; padding-bottom: 20px;">Other Apps by Developer</span>
               <!--<div class="carousel carousel-slider">
@@ -179,14 +179,14 @@
               </div>-->
 
               {% for item in other_apps %}
-              <a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}">
+
                 <div class="card valign-wrapper z-depth-0" style="padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
     border-top: 1px solid grey;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
                   <div style="margin-left: 10px;">
-                    <p><span style="font-size: 20px">{{ item.title }}</span></p>
+                    <p><a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br>Price: {% if item.price = 0.0 %}FREE{% else %}${{ item.price }}{% endif %}  <br>&#x2605; {{item.avg_rating}}</p>
                   </div>
                 </div>
-              </a>
+
               {% endfor %}
 
             </div>
