@@ -281,21 +281,26 @@
       $(document).ready(function() {
         runSlide()
       });
-      var nIntervId;
-      var num = 1;
+      let num = '{{ screenshots|length }}';
+      let count = 2;
 
       function runSlide() {
-        nIntervId = setInterval(swapSlide, 2500);
+        setInterval(swapSlide, 3000);
       }
 
       function swapSlide() {
-
-        $('#img1').toggleClass('hide');
-
-
-        $('#img2').toggleClass('hide');
-
-
+          for (let i=1; i<=num; i++) {
+              let image = $('#img' + i);
+              if (count === i) {
+                  image.removeClass('hide');
+              } else {
+                  image.addClass('hide');
+              }
+          }
+          count++;
+          if (count > num) {
+              count = 1;
+          }
       }
     </script>
   </main>
