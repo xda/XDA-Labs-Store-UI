@@ -11,35 +11,36 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="image_src" href="/static/images/labsredesign.jpg">
-  <meta name="thumbnail" content="/static/images/labsredesign.jpg">
+  <link rel="image_src" href="{{ banner_square_url }}">
+  <meta name="thumbnail" content="{{ icon_url }}">
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "ImageObject",
-      "contentUrl": "https://jacksonhayes.me/images/labsredesign.jpg"
+      "contentUrl": "{{ banner_square_url }}"
     }
   </script>
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "name": "Jackson Hayes",
-      "image": "https://jacksonhayes.me/images/labsredesign.jpg",
-      "url": "https://jacksonhayes.me",
-      "logo": "https://jacksonhayes.me/images/labsredesign.jpg"
+      "name": "XDA Labs | {{ title }}",
+      "image": "{{ banner_square_url }}",
+      "url": "https://labs.xda-developers.com/store/app/{{ package_name }}",
+      "logo": "{{ icon_url }}"
     }
   </script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>XDA Labs | {{ title }}</title>
-  <meta name="keywords" content="Jackson Hayes, Jackson, Hayes, Hayes Jackson, portfolio, card, website, websites, ecard, about, web development, web, development, development web, programming, program, programmer, XDA Labs, xda, redesign, ui, material design, material, design">
-  <meta property="og:title" content="XDA Labs Redesign | Jackson Hayes" />
+  <meta property="og:title" content="XDA Labs | {{ title }}" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jacksonhayes.me/xda.html" />
-  <meta property="og:image" content="https://jacksonhayes.me/images/labsredesign.jpg" />
-  <meta property="og:description" content="A redesign of the XDA Labs app page. Fully responsive Material Design." />
+  <meta property="og:url" content="https://labs.xda-developers.com/store/app/{{ package_name }}" />
+  <meta property="og:image" content="{{ banner_square_url }}" />
+  <!-- Might be nice to have a short blurb description in each app's data for this bit of metadata
+    <meta property="og:description" content="A redesign of the XDA Labs app page. Fully responsive Material Design." />
+  -->
   <link rel="shortcut icon" href="{{ icon_url }}" type="image/x-icon">
-  <meta name="theme-color" content="#455a64">
+  <meta name="theme-color" content="#424242">
 
 </head>
 
