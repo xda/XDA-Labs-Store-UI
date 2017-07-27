@@ -111,7 +111,7 @@
                   <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
                 </div>-->
                 {% for item in screenshots %}
-                <div id="img{{ forloop.counter }}" style="height: 100%; width: 100%; text-align: center" class="{% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img" src="{{ item.thumbnail.url }}"></div>
+                <div style="height: 100%; width: 100%; text-align: center" class="img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img" src="{{ item.thumbnail.url }}"></div>
                 {% endfor %}
 
               </div>
@@ -182,7 +182,7 @@
                   <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
                 </div>-->
                 {% for item in screenshots %}
-                <div id="img{{ forloop.counter }}" style="height: 100%; width: 100%; text-align: center" class="{% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img" src="{{ item.thumbnail.url }}"></div>
+                <div style="height: 100%; width: 100%; text-align: center" class="img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img" src="{{ item.thumbnail.url }}"></div>
                 {% endfor %}
 
               </div>
@@ -298,7 +298,7 @@
 
       function swapSlide() {
         for (let i = 1; i <= num; i++) {
-          let image = $('#img' + i);
+          let image = $('.img' + i);
           if (count === i) {
             image.removeClass('hide');
           } else {
