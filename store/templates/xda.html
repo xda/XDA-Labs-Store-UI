@@ -185,7 +185,7 @@
                     <td></td>
                   </tr>
                   <tr class="hide" id="xda_thread_error">
-                    <td>Could not load thread!  <a id="xda_thread_try_again">Try again</a></td>
+                    <td>Could not load thread!  <a style="cursor: pointer" id="xda_thread_try_again">Try again</a></td>
                     <td></td>
                     <td></td>
                   </tr>
@@ -275,8 +275,10 @@
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
     <script>
       $(document).ready(function() {
-        runSlide()
+        runSlide();
+        fetchForumData();
       });
+
       let num = '{{ screenshots|length }}';
       let count = 2;
 
