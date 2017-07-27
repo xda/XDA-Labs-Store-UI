@@ -74,3 +74,6 @@ body, html {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
+#overviewText {
+  word-break: break-word;
+}
