@@ -104,3 +104,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_FIX = "store/data.json"
+
+# Let's try to import local_settings.py if it exists
+try:
+    from config.local_settings import *
+except ImportError:
+    import sys

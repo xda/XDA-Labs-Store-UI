@@ -36,33 +36,23 @@ body {
 
 @font-face {
     font-family: 'ContinuumLight';
-    src: url(/static/fonts/contl.eot);
-    src: url(/static/fonts/contl.eot?#iefix) format('embedded-opentype'),
-    url(/static/fonts/contl.ttf) format('truetype'),
-    url(/static/fonts/contl.svg#ContinuumLight) format('svg');
+    src: url(../fonts/contl.eot);
+    src: url(../fonts/contl.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/contl.ttf) format('truetype'),
+    url(../fonts/contl.svg#ContinuumLight) format('svg');
 }
 
 @font-face {
     font-family: 'ContinuumMedium';
-    src: url(/static/fonts/contm.eot);
-    src: url(/static/fonts/contm.eot?#iefix) format('embedded-opentype'),
-    url(/static/fonts/contm.ttf) format('truetype'),
-    url(/static/fonts/contm.svg#ContinuumMedium) format('svg');
+    src: url(../fonts/contm.eot);
+    src: url(../fonts/contm.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/contm.ttf) format('truetype'),
+    url(../fonts/contm.svg#ContinuumMedium) format('svg');
 }
 
 .fontpro,
 .fontpro-29277 {
     font-family: 'ContinuumLight', sans-serif;
-}
-
-@font-face {
-    font-family: 'TitilliumLight';
-    src: url(/static/fonts/TitilliumWeb-Light.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'TitilliumBold';
-    src: url(/static/fonts/TitilliumWeb-SemiBold.ttf) format('truetype');
 }
 
 .material-icons {
