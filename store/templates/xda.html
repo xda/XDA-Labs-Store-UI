@@ -66,7 +66,7 @@
             <div class="card-image">
               <img src="{{ banner_url }}" />
               {% if price == 0.0 %}
-                <a href="https://labs.xda-developers.com/store/app/download/{{ package_name }}" class="btn-floating btn-large halfway-fab waves-effect waves-light orange"><i class="material-icons">file_download</i></a>
+                <a href="/store/app/download/{{ package_name }}" class="btn-floating btn-large halfway-fab waves-effect waves-light orange"><i class="material-icons">file_download</i></a>
               {% endif %}
             </div>
             <div class="card-content">
@@ -88,7 +88,7 @@
             <section class="tab">
               <div class="title"><i class="fa fa-list"></i> Category</div>
               <div class="content">
-                {% for category in category_names %}
+                {% for category in category_names_array %}
                 <div class="chip">{{ category }}</div>
                 {% endfor %}
               </div>
@@ -96,7 +96,7 @@
             <section class="tab">
               <div class="title"><i class="fa fa-bar-chart"></i> Avg. Rating</div>
               <div class="content">
-                {{ avg_rating }} ({{ total_ratings }} Reviews)
+                {{ avg_rating|floatformat:"2" }} ({{ total_ratings }} Reviews)
               </div>
             </section>
 
@@ -127,7 +127,7 @@
               <div class="card valign-wrapper z-depth-0" style="padding: 10px; padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
   border-top: 1px solid #e0e0e0;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
                 <div style="margin-left: 10px;">
-                  <p><a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{item.avg_rating}}</p>
+                  <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
                 </div>
               </div>
 
@@ -153,7 +153,8 @@
               </div>
 
               <div id="test3" style="display: none;">
-                {% for build in builds %}
+                {% for build in builds reversed %}
+                {% if build.timestamp %}
                 <div class="valign-wrapper">
                   <p class="valign-wrapper">
                     <span style="margin-right: 5px"><b>Version {{ build.version_name }} </b></span> <span style="margin-right: 5px"> on {{ build.date }}</span>
@@ -161,7 +162,9 @@
                     <div class="chip" style="margin-left: 5px">{{ build.size }}</div>
                 </div>
                 <p>{{ build.changelog|safe }}</p>
-                <a href="https://labs.xda-developers.com/store/app/download/{{ package_name }}/{{ build.build_id }}" class="waves-effect waves-light btn z-depth-0" style="background-color: #ff9800; margin-top: 10px; {% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>                {% endfor %}
+                <a href="/store/app/download/{{ package_name }}/{{ build.build_id }}" class="waves-effect waves-light btn z-depth-0" style="background-color: #ff9800; margin-top: 10px; {% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>
+                {% endif %}
+                {% endfor %}
 
               </div>
             </div>
@@ -233,7 +236,7 @@
               <div class="card valign-wrapper z-depth-0" style="padding: 10px; padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
   border-top: 1px solid #e0e0e0;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
                 <div style="margin-left: 10px;">
-                  <p><a href="https://labs.xda-developers.com/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{item.avg_rating}}</p>
+                  <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
                 </div>
               </div>
 
