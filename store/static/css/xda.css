@@ -4,6 +4,23 @@ nav {
     font-family: ContinuumLight,sans-serif;
 }
 
+.other-apps-line {
+    padding: 10px 10px 10px 10px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid #e0e0e0;"
+}
+
+.other-apps-line img {
+    height: 75px;
+}
+
+.other-apps-line div {
+    margin-left: 10px;
+}
+
 #about_card {
     position: relative;
     padding: 15px 32px 15px 32px;

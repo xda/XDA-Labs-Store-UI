@@ -104,7 +104,7 @@
           </div>
           <div class="card hide-on-med-and-down" style="height: 600px">
             <div class="card-content" style="height: 548px">
-              <span class="card-title">Screenshots</span>
+              <span class="card-title" style="padding: 0 0 15px 0">Screenshots</span>
               <!--<div class="carousel carousel-slider">
                 <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
                 <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
@@ -120,14 +120,14 @@
 
           <div class="card hide-on-med-and-down {% if other_apps|length == 0 %}hide{% endif %}">
             <div class="card-content" style="padding: 0px;">
-              <span class="card-title" style="padding: 24px; padding-bottom: 15px;">Other Apps by Developer</span>
+              <span class="card-title" style="padding: 24px 24px 15px;">Other Apps by Developer</span>
 
               {% for item in other_apps %}
 
-              <div class="card valign-wrapper z-depth-0" style="padding: 10px; padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
-  border-top: 1px solid #e0e0e0;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
-                <div style="margin-left: 10px;">
-                  <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
+              <div class="card valign-wrapper z-depth-0 other-apps-line">
+                <img class="responsive-img" src="{{ item.icon_url}}">
+                <div>
+                  <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 16px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price == 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
                 </div>
               </div>
 
@@ -213,7 +213,7 @@
 
           <div class="card hide-on-large-only" style="height: 600px">
             <div class="card-content" style="height: 548px">
-              <span class="card-title">Screenshots</span>
+              <span class="card-title" style="padding: 0 0 15px 0">Screenshots</span>
               <!--<div class="carousel carousel-slider">
                 <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
                 <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
@@ -229,16 +229,16 @@
 
           <div class="card hide-on-large-only {% if other_apps|length == 0 %}hide{% endif %}">
             <div class="card-content" style="padding: 0px;">
-              <span class="card-title" style="padding: 24px; padding-bottom: 15px;">Other Apps by Developer</span>
+              <span class="card-title" style="padding: 24px 24px 15px;">Other Apps by Developer</span>
 
               {% for item in other_apps %}
 
-              <div class="card valign-wrapper z-depth-0" style="padding: 10px; padding-left: 20px; border-radius: 0px; border-left: none; border-right: none; border-bottom:  none;
-  border-top: 1px solid #e0e0e0;"><img class="responsive-img" src="{{ item.icon_url}}" style="height: 100px;">
-                <div style="margin-left: 10px;">
-                  <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 20px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price = 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
+                <div class="card valign-wrapper z-depth-0 other-apps-line">
+                  <img class="responsive-img" src="{{ item.icon_url}}">
+                  <div>
+                    <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 16px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price == 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
+                  </div>
                 </div>
-              </div>
 
               {% endfor %}
 
