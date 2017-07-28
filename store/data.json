@@ -116,7 +116,158 @@
       "paypal": false,
       "bitcoin": true
     },
-    "ratings": [{"username": "not_assigned_name", "build_id": 2271, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "", "userid": "7969493", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "BlankFX", "build_id": 2271, "avatar_url": "", "score": 2, "date": "2.4.2017", "review": "Keeping it at top of notifications dies not work in Lollipop, even with properly set priority permissions.", "userid": "7894174", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "mohammadmashum@gmail.com", "build_id": 2271, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "", "userid": "7777896", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "LMR1200", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar3321702_1.gif", "score": 5, "date": "2.4.2017", "review": "", "userid": "3321702", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "MrNothingPersonal", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar4953695_9.gif", "score": 5, "date": "2.4.2017", "review": "awesome.. keep it up dev.. :)", "userid": "4953695", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "rienriant", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar5025316_2.gif", "score": 5, "date": "2.4.2017", "review": "Perfect. It's like setting my life to \"easy\".", "userid": "5025316", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "gustavomp", "build_id": 2271, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "Very nice. Works very well. ", "userid": "4063268", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "roy1xx", "build_id": 1, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "", "userid": "7309829", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "MSF Jarvis", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar6552280_7.gif", "score": 5, "date": "2.4.2017", "review": "Works perfectly, has become  my go to shortcut menu.", "userid": "6552280", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "Tama Gochi", "build_id": 1, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "very good app..useful,clean and sexy", "userid": "6597119", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "oak", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar333246_1.gif", "score": 5, "date": "2.4.2017", "review": "Cool app. ", "userid": "333246", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "Heisenberg", "build_id": 2271, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar4153349_20.gif", "score": 5, "date": "2.4.2017", "review": "Can't fault it. Best simple app launcher I've ever used.", "userid": "4153349", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "The Merovingian", "build_id": 1, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar5302753_75.gif", "score": 5, "date": "2.4.2017", "review": "Outstanding.", "userid": "5302753", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "panic602", "build_id": 1, "avatar_url": "", "score": 5, "date": "2.4.2017", "review": "6/5! Hangar is best app. If it was a person it would be my best friend and I'd name it Mr. Squiggles.", "userid": "6875406", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}, {"username": "blk_jack", "build_id": 2271, "avatar_url": "https://forum.xda-developers.com/customavatars/avatar2637227_1.gif", "score": 5, "date": "2.4.2017", "review": "Red wizard needs food badly ", "userid": "2637227", "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"}],
+    "ratings": [
+      {
+        "username": "not_assigned_name",
+        "build_id": 2271,
+        "avatar_url": "",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "",
+        "userid": "7969493",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "BlankFX",
+        "build_id": 2271,
+        "avatar_url": "",
+        "score": 2,
+        "date": "2.4.2017",
+        "review": "Keeping it at top of notifications dies not work in Lollipop, even with properly set priority permissions.",
+        "userid": "7894174",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "mohammadmashum@gmail.com",
+        "build_id": 2271,
+        "avatar_url": "",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "",
+        "userid": "7777896",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "LMR1200",
+        "build_id": 1,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar3321702_1.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "",
+        "userid": "3321702",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "MrNothingPersonal",
+        "build_id": 1,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar4953695_9.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "awesome.. keep it up dev.. :)",
+        "userid": "4953695",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "rienriant",
+        "build_id": 1,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar5025316_2.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "Perfect. It\u0027s like setting my life to \"easy\".",
+        "userid": "5025316",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "gustavomp",
+        "build_id": 2271,
+        "avatar_url": "",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "Very nice. Works very well. ",
+        "userid": "4063268",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "roy1xx",
+        "build_id": 1,
+        "avatar_url": "",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "",
+        "userid": "7309829",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "MSF Jarvis",
+        "build_id": 1,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar6552280_7.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "Works perfectly, has become  my go to shortcut menu.",
+        "userid": "6552280",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "Tama Gochi",
+        "build_id": 1,
+        "avatar_url": "",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "very good app..useful,clean and sexy",
+        "userid": "6597119",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "oak",
+        "build_id": 1,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar333246_1.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "Cool app. ",
+        "userid": "333246",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "Heisenberg",
+        "build_id": 2271,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar4153349_20.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "Can\u0027t fault it. Best simple app launcher I\u0027ve ever used.",
+        "userid": "4153349",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "The Merovingian",
+        "build_id": 1,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar5302753_75.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "Outstanding.",
+        "userid": "5302753",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "panic602",
+        "build_id": 1,
+        "avatar_url": "",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "6/5! Hangar is best app. If it was a person it would be my best friend and I\u0027d name it Mr. Squiggles.",
+        "userid": "6875406",
+        "uuid": "ea758891-8a51-49da-b8e4-51651cd14679"
+      },
+      {
+        "username": "blk_jack",
+        "build_id": 2271,
+        "avatar_url": "https://forum.xda-developers.com/customavatars/avatar2637227_1.gif",
+        "score": 5,
+        "date": "2.4.2017",
+        "review": "Red wizard needs food badly ",
+        "userid": "2637227",
+        "uuid": "ea758891-8a51-49da-\tb8e4-51651cd14679"
+      }
+    ],
     "uuid": "ea758891-8a51-49da-b8e4-51651cd14679",
     "total_ratings": 15,
     "dates": {
