@@ -259,9 +259,10 @@
                   <li class="collection-item avatar">
                     <img src="{% if rating.avatar_url == '' %}/static/images/no_avatar.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle">
 
-                    <p>by <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}">{{ rating.username }} </a>on {{ rating.date }}<br> {{ rating.review }}
+                    <p style="margin-right: 24px">by <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}">{{ rating.username }} </a>on {{ rating.date }}
+                        <br> {{ rating.review }}
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons orange-text">{% if rating.score > 2.5 %}thumb_up{% else %}thumb_down{% endif %}</i></a>
+                    <a class="secondary-content"><i class="material-icons orange-text">{% if rating.score > 2.5 %}thumb_up{% else %}thumb_down{% endif %}</i></a>
                   </li>
                   {% endfor %}
                 </ul>
