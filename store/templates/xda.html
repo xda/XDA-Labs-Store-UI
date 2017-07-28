@@ -257,7 +257,7 @@
                 <ul class="collection" style="margin-top: 0px;">
                   {% for rating in ratings %}
                   <li class="collection-item avatar">
-                    <img src="{% if rating.avatar_url == '' %}/static/images/no_avatar.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle">
+                    <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}"><img src="{% if rating.avatar_url == '' %}/static/images/no_avatar.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle"></a>
 
                     <p style="margin-right: 24px">by <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}">{{ rating.username }} </a>on {{ rating.date }}
                         <br> {{ rating.review }}
