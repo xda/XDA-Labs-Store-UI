@@ -1,3 +1,9 @@
+nav {
+    background-color: #2e2e2e;
+    border-bottom: solid #ff9800;
+    font-family: ContinuumLight,sans-serif;
+}
+
 #about_card {
     position: relative;
     padding: 15px 32px 15px 32px;
@@ -26,6 +32,7 @@
     font-size: 14px;
     padding: 5px 20px 5px 20px;
 }
+
 body {
     background-color: #EEEEEE;
 
