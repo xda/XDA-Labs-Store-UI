@@ -18,3 +18,8 @@ This repo contains a light Django install that renders HTML templates of the XDA
 ## Templates and static
 Templates live in `store/templates/`
 Static files live in `store/static/`
+
+## Contributors
+- Randy Westergren (@rwestergren)
+- Jackson Hayes (@jacksonhvisuals)
+- Jeff Corcoran (@corcoran)
