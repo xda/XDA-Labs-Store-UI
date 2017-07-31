@@ -170,7 +170,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card {% if xda_thread_id == None %}hide{% endif %}">
             <div class="card-content ">
               <span class="card-title">XDA Forum Thread</span>
               <table>
@@ -334,11 +334,12 @@
 
       function fetchForumData() {
           var thread_id = '{{ xda_thread_id }}';
+          if (thread_id === '') return;
 
           $("#xda_thread_error").addClass("hide");
           $("#xda_thread_loading").removeClass("hide");
 
-          $.getJSON("http://dev.api.xda-developers.com/v2/threads/threadinfo?threadid=" + thread_id, function (r) {
+          $.getJSON("https://api.xda-developers.com/v2/threads/threadinfo?threadid=" + thread_id, function (r) {
               $("#xda_thread_data").removeClass("hide");
               $("#xda_thread_error").addClass("hide");
               $("#xda_thread_loading").addClass("hide");
