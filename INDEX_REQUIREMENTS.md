@@ -7,13 +7,13 @@
 
 * Sorted by recency
 
-* *View more *button launches separate, paginated list page
+* _View more_ (button launches separate, paginated list page)
 
 #### Most popular section
 
 * Sorted by an aggregate average of downloads per build
 
-* *View more *button launches separate, paginated list page
+* _View more_ (button launches separate, paginated list page)
 
 #### App card fields
 
