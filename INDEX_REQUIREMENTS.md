@@ -3,15 +3,9 @@
 
 ## App lists
 
-#### Most recently updated section
+#### App list section
 
-* Sorted by recency
-
-* _View more_ (button launches separate, paginated list page)
-
-#### Most popular section
-
-* Sorted by an aggregate average of downloads per build
+* Initially sorted by popularity
 
 * _View more_ (button launches separate, paginated list page)
 
@@ -48,6 +42,8 @@
 ## Sort
 
 #### Sort types
+
+* Popularity (default)
 
 * Last Update
 
