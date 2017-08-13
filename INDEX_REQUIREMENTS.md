@@ -5,29 +5,29 @@
 
 #### App list section
 
-* Initially sorted by popularity
-
-* _View more_ (button launches separate, paginated list page)
+Initially sorted by popularity
 
 #### App card fields
 
-* Title
+* Title (truncated at line #2)
 
 * Banner (as background for title)
 
-* Icon
+* Icon (top right aligned)
 
-* Dev name
+* Dev name (smaller font or less heavy than title)
 
 * Star rating
 
-* Category (clickable button)
+* Category (clickable tags, truncated to 1 line)
 
 ## Android App
 
 #### Labs section
 
-* Download link (full version)
+* Boiler plate intro text (copy here)
+
+* Download link (full version APK download)
 
 * Find out more (links to www.xda-developers.com/xda-labs)
 
@@ -39,11 +39,23 @@
 
 * Type-ahead/typo correction suggestions
 
+## Login
+
+#### Login/Logout button
+
+Redirects to oauth2 page, as shown with XDA Feed
+
+## Filter/Sort Header Bar
+
+Includes both Sort and Filter dropdowns/toggles -- center aligned
+
 ## Sort
 
 #### Sort types
 
-* Popularity (default)
+Drop down on mouse-over
+
+* Popular apps (default)
 
 * Last Update
 
@@ -55,11 +67,10 @@
 
 #### Filter types
 
+On/Off highlighted tags
+
 * Paid
 
-* Watch list (logged in)
+* Watch list (Only shown when logged in)
 
-* Downloaded (logged in)
-
-* Category
-
+* Downloaded (Only shown when logged in)
