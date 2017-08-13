@@ -9,6 +9,8 @@ Initially sorted by popularity
 
 #### App card fields
 
+Based in part on the rectangle layout used in Labs ([screenshot](http://jeff.mimic.ca/p/labs_rectangle_ss.png))
+
 * Title (truncated at line #2)
 
 * Banner (as background for title)
@@ -25,6 +27,8 @@ Initially sorted by popularity
 
 #### Labs section
 
+Similar to the header used on [MaterialUp](https://www.uplabs.com/material)
+
 * Boiler plate intro text (copy here)
 
 * Download link (full version APK download)
@@ -37,13 +41,13 @@ Initially sorted by popularity
 
 * Auto-complete similar to Android app
 
-* Type-ahead/typo correction suggestions
+* Type-ahead/typo correction suggestions, similar to the behavior and look in the Android app
 
 ## Login
 
 #### Login/Logout button
 
-Redirects to oauth2 page, as shown with XDA Feed
+Redirects to oauth2 page, as used on XDA Feed
 
 ## Filter/Sort Header Bar
 
@@ -53,7 +57,7 @@ Includes both Sort and Filter dropdowns/toggles -- center aligned
 
 #### Sort types
 
-Drop down on mouse-over
+Drop down on mouse-over.  Similar to what's used on [dribbble](https://dribbble.com/).
 
 * Popular apps (default)
 
@@ -67,7 +71,7 @@ Drop down on mouse-over
 
 #### Filter types
 
-On/Off highlighted tags
+On/Off highlighted tags. Similar to what's used on [MaterialUp](https://www.uplabs.com/material).
 
 * Paid
 
