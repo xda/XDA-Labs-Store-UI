@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="/static/css/xda.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="/static/css/index.css" media="screen,projection" />
+
+  <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="image_src" href="{{ banner_square_url }}">
+  <meta name="thumbnail" content="{{ icon_url }}">
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "{{ banner_square_url }}"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "XDA Labs | {{ title }}",
+      "image": "{{ banner_square_url }}",
+      "url": "https://labs.xda-developers.com/store/app/{{ package_name }}",
+      "logo": "{{ icon_url }}"
+    }
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-12268453-11', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>XDA Labs | {{ title }}</title>
+  <meta property="og:title" content="XDA Labs | {{ title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://labs.xda-developers.com/store/app/{{ package_name }}" />
+  <meta property="og:image" content="{{ banner_square_url }}" />
+  <!-- Might be nice to have a short blurb description in each app's data for this bit of metadata
+    <meta property="og:description" content="A redesign of the XDA Labs app page. Fully responsive Material Design." />
+  -->
+  <link rel="shortcut icon" href="{{ icon_url }}" type="image/x-icon">
+  <meta name="theme-color" content="#424242">
+
+
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper container">
+          <div class="brand-logo" style="display: inline-block; position: relative;"><img style="height: 60px;" class="left" src="/static/images/ic_web.png" />
+            <h4 class="right" id="logotitle" style="margin-left: 5px;"><b><span style="color: #ff9800;">xda</span>labs</b></h4>
+
+          </div>
+          <form style="margin-right: 80px; margin-top: -5px; " class="brand-logo right">
+      <input id="headerSearch" type="text" name="search" placeholder="Search...">
+    </form>
+          <h6 class="right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Login</h6>
+
+        </div>
+      </nav>
+    </div>
+
+  </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col m12 l4 s12">
+
+        </div>
+
+        </div>
+      </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        runSlide();
+        fetchForumData();
+      });
+
+      let num = '{{ screenshots|length }}';
+      let count = 2;
+
+      function runSlide() {
+        setInterval(swapSlide, 5000);
+      }
+
+      function swapSlide() {
+        for (let i = 1; i <= num; i++) {
+          let image = $('.img' + i);
+          if (count === i) {
+            image.removeClass('hide');
+          } else {
+            image.addClass('hide');
+          }
+        }
+        count++;
+        if (count > num) {
+          count = 1;
+        }
+      }
+      function parseUnixTimestamp(ts) {
+
+          var d = new Date(ts * 1000);
+
+          var month = ("0" + (d.getMonth() + 1)).slice(-2);
+          var day = ("0" + d.getDate()).slice(-2);
+          var year = d.getFullYear();
+
+          var time = formatAMPM(d);
+          var result = month.toString() + "/" + day.toString() + "/" + year.toString();
+          result += " " + time;
+
+          return result;
+      }
+      function formatAMPM(date) {
+          var hours = date.getHours();
+          hours = hours + 5;
+          var minutes = date.getMinutes();
+          var ampm = hours >= 12 ? 'PM' : 'AM';
+
+          hours = hours % 12;
+          hours = hours ? hours : 12; // the hour '0' should be '12'
+          minutes = minutes < 10 ? '0' + minutes : minutes;
+          var strTime = hours + ':' + minutes + " " + ampm;
+          return strTime;
+      }
+
+      function fetchForumData() {
+          var thread_id = '{{ xda_thread_id }}';
+          if (thread_id === '') return;
+
+          $("#xda_thread_error").addClass("hide");
+          $("#xda_thread_loading").removeClass("hide");
+
+          $.getJSON("https://api.xda-developers.com/v2/threads/threadinfo?threadid=" + thread_id, function (r) {
+              $("#xda_thread_data").removeClass("hide");
+              $("#xda_thread_error").addClass("hide");
+              $("#xda_thread_loading").addClass("hide");
+
+              $(".xda-thread-title").html(r.title);
+
+              // Last post
+              $("#last_post").attr("href", "http://forum.xda-developers.com/showthread.php?p=" + r.lastpostid);
+              console.log(r.lastpostid)
+              $("#last_post").text(parseUnixTimestamp(r.lastpost.dateline));
+
+              // Last post by
+              $("#last_poster").attr("href", "http://forum.xda-developers.com/member.php?u=" + r.lastpost.userid);
+              $("#last_poster").text(r.lastpost.username);
+
+              // Reply count
+              $("#reply_count").text(r.replycount);
+
+              // View count
+              $("#view_count").text(r.views);
+
+          }).error(function (e) {
+              $("#xda_thread_error").removeClass("hide");
+              $("#xda_thread_loading").addClass("hide");
+              $("#xda_thread_try_again").click(fetchForumData)
+          });
+      }
+
+
+    </script>
+  <footer class="page-footer transparent">
+    <div class="footer-copyright grey darken-3">
+      <div class="container">
+        XDA Labs, an XDA service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
