@@ -21,4 +21,6 @@ width: 180px;
   border: none;
   color: black;
   width: 400px;
+  border-bottom: none;
+  z-index: 70;
 }
