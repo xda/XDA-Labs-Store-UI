@@ -106,8 +106,8 @@
       <div class="container">
         <div class="row">
           {% with card_title="App title superapp long title that is just way too long" card_dev_name="Dev name goes here" %}
-          {% for i in "xxxx" %}
-          <div class="col s4">
+          {% for i in "xxxxxxxx" %}
+          <div class="col s12 m6 l4">
 
             <div class="card horizontal" style="max-height: 200px;">
               <div class="card-image">
@@ -115,7 +115,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <div style="padding-right: 30px; margin-bottom: -10px;"><span style="word-wrap: break-word; font-size: 1.2rem;">{{ card_title|truncatechars_html:30 }}</span></div><br>
+                  <div style="padding-right: 30px; margin-bottom: -15px;"><span style="word-wrap: break-word; font-size: 1.2rem;">{{ card_title|truncatechars_html:30 }}</span></div><br>
                   <span style="font-size: 0.8rem">{{ card_dev_name|truncatechars_html:20 }}</span><br>
                   <span class="orange-text">&#x2605;</span> 4.5<br>
                   <span>Categories</span>
