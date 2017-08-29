@@ -242,6 +242,7 @@
       }
     ],
     "sort": "",
+    "logged_in": false,
     "filters": {
       "paid": false,
       "watchlist": false,
