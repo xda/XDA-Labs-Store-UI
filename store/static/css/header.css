@@ -26,12 +26,11 @@ width: 180px;
 }
 
 #headerSearchMobile {
-  box-sizing: border-box;
   border: none;
   font-size: 16px;
-  background-color: grey;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+  margin-right: -20px;
+  width: 100vh;
+  background-color: white;
   z-index: 90;
 
 }
@@ -44,9 +43,7 @@ width: 180px;
   background-color: white;
   border: none;
   color: black;
-  width: 100vh;
   border-bottom: none;
-  z-index: 70;
 
 }
 
