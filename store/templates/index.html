@@ -83,23 +83,23 @@
         <div class="col s12">
           <div class="row" style="padding-top: 20px;">
             <div class="col s12 m6 l6 center" style="margin-top: 10px">
-                <a class='dropdown-button btn white black-text' href='#' data-activates='dropdown1'>Popular Apps</a>
-                <ul id='dropdown1' class='dropdown-content'>
-                  <li><a class="black-text" href="#!">Last Update</a></li>
-                  <li><a class="black-text" href="#!">Ratings</a></li>
-                  <li><a class="black-text" href="#!">Name</a></li>
+                <a class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown1'>Popular Apps</a>
+                <ul id='dropdown1' class='dropdown-content category-list-item'>
+                  <li><a class="grey-text text-darken-2" href="#!">LAST UPDATE</a></li>
+                  <li><a class="grey-text text-darken-2" href="#!">RATINGS</a></li>
+                  <li><a class="grey-text text-darken-2" href="#!">NAME</a></li>
                 </ul>
-                <a class='dropdown-button btn white black-text' href='#' data-activates='dropdown2'>Categories</a>
-                <ul id='dropdown2' class='dropdown-content'>
-                  <li><a class="black-text" href="#!">Category 1</a></li>
-                  <li><a class="black-text" href="#!">Category 2</a></li>
-                  <li><a class="black-text" href="#!">Category 3</a></li>
+                <a class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown2'>Categories</a>
+                <ul id='dropdown2' class='dropdown-content category-list-item'>
+                  <li><a class="grey-text text-darken-2" href="#!">CATEGORY 1</a></li>
+                  <li><a class="grey-text text-darken-2" href="#!">CATEGORY 2</a></li>
+                  <li><a class="grey-text text-darken-2" href="#!">CATEGORY 3</a></li>
                 </ul>
-              </div><div class="col s12 m6 l6 center" style="margin-top: 10px">
-
-                <div class="activeTag chip" style="margin-left: 10px;">Paid</div>
-                <div class="chip" style="margin-left: 10px;">Watchlist</div>
-                <div class="chip" style="margin-left: 10px;">Downloaded</div>
+            </div>
+            <div class="col s12 m6 l6 center filter-container">
+                <div class="activeTag chip">Paid</div>
+                <div class="chip">Watchlist</div>
+                <div class="chip">Downloaded</div>
             </div>
 
           </div>
@@ -108,30 +108,28 @@
     </div>
       <div class="container">
         <div class="row">
-          {% with card_title="App title superapp long title that is just way too long" category="Productivity" card_dev_name="Dev name goes here" %}
-          {% for i in "xxxxxxxx" %}
+          {% for app in apps %}
           <div class="col s12 m6 l4">
 
             <div class="card horizontal" style="max-height: 200px;">
               <div class="card-image">
-                <img style="width: 100%; height: 200px; object-fit: cover;" src="https://labs-public-dl.xda-cdn.com/images/b11200e2-d0cf-4e93-90b0-b9328597dcf4.png">
+                <img style="width: 100%; height: 200px; object-fit: cover;" src="{{  app.banner_square_url }}">
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <div style="padding-right: 30px; margin-bottom: -15px;"><span style="word-wrap: break-word; font-size: 1.2rem;">{{ card_title|truncatechars_html:30 }}</span></div><br>
-                  <span>{{ card_dev_name|truncatechars_html:20 }}</span><br>
-                  <span class="orange-text">&#x2605;</span> 4.5<br>
-                  <a href="{{ category }}"><span style="font-size: 0.8rem">{{ category }}</span></a>
-                  <img style="margin: 10px; height: 50px; width: 50px; position: absolute; top: 0; right: 0;" src="https://labs-public-dl.xda-cdn.com/images/6d9ad3c5-f720-4580-b9cc-ce643186c25b.png" />
+                  <div style="padding-right: 30px; margin-bottom: -15px;"><span style="word-wrap: break-word; font-size: 1.2rem;">{{ app.title|truncatechars_html:30 }}</span></div><br>
+                  <span>{{ app.dev.display_name|truncatechars_html:20 }}</span><br>
+                  <span class="orange-text">&#x2605;</span> {{ app.avg_rating }}<br>
+                  {% for category in app.categories %}
+                    <a href="{{ category.id }}"><span style="font-size: 0.8rem">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}</a>
+                  {% endfor %}
+                  <img style="margin: 10px; height: 50px; width: 50px; position: absolute; top: 0; right: 0;" src="{{  app.icon_url }}" />
                 </div>
 
               </div>
             </div>
           </div>
           {% endfor %}
-
-          {% endwith %}
-
 
         </div>
       </div>

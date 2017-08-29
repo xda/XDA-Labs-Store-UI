@@ -2,3 +2,15 @@
   background-color: #ffffff !important;
   color: #000000 !important;
 }
+
+.category-list-item li > a {
+  font-size: 14px;
+}
+
+.filter-container {
+  margin-top: 10px;
+}
+
+.filter-container div {
+  margin-left: 10px;
+}
