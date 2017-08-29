@@ -108,7 +108,7 @@
     </div>
       <div class="container">
         <div class="row">
-          {% with card_title="App title superapp long title that is just way too long" card_dev_name="Dev name goes here" %}
+          {% with card_title="App title superapp long title that is just way too long" category="Productivity" card_dev_name="Dev name goes here" %}
           {% for i in "xxxxxxxx" %}
           <div class="col s12 m6 l4">
 
@@ -119,9 +119,9 @@
               <div class="card-stacked">
                 <div class="card-content">
                   <div style="padding-right: 30px; margin-bottom: -15px;"><span style="word-wrap: break-word; font-size: 1.2rem;">{{ card_title|truncatechars_html:30 }}</span></div><br>
-                  <span style="font-size: 0.8rem">{{ card_dev_name|truncatechars_html:20 }}</span><br>
+                  <span>{{ card_dev_name|truncatechars_html:20 }}</span><br>
                   <span class="orange-text">&#x2605;</span> 4.5<br>
-                  <span>Categories</span>
+                  <a href="{{ category }}"><span style="font-size: 0.8rem">{{ category }}</span></a>
                   <img style="margin: 10px; height: 50px; width: 50px; position: absolute; top: 0; right: 0;" src="https://labs-public-dl.xda-cdn.com/images/6d9ad3c5-f720-4580-b9cc-ce643186c25b.png" />
                 </div>
 
