@@ -1,0 +1,62 @@
+
+#headerSearch {
+box-sizing: border-box;
+border: none;
+border-radius: 4px;
+font-size: 16px;
+position: absolute;
+right: 0;
+top: 15px;
+background-color: grey;
+padding: 12px 20px 12px 40px;
+-webkit-transition: width 0.4s ease-in-out;
+transition: width 0.4s ease-in-out;
+padding-left: 10px;
+width: 180px;
+
+}
+
+#headerSearch:focus {
+  background-color: white;
+  border: none;
+  color: black;
+  width: 400px;
+  border-bottom: none;
+  z-index: 70;
+}
+
+#headerSearchMobile {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: grey;
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  padding-left: 10px;
+  width: 100vh;
+  z-index: 90;
+
+}
+
+#headerSearchMobile:focus {
+  background-color: white;
+  border: none;
+  color: black;
+  width: 100vh;
+  border-bottom: none;
+  z-index: 70;
+
+}
+
+@media only screen and (max-width: 992px) {
+nav .brand-logo {
+    left: 1%;
+    -webkit-transform: translateX(-1%);
+    transform: translateX(-1%);
+}
+}
