@@ -117,7 +117,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <div style="padding-right: 30px; max-height: 2em; line-height: 1em; overflow: hidden; text-overflow: ellipsis; overflow: hidden;"><span style="font-size: 1rem;">{{ app.title  }}</span></div><br>
+                  <div style="padding-right: 30px; max-height: 2em; line-height: 1em; overflow: hidden; overflow: hidden;"><span style="font-size: 1rem;">{{ app.title  }}</span></div><br>
                   <span>{{ app.dev.display_name|truncatechars_html:20 }}</span><br>
                   <span class="orange-text">&#x2605;</span> {{ app.avg_rating }}<br>
                   {% for category in app.categories %}
