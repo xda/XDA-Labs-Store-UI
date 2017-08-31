@@ -1,9 +1,11 @@
 <header>
   <div class="navbar-fixed">
-    <nav>
+    <nav id="navbarHeader">
       <div class="nav-wrapper container">
-        <div class="brand-logo" id="logo" style="display: inline-block; position: relative;"><img style="height: 60px;" class="left" src="/static/images/ic_web.png" />
-          <h4 class="right" id="logotitle" style="margin-left: 5px;"><b><span style="color: #ff9800;">xda</span>labs</b></h4>
+        <div class="brand-logo" id="logo" style="height: 100%; display: inline-block; position: relative;"><img style="height: 60px;" class="left" src="/static/images/ic_web.png" />
+          <h4 class="right" id="logotitle" style="
+  vertical-align: middle;
+margin-left: 5px;"><b><span style="color: #ff9800;">xda</span>labs</b></h4>
 
         </div>
         <form style="margin-right: 80px; margin-top: -5px;" class="hide-on-med-and-down brand-logo right">
@@ -19,16 +21,17 @@
         <h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Login</h6>
 
       </div>
-      <form id="searchBarMobile" class="hide-on-large-only brand-logo hide">
-        <input id="headerSearchMobile" type="text" style="padding-left: 20px; background-color: white;" name="search" placeholder="Search...">
-      </form>
+      <div class="hide" id="hiddenSearch"><form style="z-index: 100; width: 100%; top: 0; left: 0;" class="brand-logo">
+        <input id="headerSearchMobile" type="text" style="width: 100%; margin-top: -20px; padding-left: 20px;  background-color: white;" name="search" placeholder="Search...">
+      </form></div>
     </nav>
   </div>
 
 </header>
 <script>
+var varX = document.getElementById("hiddenSearch").innerHTML;
 document.getElementById("searchIcon").addEventListener("click", function(){
-  document.getElementById("searchBarMobile").classList.toggle("hide");
+  document.getElementById("navbarHeader").innerHTML = varX;
  });
 
 </script>

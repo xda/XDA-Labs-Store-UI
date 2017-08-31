@@ -28,7 +28,6 @@ width: 180px;
 #headerSearchMobile {
   border: none;
   font-size: 16px;
-  margin-right: -20px;
   width: 100vh;
   background-color: white;
   z-index: 90;

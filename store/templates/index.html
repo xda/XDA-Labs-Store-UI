@@ -121,7 +121,7 @@
                   <span>{{ app.dev.display_name|truncatechars_html:20 }}</span><br>
                   <span class="orange-text">&#x2605;</span> {{ app.avg_rating }}<br>
                   {% for category in app.categories %}
-                    <a href="{{ category.id }}"><span style="font-size: 0.8rem">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}</a>
+                    <a href="{{ category.id }}"><span style="font-size: 0.8rem; max-height: 2;">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}</a>
                   {% endfor %}
                   <img style="margin: 10px; height: 50px; width: 50px; position: absolute; top: 0; right: 0;" src="{{  app.icon_url }}" />
                 </div>
