@@ -18,7 +18,11 @@ margin-left: 5px;"><b><span style="color: #ff9800;">xda</span>labs</b></h4>
 
         <div class="brand-logo right hide-on-large-only"><i class="medium material-icons" style="font-size: 2rem">account_circle</i></div>
 
-        <h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Login</h6>
+        {% if logged_in %}
+          <h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Logout</h6>
+          {% else %}
+          <h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Login</h6>
+        {% endif %}
 
       </div>
       <div class="hide" id="hiddenSearch"><form style="z-index: 100; width: 100%; top: 0; left: 0;" class="brand-logo">
