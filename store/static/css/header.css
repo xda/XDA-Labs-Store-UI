@@ -53,3 +53,15 @@ nav .brand-logo {
     transform: translateX(-1%);
 }
 }
+
+@media only screen and (min-width: 992px) {
+  h4 {
+    margin: 1.1rem 0 .912rem 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h4 {
+    margin: 0.8rem 0 .912rem 0;
+  }
+}
