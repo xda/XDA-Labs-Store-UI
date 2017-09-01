@@ -117,7 +117,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <div style="padding-right: 30px; max-height: 2.6em; overflow: hidden;"><span style="font-size: 18px; line-height: 20px;">{{ app.title  }}</span></div><br>
+                  <div style="padding-right: 30px; max-height: 2.7em; overflow: hidden;"><span style="font-size: 18px; line-height: 20px;">{{ app.title  }}</span></div><br>
                   <span>{{ app.dev.display_name|truncatechars_html:20 }}</span><br>
                   <span class="orange-text">&#x2605;</span> {{ app.avg_rating }}<br>
                   <div style="max-height: 40px; overflow: hidden;">
@@ -125,7 +125,7 @@
                     <a href="{{ category.id }}"><span style="font-size: 12px; line-height: 13px;">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}</a>
                   {% endfor %}
                   </div>
-                  <img style="margin: 10px; height: 50px; width: 50px; position: absolute; top: 0; right: 0;" src="{{  app.icon_url }}" />
+                  <img style="margin: 10px; height: 50px; width: 50px; position: absolute; top: 8px; right: 0;" src="{{  app.icon_url }}" />
                 </div>
 
               </div>
