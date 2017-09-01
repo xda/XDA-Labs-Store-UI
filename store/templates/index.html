@@ -111,21 +111,27 @@
           {% for app in apps %}
           <div class="col s12 m6 l4">
 
-            <div class="card horizontal" style="max-height: 200px;">
+            <div class="card horizontal" style="height: 140px;">
               <div class="card-image">
-                <img style="width: 100%; height: 200px; object-fit: cover;" src="{{  app.banner_square_url }}">
+                <img style="height: 140px; object-fit: cover;" src="{{  app.banner_square_url }}">
               </div>
               <div class="card-stacked">
-                <div class="card-content">
-                  <div style="padding-right: 30px; max-height: 2.7em; overflow: hidden;"><span style="font-size: 18px; line-height: 20px;">{{ app.title  }}</span></div><br>
-                  <span>{{ app.dev.display_name|truncatechars_html:20 }}</span><br>
-                  <span class="orange-text">&#x2605;</span> {{ app.avg_rating }}<br>
-                  <div style="max-height: 40px; overflow: hidden;">
+                <div class="card-content" style="padding: 12px">
+                  <div style="height: 54px; line-height: 18px; overflow: hidden; margin-bottom: 8px;">
+                      <img style="margin-left: 10px; height: 30px; width: 30px; top: 4px; float: right" src="{{ app.icon_url }}" />
+                      <span style="font-size: 16px; display: block;">{{ app.title }}</span>
+                  </div>
+                  <div style="font-size: 12px; line-height: 17px; height: 17px; margin-top: 8px; margin-bottom: 8px; overflow: hidden;">
+                      <div style="float: right; width: 34px">
+                          <span class="orange-text">&#x2605;</span> {{ app.avg_rating }}
+                      </div>
+                      <span style="display: block; margin-right: 38px; word-break: break-all;">{{ app.dev.display_name }}</span>
+                  </div>
+                  <div style="vertical-align: bottom; height: 36px; margin-top: 8px; overflow: hidden; line-height: 17px">
                   {% for category in app.categories %}
-                    <a href="{{ category.id }}"><span style="font-size: 12px; line-height: 13px;">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}</a>
+                    <a href="{{ category.id }}"><span style="font-size: 12px;">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}</a>
                   {% endfor %}
                   </div>
-                  <img style="margin: 10px; height: 50px; width: 50px; position: absolute; top: 8px; right: 0;" src="{{  app.icon_url }}" />
                 </div>
 
               </div>

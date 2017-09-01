@@ -56,7 +56,7 @@
         }
       },
       {
-        "title": "XDA Feed - All devices",
+        "title": "XDA Feed - All devices and long title test",
         "icon_url": "https://labs-public-dl.xda-cdn.com/images/9a4eb6e2-1583-4cdd-8085-70c5b596e9b8.png",
         "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/f745860a-8424-4d01-9d79-16b879c55709.jpg",
         "avg_rating": 4.8,
@@ -74,7 +74,7 @@
         ],
         "dev": {
           "username": "blk_jack",
-          "display_name": "blk_jack",
+          "display_name": "blk_jack and long name test",
           "email": "support@mimic.ca"
         }
       },
