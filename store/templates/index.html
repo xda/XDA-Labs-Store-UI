@@ -62,45 +62,49 @@
 
   {% include "header.html" %}
 
-      <div class="row grey darken-2" style="margin-bottom: 0px">
+      <div class="row grey darken-3" style="margin-bottom: 0px">
         <div class="container">
         <div class="col s12">
           <div class="row" style="margin-top: 20px;">
-            <div class="col s12 m6 l8">
+            <div class="col s12 m8 l8">
               <h5 class="white-text">Support independent Android development</h5>
             <p class="white-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Find out more..</p>
             </div>
-            <div class="col s12 m6 l4 center">
-              <a href="https://xda-developers.com/xda-labs"><h5 class="white-text">Publish my App</h5></a>
-              <a class="waves-effect waves-light btn white black-text" href="https://labs.xda-developers.com/latest" style="margin-top: 20px;">Download Labs</a>
+            <div class="col s12 m4 l4 center">
+              <a class="waves-effect waves-light btn white black-text" href="https://labs.xda-developers.com/latest" style="margin-top: 20px; margin-bottom: 10px">Download Labs</a>
+              <a href="https://xda-developers.com/xda-labs"><h5 style="margin-top: 10px; font-size: 20px" class="orange-text">Publish my app</h5></a>
             </div>
           </div>
         </div>
       </div></div>
-      <div class="row grey darken-1">
+      <div class="row grey darken-2">
       <div class="container">
 
         <div class="col s12">
-          <div class="row" style="padding-top: 20px;">
-            <div class="col s12 m6 l6 center" style="margin-top: 10px">
-                <a class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown1'>Popular Apps</a>
-                <ul id='dropdown1' class='dropdown-content category-list-item'>
-                  <li><a class="grey-text text-darken-2" href="#!">LAST UPDATE</a></li>
-                  <li><a class="grey-text text-darken-2" href="#!">RATINGS</a></li>
-                  <li><a class="grey-text text-darken-2" href="#!">NAME</a></li>
-                </ul>
-                <a class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown2'>Categories</a>
-                <ul id='dropdown2' class='dropdown-content category-list-item'>
-                  <li><a class="grey-text text-darken-2" href="#!">CATEGORY 1</a></li>
-                  <li><a class="grey-text text-darken-2" href="#!">CATEGORY 2</a></li>
-                  <li><a class="grey-text text-darken-2" href="#!">CATEGORY 3</a></li>
-                </ul>
+          <div class="row valign-wrapper" style="margin-top: 10px;">
+            <div class="col s6 m6 l6 center sort-container">
+                <div style="display: inline-flex; margin-top: 10px; margin-right: 10px;" class="center">
+                    <a class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown1'>Popularity</a>
+                    <ul id='dropdown1' class='dropdown-content category-list-item'>
+                      <li><a class="grey-text text-darken-2" href="#!">LAST UPDATE</a></li>
+                      <li><a class="grey-text text-darken-2" href="#!">RATINGS</a></li>
+                      <li><a class="grey-text text-darken-2" href="#!">NAME</a></li>
+                    </ul>
+                </div>
+                <div style="display: inline-flex; margin-top: 10px; margin-right: 10px" class="center">
+                    <a style="white-space: nowrap" class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown2'>Categories</a>
+                    <ul id='dropdown2' class='dropdown-content category-list-item'>
+                      <li><a class="grey-text text-darken-2" href="#!">CATEGORY 1</a></li>
+                      <li><a class="grey-text text-darken-2" href="#!">CATEGORY 2</a></li>
+                      <li><a class="grey-text text-darken-2" href="#!">CATEGORY 3</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col s12 m6 l6 center filter-container">
+            <div class="col s6 m6 l6 center filter-container">
+                  <div class="chip">Watchlist</div>
                 <div class="activeTag chip">Paid</div>
-                <div class="chip">Watchlist</div>
-                <div class="chip">Downloaded</div>
-            </div>
+                  <div class="chip">Downloaded</div>
+              </div>
 
           </div>
         </div>
