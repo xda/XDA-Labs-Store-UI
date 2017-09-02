@@ -10,7 +10,7 @@ nav {
     border-left: none;
     border-right: none;
     border-bottom: none;
-    border-top: 1px solid #e0e0e0;"
+    border-top: 1px solid #e0e0e0;
 }
 
 .other-apps-line img {
@@ -101,4 +101,23 @@ body, html {
 #overviewText {
   word-break: break-word;
   hyphens: auto;
+}
+
+/* Styling for Build Type Chips */
+
+.buildStable {
+  background-color: #4CAF50 !important;
+  color: #ffffff;
+}
+
+.buildBeta {
+  background-color: #2196F3 !important;
+  color: #ffffff;
+
+}
+
+.buildAlpha {
+  color: #F44336 !important;
+  color: #ffffff;
+
 }

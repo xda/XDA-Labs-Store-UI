@@ -45,6 +45,8 @@
   <meta property="og:title" content="XDA Labs | {{ title }}" />
   <meta property="og:type" content="website" />
   <link type="text/css" rel="stylesheet" href="/static/css/header.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="/static/css/xda.css" media="screen,projection" />
+
   <meta property="og:url" content="https://labs.xda-developers.com/store/app/{{ package_name }}" />
   <meta property="og:image" content="{{ banner_square_url }}" />
   <!-- Might be nice to have a short blurb description in each app's data for this bit of metadata
@@ -159,7 +161,7 @@
                 <div class="valign-wrapper">
                   <p class="valign-wrapper">
                     <span style="margin-right: 5px"><b>Version {{ build.version_name }} </b></span> <span style="margin-right: 5px"> on {{ build.date }}</span>
-                    <div class="chip" style="margin-left: 5px">{{ build.type }}</div><br>
+                    <div class="chip build{{ build.type }}" style="margin-left: 5px">{{ build.type }}</div><br>
                     <div class="chip" style="margin-left: 5px">{{ build.size }}</div>
                 </div>
                 <p>{{ build.changelog|safe }}</p>
@@ -368,8 +370,6 @@
               $("#xda_thread_try_again").click(fetchForumData)
           });
       }
-
-
     </script>
   </main>
   <footer class="page-footer transparent">
