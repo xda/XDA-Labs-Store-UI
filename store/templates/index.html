@@ -124,7 +124,7 @@
                 <div class="card-content" style="padding: 12px">
                   <div style="height: 54px; line-height: 18px; overflow: hidden; margin-bottom: 8px;">
                       <img class="app-item" style="margin-left: 10px; height: 30px; width: 30px; top: 4px; float: right" src="{{ app.icon_url }}" />
-                      <span class="app-item" style="cursor: pointer; font-size: 16px; display: block;">{{ app.title }}</span>
+                      <span class="app-item" style="font-size: 16px; display: block;">{{ app.title }}</span>
                   </div>
                   <div style="font-size: 12px; line-height: 17px; height: 17px; margin-top: 8px; margin-bottom: 8px; overflow: hidden;">
                       <div style="float: right; width: 34px">
@@ -171,66 +171,72 @@
 
           getSort: function() {
               this.url += this.sort_slug + "/"
-              return this;
+              return this
           },
 
           addCategory: function() {
               if (this.category_id >= 0) {
                   this.url += this.category_id + "/"
               }
-              return this;
+              return this
           },
 
           addFilters: function() {
-              if (this.filters["paid"]) {
-                  this.url += "paid/"
+              for (let f in this.filters) {
+                  if (this.filters[f]) {
+                      this.url += f + "/"
+                  }
               }
-              if (this.filters["watchlist"]) {
-                  this.url += "watchlist/"
-              }
-              if (this.filters["downloaded"]) {
-                  this.url += "downloaded/"
-              }
-              return this;
+              return this
           },
 
           getUrl: function() {
-              return this.url;
+              return this.url
           },
 
           newUrl: function() {
-              this.url = this.baseUrl;
-              return this;
+              this.url = this.baseUrl
+              return this
+          },
+
+          setSort: function(s) {
+              this.sort_slug = s
+              return this
+          },
+          setCategory: function(i) {
+              this.category_id = i
+              return this
+          },
+          setFilter: function(s, b) {
+              this.filters[s] = b
+              return this
           }
 
       }
 
-      const url = StoreUrl;
+      const url = StoreUrl
 
       function openApp(s) {
         window.location.href = "https://labs.xda-developers.com/store/app/" + s
       }
 
       loadIndexUrl = function() {
-          alert(url.getSort().addCategory().addFilters().getUrl());
+          alert(url.getSort().addCategory().addFilters().getUrl())
       }
 
       function openSort(s) {
-          url.newUrl().sort_slug = s
+          url.newUrl().setSort(s)
           loadIndexUrl()
       }
 
       function openCategory(i) {
-          url.newUrl().category_id = i
+          url.newUrl().setCategory(i)
           loadIndexUrl()
-          return true;
       }
 
       function openFilter(s, b) {
-          console.log("s: " + s + " == " + b)
-          url.newUrl().filters[s] = b
+          url.newUrl().setFilter(s, b)
           loadIndexUrl()
-          return true;
       }
 
       $(".filter-item").on("click", function() {
@@ -242,7 +248,6 @@
 
       $(".category-item").on("click", function(e) {
           openCategory($(this).data("index"))
-          e.stopPropagation()
       })
 
       $(".sort-item").on("click", function() {
