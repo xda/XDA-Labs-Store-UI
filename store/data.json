@@ -247,8 +247,18 @@
       "paid": false,
       "watchlist": false,
       "downloaded": false,
-      "category": -1
-    }
+      "category_index": -1,
+      "category_selected": "",
+      "sort_index": 0,
+      "sort_selected": "Popularity",
+      "sort_slugname": "popularity"
+    },
+    "categories": [
+      "Tools",
+      "Productivity",
+      "Entertainment",
+      "Media & Video"
+    ]
   },
   "xda.html": {
     "banner_url": "https://labs-public-dl.xda-cdn.com/images/b11200e2-d0cf-4e93-90b0-b9328597dcf4.png",

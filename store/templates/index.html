@@ -84,26 +84,27 @@
           <div class="row valign-wrapper" style="margin-top: 10px;">
             <div class="col s6 m6 l6 center sort-container">
                 <div style="display: inline-flex; margin-top: 10px; margin-right: 10px;" class="center">
-                    <a class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown1'>Popularity</a>
-                    <ul id='dropdown1' class='dropdown-content category-list-item'>
-                      <li><a class="grey-text text-darken-2" href="#!">LAST UPDATE</a></li>
-                      <li><a class="grey-text text-darken-2" href="#!">RATINGS</a></li>
-                      <li><a class="grey-text text-darken-2" href="#!">NAME</a></li>
+                    <a class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='sort_dropdown'>{{ filters.sort_selected }}</a>
+                    <ul id='sort_dropdown' class='dropdown-content category-list-item'>
+                      <li {% if filters.sort_index == 0 %}class="selected"{% endif %}><a data-slug-name="popularity" class="sort-item grey-text text-darken-2">POPULARITY</a></li>
+                      <li {% if filters.sort_index == 1 %}class="selected"{% endif %}><a data-slug-name="last-update" class="sort-item grey-text text-darken-2">LAST UPDATE</a></li>
+                      <li {% if filters.sort_index == 2 %}class="selected"{% endif %}><a data-slug-name="rating" class="sort-item grey-text text-darken-2">RATINGS</a></li>
+                      <li {% if filters.sort_index == 3 %}class="selected"{% endif %}><a data-slug-name="name" class="sort-item grey-text text-darken-2">NAME</a></li>
                     </ul>
                 </div>
                 <div style="display: inline-flex; margin-top: 10px; margin-right: 10px" class="center">
-                    <a style="white-space: nowrap" class='dropdown-button btn white black-text' href='#' data-beloworigin="true" data-activates='dropdown2'>Categories</a>
-                    <ul id='dropdown2' class='dropdown-content category-list-item'>
-                      <li><a class="grey-text text-darken-2" href="#!">CATEGORY 1</a></li>
-                      <li><a class="grey-text text-darken-2" href="#!">CATEGORY 2</a></li>
-                      <li><a class="grey-text text-darken-2" href="#!">CATEGORY 3</a></li>
+                    <a style="white-space: nowrap" class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_index >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
+                    <ul id='category_dropdown' class='dropdown-content category-list-item'>
+                      {% for category in categories %}
+                        <li {% if forloop.counter0 == filters.category_index %}class="selected"{% endif %}><a data-index="{{ forloop.counter0 }}" class="category-item grey-text text-darken-2" href="#!">{{ category }}</a></li>
+                      {% endfor %}
                     </ul>
                 </div>
             </div>
             <div class="col s6 m6 l6 center filter-container">
-                  <div class="chip">Watchlist</div>
-                <div class="activeTag chip">Paid</div>
-                  <div class="chip">Downloaded</div>
+                  <div data-slug-name="watchlist" class="filter-item {% if filters.watchlist %}activeTag {% endif %}chip">Watchlist</div>
+                  <div data-slug-name="paid" class="filter-item {% if filters.paid %}activeTag {% endif %}chip">Paid</div>
+                  <div data-slug-name="downloaded" class="filter-item {% if filters.downloaded %}activeTag {% endif %}chip">Downloaded</div>
               </div>
 
           </div>
@@ -113,17 +114,17 @@
       <div class="container">
         <div class="row">
           {% for app in apps %}
-          <div class="col s12 m6 l4">
+          <div class="col s12 m6 l4 app-parent" data-package-name="{{ app.package_name }}">
 
             <div class="card horizontal" style="height: 140px;">
-              <div class="card-image">
-                <img style="height: 140px; object-fit: cover;" src="{{  app.banner_square_url }}">
+              <div class="app-item card-image">
+                <img style="height: 140px; object-fit: cover;" src="{{ app.banner_square_url }}">
               </div>
               <div class="card-stacked">
                 <div class="card-content" style="padding: 12px">
                   <div style="height: 54px; line-height: 18px; overflow: hidden; margin-bottom: 8px;">
-                      <img style="margin-left: 10px; height: 30px; width: 30px; top: 4px; float: right" src="{{ app.icon_url }}" />
-                      <span style="font-size: 16px; display: block;">{{ app.title }}</span>
+                      <img class="app-item" style="margin-left: 10px; height: 30px; width: 30px; top: 4px; float: right" src="{{ app.icon_url }}" />
+                      <span class="app-item" style="cursor: pointer; font-size: 16px; display: block;">{{ app.title }}</span>
                   </div>
                   <div style="font-size: 12px; line-height: 17px; height: 17px; margin-top: 8px; margin-bottom: 8px; overflow: hidden;">
                       <div style="float: right; width: 34px">
@@ -131,9 +132,9 @@
                       </div>
                       <span style="display: block; margin-right: 38px; word-break: break-all;">{{ app.dev.display_name }}</span>
                   </div>
-                  <div style="vertical-align: bottom; height: 36px; margin-top: 8px; overflow: hidden; line-height: 17px">
+                  <div class="category-link-container">
                   {% for category in app.categories %}
-                    <a href="{{ category.id }}"><span style="font-size: 12px;">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}</a>
+                    <span data-index="{{ category.id }}" class="category-item">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}
                   {% endfor %}
                   </div>
                 </div>
@@ -150,107 +151,114 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
     <script>
-      $(document).ready(function() {
-        runSlide();
-        fetchForumData();
-      });
+      // /store/<sort_slugname>/category_id/filter1/filter2/filter3
 
-      let num = '{{ screenshots|length }}';
-      let count = 2;
+      // 1) Popularity clicked
+      // 2) Category clicked
+      // 3) Filter clicked
+      // 4) Author clicked
 
-      function runSlide() {
-        setInterval(swapSlide, 5000);
-      }
+      let StoreUrl = {
+          sort_slug: "{{ filters.sort_slugname }}",
+          category_id: {{ filters.category_index }},
+          filters: {
+              "paid": {{ filters.paid|lower }},
+              "watchlist": {{ filters.watchlist|lower }},
+              "downloaded": {{ filters.downloaded|lower }}
+          },
+          baseUrl: "/store/",
+          url: this.baseUrl,
 
-      function swapSlide() {
-        for (let i = 1; i <= num; i++) {
-          let image = $('.img' + i);
-          if (count === i) {
-            image.removeClass('hide');
-          } else {
-            image.addClass('hide');
+          getSort: function() {
+              this.url += this.sort_slug + "/"
+              return this;
+          },
+
+          addCategory: function() {
+              if (this.category_id >= 0) {
+                  this.url += this.category_id + "/"
+              }
+              return this;
+          },
+
+          addFilters: function() {
+              if (this.filters["paid"]) {
+                  this.url += "paid/"
+              }
+              if (this.filters["watchlist"]) {
+                  this.url += "watchlist/"
+              }
+              if (this.filters["downloaded"]) {
+                  this.url += "downloaded/"
+              }
+              return this;
+          },
+
+          getUrl: function() {
+              return this.url;
+          },
+
+          newUrl: function() {
+              this.url = this.baseUrl;
+              return this;
           }
-        }
-        count++;
-        if (count > num) {
-          count = 1;
-        }
-      }
-      function parseUnixTimestamp(ts) {
 
-          var d = new Date(ts * 1000);
-
-          var month = ("0" + (d.getMonth() + 1)).slice(-2);
-          var day = ("0" + d.getDate()).slice(-2);
-          var year = d.getFullYear();
-
-          var time = formatAMPM(d);
-          var result = month.toString() + "/" + day.toString() + "/" + year.toString();
-          result += " " + time;
-
-          return result;
-      }
-      function formatAMPM(date) {
-          var hours = date.getHours();
-          hours = hours + 5;
-          var minutes = date.getMinutes();
-          var ampm = hours >= 12 ? 'PM' : 'AM';
-
-          hours = hours % 12;
-          hours = hours ? hours : 12; // the hour '0' should be '12'
-          minutes = minutes < 10 ? '0' + minutes : minutes;
-          var strTime = hours + ':' + minutes + " " + ampm;
-          return strTime;
       }
 
-      function fetchForumData() {
-          var thread_id = '{{ xda_thread_id }}';
-          if (thread_id === '') return;
+      const url = StoreUrl;
 
-          $("#xda_thread_error").addClass("hide");
-          $("#xda_thread_loading").removeClass("hide");
-
-          $.getJSON("https://api.xda-developers.com/v2/threads/threadinfo?threadid=" + thread_id, function (r) {
-              $("#xda_thread_data").removeClass("hide");
-              $("#xda_thread_error").addClass("hide");
-              $("#xda_thread_loading").addClass("hide");
-
-              $(".xda-thread-title").html(r.title);
-
-              // Last post
-              $("#last_post").attr("href", "http://forum.xda-developers.com/showthread.php?p=" + r.lastpostid);
-              console.log(r.lastpostid)
-              $("#last_post").text(parseUnixTimestamp(r.lastpost.dateline));
-
-              // Last post by
-              $("#last_poster").attr("href", "http://forum.xda-developers.com/member.php?u=" + r.lastpost.userid);
-              $("#last_poster").text(r.lastpost.username);
-
-              // Reply count
-              $("#reply_count").text(r.replycount);
-
-              // View count
-              $("#view_count").text(r.views);
-
-          }).error(function (e) {
-              $("#xda_thread_error").removeClass("hide");
-              $("#xda_thread_loading").addClass("hide");
-              $("#xda_thread_try_again").click(fetchForumData)
-          });
+      function openApp(s) {
+        window.location.href = "https://labs.xda-developers.com/store/app/" + s
       }
 
-
-    </script>
-    <script>
-    $('.dropdown-button').dropdown({
-        hover: true,
+      loadIndexUrl = function() {
+          alert(url.getSort().addCategory().addFilters().getUrl());
       }
-    );
+
+      function openSort(s) {
+          url.newUrl().sort_slug = s
+          loadIndexUrl()
+      }
+
+      function openCategory(i) {
+          url.newUrl().category_id = i
+          loadIndexUrl()
+          return true;
+      }
+
+      function openFilter(s, b) {
+          console.log("s: " + s + " == " + b)
+          url.newUrl().filters[s] = b
+          loadIndexUrl()
+          return true;
+      }
+
+      $(".filter-item").on("click", function() {
+          $(this).toggleClass("activeTag")
+
+          let isFiltered = $(this).hasClass("activeTag")
+          openFilter($(this).data("slugName"), isFiltered)
+      })
+
+      $(".category-item").on("click", function(e) {
+          openCategory($(this).data("index"))
+          e.stopPropagation()
+      })
+
+      $(".sort-item").on("click", function() {
+          openSort($(this).data("slugName"))
+      })
+
+      $(".app-item").on("click", function() {
+          packageName = $(this).closest(".app-parent").data("packageName")
+          openApp(packageName)
+      })
+
     </script>
   <footer class="page-footer transparent">
     <div class="footer-copyright grey darken-3">
       <div class="container">
-        XDA Labs, an XDA service</a>
+        XDA Labs, an XDA service
       </div>
     </div>
   </footer>

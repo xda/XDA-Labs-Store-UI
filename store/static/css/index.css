@@ -14,3 +14,17 @@
 .filter-container div {
   margin-bottom: 10px;
 }
+
+.category-link-container {
+  vertical-align: bottom;
+  height: 36px;
+  margin-top: 8px;
+  overflow: hidden;
+  line-height: 17px;
+  color: #039be5;
+  font-size: 12px;
+}
+
+.category-link-container span, .app-item, .chip {
+  cursor: pointer;
+}
