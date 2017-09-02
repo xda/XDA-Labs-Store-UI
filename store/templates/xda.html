@@ -70,6 +70,19 @@
               <img src="{{ banner_url }}" />
               {% if price == 0.0 %}
                 <a href="/store/app/download/{{ package_name }}" class="btn-floating btn-large halfway-fab waves-effect waves-light orange"><i class="material-icons">file_download</i></a>
+              {% else %}
+                <a href="#paid_modal" class="btn-floating btn-large halfway-fab waves-effect waves-light orange modal-trigger"><i class="material-icons">file_download</i></a>
+                <div id="paid_modal" class="modal">
+                  <div class="modal-content">
+                    <h4>Support our devs!</h4>
+                    <p>This is a paid app and can't be downloaded via the web (for now!). Please install or load XDA Labs in order to purchase and download this fine app!</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="https://labs.xda-developers.com/latest" class="modal-action modal-close waves-effect waves-green btn-flat">Download Labs</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                  </div>
+                </div>
+
               {% endif %}
             </div>
             <div class="card-content">
@@ -273,7 +286,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -285,6 +297,8 @@
       $(document).ready(function() {
         runSlide();
         fetchForumData();
+
+        $("#paid_modal").modal();
       });
 
       let num = '{{ screenshots|length }}';
@@ -375,7 +389,7 @@
   <footer class="page-footer transparent">
     <div class="footer-copyright grey darken-3">
       <div class="container">
-        XDA Labs, an XDA service</a>
+        XDA Labs, an XDA service
       </div>
     </div>
   </footer>
