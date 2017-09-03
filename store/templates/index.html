@@ -68,11 +68,15 @@
           <div class="row" style="margin-top: 20px;">
             <div class="col s12 m8 l8">
               <h5 class="white-text">Support independent Android development</h5>
-            <p class="white-text">XDA Labs is a platform that allows developers to freely distribute and promote their apps -- without fear of having their products removed due to content restrictions or corporate censorship.  Labs is free to use and developers keep 100% from Paypal and Bitcoin purchases.</p>
+              <p class="white-text">XDA Labs is a platform that allows developers to freely distribute and promote their apps -- without fear of having their products removed due to content restrictions or corporate censorship.  Labs is free to use and developers keep 100% from Paypal and Bitcoin purchases.</p>
             </div>
             <div class="col s12 m4 l4 center">
               <a class="waves-effect waves-light btn white black-text" href="https://labs.xda-developers.com/latest" style="margin-top: 20px; margin-bottom: 10px">Download Labs</a>
-              <a href="https://xda-developers.com/xda-labs"><h5 style="margin-top: 10px; font-size: 20px" class="orange-text">Publish my app</h5></a>
+              {% with publish_string="Publish my app" manage_string="Manage my apps" %}
+              <a href="{{ xda_authorize_url }}">
+                <h5 style="margin-top: 10px; font-size: 20px" class="orange-text">{% if has_apps %}{{ manage_string }}{% else %}{{ publish_string }}{% endif %}</h5>
+              </a>
+              {% endwith %}
             </div>
           </div>
         </div>

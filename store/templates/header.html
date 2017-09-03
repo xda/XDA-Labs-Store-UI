@@ -17,9 +17,9 @@
         <div class="brand-logo right hide-on-large-only"><i class="medium material-icons" style="font-size: 2rem">account_circle</i></div>
 
         {% if logged_in %}
-          <h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Logout</h6>
+          <a href="/logout/"><h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Logout</h6></a>
           {% else %}
-          <h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Login</h6>
+          <a href="{{ xda_authorize_url }}"><h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Login</h6></a>
         {% endif %}
 
       </div>

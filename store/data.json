@@ -243,6 +243,7 @@
     ],
     "sort": "",
     "logged_in": false,
+    "has_apps": false,
     "filters": {
       "paid": false,
       "watchlist": false,
