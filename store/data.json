@@ -247,17 +247,17 @@
       "paid": false,
       "watchlist": false,
       "downloaded": false,
-      "category_index": -1,
+      "category_id": -1,
       "category_selected": "",
       "sort_index": 1,
       "sort_selected": "Recent",
       "sort_slugname": "recent"
     },
     "categories": [
-      "Tools",
-      "Productivity",
-      "Entertainment",
-      "Media & Video"
+      ["Tools", 1],
+      ["Productivity", 2],
+      ["Entertainment", 3],
+      ["Media & Video", 4]
     ]
   },
   "xda.html": {

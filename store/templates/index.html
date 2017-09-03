@@ -96,10 +96,10 @@
                     </ul>
                 </div>
                 <div style="display: inline-flex; margin-top: 10px; margin-right: 10px" class="center">
-                    <a style="white-space: nowrap" class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_index >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
+                    <a style="white-space: nowrap" class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_id >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
                     <ul id='category_dropdown' class='dropdown-content category-list-item'>
                       {% for category in categories %}
-                        <li {% if forloop.counter0 == filters.category_index %}class="selected"{% endif %}><a data-index="{{ forloop.counter0 }}" class="category-item grey-text text-darken-2" href="#!">{{ category }}</a></li>
+                        <li {% if category.1 == filters.category_id %}class="selected"{% endif %}><a data-index="{{ category.1 }}" class="category-item grey-text text-darken-2">{{ category.0 }}</a></li>
                       {% endfor %}
                     </ul>
                 </div>
@@ -121,7 +121,7 @@
 
             <div class="card horizontal" style="height: 140px;">
               <div class="app-item card-image">
-                <img style="height: 140px; object-fit: cover;" src="{{ app.banner_square_url }}">
+                <img style="height: 140px; width: 100vh; object-fit: cover;" src="{{ app.banner_square_url }}">
               </div>
               <div class="card-stacked">
                 <div class="card-content" style="padding: 12px">
@@ -131,7 +131,7 @@
                   </div>
                   <div style="font-size: 12px; line-height: 17px; height: 17px; margin-top: 8px; margin-bottom: 8px; overflow: hidden;">
                       <div style="float: right; width: 34px">
-                          <span class="orange-text">&#x2605;</span> {{ app.avg_rating }}
+                          <span class="orange-text">&#x2605;</span> {{ app.avg_rating|floatformat }}
                       </div>
                       <span style="display: block; margin-right: 38px; word-break: break-all;">{{ app.dev.display_name }}</span>
                   </div>
@@ -163,7 +163,7 @@
 
       let StoreUrl = {
           sort_slug: "{{ filters.sort_slugname }}",
-          category_id: {{ filters.category_index }},
+          category_id: {{ filters.category_id }},
           filters: {
               "paid": {{ filters.paid|lower }},
               "watchlist": {{ filters.watchlist|lower }},
@@ -224,7 +224,7 @@
       }
 
       loadIndexUrl = function() {
-          alert(url.getSort().addCategory().addFilters().getUrl())
+          window.location.href = url.getSort().addCategory().addFilters().getUrl()
       }
 
       function openSort(s) {
