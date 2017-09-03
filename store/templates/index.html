@@ -73,7 +73,7 @@
             <div class="col s12 m4 l4 center">
               <a class="waves-effect waves-light btn white black-text" href="https://labs.xda-developers.com/latest" style="margin-top: 20px; margin-bottom: 10px">Download Labs</a>
               {% with publish_string="Publish my app" manage_string="Manage my apps" %}
-              <a href="{{ xda_authorize_url }}">
+              <a href="/manage/">
                 <h5 style="margin-top: 10px; font-size: 20px" class="orange-text">{% if has_apps %}{{ manage_string }}{% else %}{{ publish_string }}{% endif %}</h5>
               </a>
               {% endwith %}
@@ -220,7 +220,7 @@
       const url = StoreUrl
 
       function openApp(s) {
-        window.location.href = "https://labs.xda-developers.com/store/app/" + s
+        window.location.href = "/store/app/" + s
       }
 
       loadIndexUrl = function() {
