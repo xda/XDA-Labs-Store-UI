@@ -301,10 +301,12 @@
         $("#paid_modal").modal();
       });
 
-      let num = '{{ screenshots|length }}';
+      let num = {{ screenshots|length }};
       let count = 2;
 
       function runSlide() {
+        if (num === 1) return;
+
         setInterval(swapSlide, 5000);
       }
 
