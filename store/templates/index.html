@@ -90,10 +90,9 @@
                 <div style="display: inline-flex; margin-top: 10px; margin-right: 10px;" class="center">
                     <a class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='sort_dropdown'>{{ filters.sort_selected }}</a>
                     <ul id='sort_dropdown' class='dropdown-content category-list-item'>
-                      <li {% if filters.sort_index == 0 %}class="selected"{% endif %}><a data-slug-name="popularity" class="sort-item grey-text text-darken-2">POPULARITY</a></li>
-                      <li {% if filters.sort_index == 1 %}class="selected"{% endif %}><a data-slug-name="last-update" class="sort-item grey-text text-darken-2">LAST UPDATE</a></li>
-                      <li {% if filters.sort_index == 2 %}class="selected"{% endif %}><a data-slug-name="rating" class="sort-item grey-text text-darken-2">RATINGS</a></li>
-                      <li {% if filters.sort_index == 3 %}class="selected"{% endif %}><a data-slug-name="name" class="sort-item grey-text text-darken-2">NAME</a></li>
+                      <li {% if filters.sort_index == 0 %}class="selected"{% endif %}><a data-slug-name="popularity" class="sort-item grey-text text-darken-2">Popularity</a></li>
+                      <li {% if filters.sort_index == 1 %}class="selected"{% endif %}><a data-slug-name="recent" class="sort-item grey-text text-darken-2">Recent</a></li>
+                      <li {% if filters.sort_index == 2 %}class="selected"{% endif %}><a data-slug-name="rating" class="sort-item grey-text text-darken-2">Ratings</a></li>
                     </ul>
                 </div>
                 <div style="display: inline-flex; margin-top: 10px; margin-right: 10px" class="center">
