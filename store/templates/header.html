@@ -12,30 +12,50 @@
           <input id="headerSearch" type="text" name="search" placeholder="Search...">
         </form>
 
-        <div class="brand-logo right hide-on-large-only" style="right: 60px;"><i id="searchIcon" class="medium material-icons" style="font-size: 2rem">search</i></div>
+        <div class="brand-logo right hide-on-large-only" style="right: 40px;"><i id="searchIcon" class="medium material-icons" style="font-size: 2rem">search</i></div>
 
+        {% with logout_url="/manage/logout/" login_text="Login" logout_text="Logout" %}
 
+        <div class="brand-logo right hide-on-large-only">
+            <a href="{% if logged_in %}{{ logout_url }}{% else %}{{ xda_authorize_url }}{% endif %}">
+                <i class="medium material-icons" style="font-size: 2rem; margin-left: auto; margin-right: 0">account_circle</i>
+            </a>
+        </div>
 
-        <div class="brand-logo right hide-on-large-only"><i class="medium material-icons" style="font-size: 2rem">account_circle</i></div>
+        <a href="{% if logged_in %}{{ logout_url }}{% else %}{{ xda_authorize_url }}{% endif %}">
+            <h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">{% if logged_in %}{{ logout_text }}{% else %}{{ login_text }}{% endif %}</h6>
+        </a>
 
-        {% if logged_in %}
-          <a href="/manage/logout/"><h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Logout</h6></a>
-          {% else %}
-          <a href="{{ xda_authorize_url }}"><h6 class="hide-on-med-and-down right brand-logo" style="font-size: 1.6rem; margin-top: 20px; color: #ffffff;">Login</h6></a>
-        {% endif %}
+      {% endwith %}
 
       </div>
-      <div class="hide" id="hiddenSearch"><form style="z-index: 100; width: 100%; top: 0; left: 0;" class="brand-logo">
-        <input id="headerSearchMobile" type="text" style="width: 100%; margin-top: -20px; padding-left: 20px;  background-color: white;" name="search" placeholder="Search...">
+      <div class="hide" id="hiddenSearchBtn"><form style="z-index: 100; width: 100%; top: 0; left: 0;" class="brand-logo">
+        <input id="headerSearchMobile" type="text" style="width: 100%; margin-top: -20px; padding-left: 20px;  background-color: white; color: black" name="search" placeholder="Search...">
       </form></div>
     </nav>
   </div>
 
 </header>
 <script>
-var varX = document.getElementById("hiddenSearch").innerHTML;
-document.getElementById("searchIcon").addEventListener("click", function(){
-  document.getElementById("navbarHeader").innerHTML = varX;
- });
+    window.onload = function() {
+        let input = $("#headerSearchMobile");
 
+        $("#searchIcon").on('click', function () {
+            $("#hiddenSearchBtn").removeClass("hide");
+            input.focus();
+        });
+
+        input.keyup(function(k) {
+            if (k.which === 27) {
+                clearAndCloseMobileSearch();
+            }
+        }).blur(function() {
+            clearAndCloseMobileSearch();
+        });
+
+        function clearAndCloseMobileSearch() {
+            input.val('');
+            $("#hiddenSearchBtn").addClass("hide");
+        }
+    }
 </script>

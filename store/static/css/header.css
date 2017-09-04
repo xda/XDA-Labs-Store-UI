@@ -1,27 +1,24 @@
 
 #headerSearch {
-box-sizing: border-box;
-border: none;
-border-radius: 4px;
-font-size: 16px;
-position: absolute;
-right: 0;
-top: 15px;
-background-color: grey;
-padding: 12px 20px 12px 40px;
--webkit-transition: width 0.4s ease-in-out;
-transition: width 0.4s ease-in-out;
-padding-left: 10px;
-width: 180px;
-
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  top: 15px;
+  background-color: grey;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  padding: 12px 20px 12px 10px;
+  width: 180px;
 }
 
 #headerSearch:focus {
   background-color: white;
-  border: none;
   color: black;
   width: 400px;
-  border-bottom: none;
+  border-style: none;
   z-index: 70;
 }
 
@@ -33,25 +30,28 @@ width: 180px;
   z-index: 90;
 
 }
+
 #searchBarMobile {
   left: 0;
   width: 100vh;
 }
 
+#searchIcon {
+  cursor: pointer;
+}
+
 #headerSearchMobile:focus {
   background-color: white;
-  border: none;
   color: black;
-  border-bottom: none;
-
+  border-style: none;
 }
 
 @media only screen and (max-width: 992px) {
-nav .brand-logo {
-    left: 1%;
-    -webkit-transform: translateX(-1%);
-    transform: translateX(-1%);
-}
+  nav .brand-logo {
+      left: 1%;
+      -webkit-transform: translateX(-1%);
+      transform: translateX(-1%);
+  }
 }
 
 @media only screen and (min-width: 992px) {
