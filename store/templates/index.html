@@ -98,7 +98,7 @@
                     </ul>
                 </div>
                 <div class="filterDropdowns center">
-                    <a id="categoryInnerA" class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_id >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
+                    <a id="categoryInnerA" class='dropdown-button btn white black-text' href='#' data-constrainwidth="false" data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_id >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
                     <ul id='category_dropdown' class='dropdown-content category-list-item'>
                       {% for category in categories %}
                         <li {% if category.1 == filters.category_id %}class="selected"{% endif %}><a data-index="{{ category.1 }}" class="category-item grey-text text-darken-2">{{ category.0 }}</a></li>

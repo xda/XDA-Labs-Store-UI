@@ -40,6 +40,10 @@
   color: #000000 !important;
 }
 
+.chip {
+
+}
+
 .category-list-item li > a {
   font-size: 14px;
 }
