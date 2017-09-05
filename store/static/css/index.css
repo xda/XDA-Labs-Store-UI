@@ -44,7 +44,7 @@
   width: 100vh;
   object-fit: cover;
 }
-.card-content {
+.appCardContent {
   padding: 12px !important;
 }
 
