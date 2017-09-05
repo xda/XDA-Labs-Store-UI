@@ -23,7 +23,7 @@
 
         <div id="searchIconCont" class="brand-logo right hide-on-large-only" style="right: 40px;"><i id="searchIcon" class="medium material-icons" style="font-size: 2rem">search</i></div>
 
-        {% with logout_url="/manage/logout/" login_text="Login" logout_text="Logout" %}
+        {% with logout_url="/store/logout/" login_text="Login" logout_text="Logout" %}
 
         <div class="brand-logo right hide-on-large-only">
             <a href="{% if logged_in %}{{ logout_url }}{% else %}{{ xda_authorize_url }}{% endif %}">
