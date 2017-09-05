@@ -276,10 +276,12 @@
 
       $(".category-item").on("click", function(e) {
           openCategory($(this).data("index"))
+          e.stopPropagation()
       })
 
-      $(".sort-item").on("click", function() {
+      $(".sort-item").on("click", function(e) {
           openSort($(this).data("slugName"))
+          e.stopPropagation()
       })
 
       $(".app-item").on("click", function() {
