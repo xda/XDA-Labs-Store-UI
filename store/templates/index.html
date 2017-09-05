@@ -107,9 +107,11 @@
                 </div>
             </div>
             <div class="col s6 m6 l6 center filter-container">
-                  <div data-position="bottom" data-delay="40" data-tooltip="Enable watchlist filter by logging in" data-slug-name="watchlist" class="filter-item {% if not logged_in %}tooltipped{% endif %} {% if filters.watchlist %}activeTag {% endif %}chip">Watchlist</div>
-                  <div data-slug-name="paid" class="filter-item {% if filters.paid %}activeTag {% endif %}chip">Paid</div>
-                  <div data-position="bottom" data-delay="40" data-tooltip="Enable downloaded filter by logging in" data-slug-name="downloaded" class="filter-item {% if not logged_in %}tooltipped{% endif %} {% if filters.downloaded %}activeTag {% endif %}chip">Downloaded</div>
+                {% if search_term %}<div data-slug-name="search" class="filter-item activeTag chip">Search <i class="close material-icons">close</i></div>{% endif %}
+                {% if author_name %}<div data-slug-name="author" class="filter-item activeTag chip">Dev <i class="close material-icons">close</i></div>{% endif %}
+                <div data-position="bottom" data-delay="40" data-tooltip="Enable watchlist filter by logging in" data-slug-name="watchlist" class="filter-item {% if not logged_in %}tooltipped{% endif %} {% if filters.watchlist %}activeTag {% endif %}chip">Watchlist</div>
+                <div data-slug-name="paid" class="filter-item {% if filters.paid %}activeTag {% endif %}chip">Paid</div>
+                <div data-position="bottom" data-delay="40" data-tooltip="Enable downloaded filter by logging in" data-slug-name="downloaded" class="filter-item {% if not logged_in %}tooltipped{% endif %} {% if filters.downloaded %}activeTag {% endif %}chip">Downloaded</div>
             </div>
 
           </div>
@@ -288,6 +290,11 @@
           let filterName = $(this).data("slugName")
           if (!logged_in && (filterName === "watchlist" || filterName === "downloaded")) {
               return
+          }
+          if (filterName === "search") {
+              search_term = ''
+          } else if (filterName === "author") {
+              this.author_pk = -1;
           }
 
           $(this).toggleClass("activeTag")
