@@ -62,6 +62,10 @@
   font-size: 12px;
 }
 
-.category-link-container span, .app-item, .chip {
+.category-link-container span, .author-item, .app-item, .chip {
   cursor: pointer;
+}
+
+.author-item {
+  color: #039be5;
 }

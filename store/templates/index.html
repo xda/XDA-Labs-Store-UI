@@ -119,6 +119,11 @@
 
     <!-- App Cards Area -->
       <div class="container">
+        {% if author_name %}
+          <div style="margin-bottom: 10px">
+            Showing apps by <span style="font-weight: 800;">{{ author_name }}</span>
+          </div>
+        {% endif %}
       {% if search_term %}
         <div style="margin-bottom: 10px">
           Showing results for '<span style="font-weight: 800;">{{ search_term }}</span>'
@@ -142,7 +147,7 @@
                       <div style="float: right; width: 34px">
                           <span class="orange-text">&#x2605;</span> {{ app.avg_rating|floatformat }}
                       </div>
-                      <span style="display: block; margin-right: 38px; word-break: break-all;">{{ app.dev.display_name }}</span>
+                      <span data-dev-pk="{{ app.dev.pk }}" class="author-item" style="display: block; margin-right: 38px; word-break: break-all;">{{ app.dev.display_name }}</span>
                   </div>
                   <div class="category-link-container">
                   {% for category in app.categories %}
@@ -183,6 +188,7 @@
           },
           baseUrl: "/store/",
           url: this.baseUrl,
+          author_pk: -1,
 
           getSort: function() {
               this.url += this.sort_slug + "/"
@@ -205,10 +211,17 @@
               return this
           },
 
-          addSearch: function() {
-              if (search_term !== '') {
+          addQueryParams: function() {
+              let param_dict = {}
+              if (this.author_pk >= 0) {
+                  param_dict['author'] = this.author_pk
+              } else if (search_term !== '') {
                   search_str = $($.parseHTML(search_term)[0]).text()
-                  this.url += "?" + $.param({'search': search_str})
+                  param_dict['search'] = search_str
+              }
+
+              if (search_term !== '' || this.author_pk >= 0) {
+                  this.url += "?" + $.param(param_dict)
               }
               return this
           },
@@ -233,6 +246,10 @@
           setFilter: function(s, b) {
               this.filters[s] = b
               return this
+          },
+          setAuthor: function(i) {
+              this.author_pk = i
+              return this
           }
 
       }
@@ -244,7 +261,7 @@
       }
 
       loadIndexUrl = function() {
-          window.location.href = url.getSort().addCategory().addFilters().addSearch().getUrl()
+          window.location.href = url.getSort().addCategory().addFilters().addQueryParams().getUrl()
       }
 
       function openSort(s) {
@@ -254,6 +271,11 @@
 
       function openCategory(i) {
           url.newUrl().setCategory(i)
+          loadIndexUrl()
+      }
+
+      function openAuthor(i) {
+          url.newUrl().setAuthor(i)
           loadIndexUrl()
       }
 
@@ -279,13 +301,18 @@
           e.stopPropagation()
       })
 
+      $(".author-item").on("click", function(e) {
+          openAuthor($(this).data("devPk"))
+          e.stopPropagation()
+      })
+
       $(".sort-item").on("click", function(e) {
           openSort($(this).data("slugName"))
           e.stopPropagation()
       })
 
       $(".app-item").on("click", function() {
-          packageName = $(this).closest(".app-parent").data("packageName")
+          let packageName = $(this).closest(".app-parent").data("packageName")
           openApp(packageName)
       })
 
