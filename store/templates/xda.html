@@ -119,62 +119,58 @@
 
 
           </div>
+
           <div class="card screenshotsCard hide-on-med-and-down">
             <div class="card-content screenshotCardInner">
               <span class="card-title screenshotTitle">Screenshots</span>
               {% for item in screenshots %}
               <div class="screenshotContainer img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img class="screenshotContainerImg responsive-img" src="{{ item.thumbnail.url }}"></div>
               {% endfor %}
-
             </div>
-
           </div>
 
           <div class="card hide-on-med-and-down {% if other_apps|length == 0 %}hide{% endif %}">
-            <div class="card-content" style="padding: 0px;">
-              <span class="card-title" style="padding: 24px 24px 15px;">Other Apps by Developer</span>
-
+            <div class="card-content otherAppsContent">
+              <span class="card-title otherAppsTitle">Other Apps by Developer</span>
               {% for item in other_apps %}
-
               <div class="card valign-wrapper z-depth-0 other-apps-line">
                 <img class="responsive-img" src="{{ item.icon_url}}">
                 <div>
-                  <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 16px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price == 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
+                  <p><a href="/store/app/{{ item.package_name }}"><span class="otherAppByDevTitle">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price == 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
                 </div>
               </div>
-
               {% endfor %}
-
             </div>
           </div>
+
         </div>
         <div class="col m12 l8 s12">
           <div class="card">
             <div class="card-tabs">
               <ul class="tabs tabs-fixed-width tabs-transparent">
-                <li class="tab"><a href="#test1" class="active orange-text">Overview</a></li>
-                <li class="tab"><a href="#test3" class="orange-text">Releases</a></li>
+                <li class="tab"><a href="#overview" class="active orange-text">Overview</a></li>
+                <li class="tab"><a href="#releases" class="orange-text">Releases</a></li>
                 <li class="indicator orange"></li>
               </ul>
             </div>
             <div class="card-content">
-              <div id="test1" class="active">
+              <div id="overview" class="active">
                 <p id="overviewText">
                   {{ description | safe }}
                 </p>
               </div>
 
-              <div id="test3" style="display: none;">
+              <div id="releases">
                 {% for build in builds reversed %}
                 {% if build.timestamp %}
                 <div class="valign-wrapper">
                   <p class="valign-wrapper">
-                    <span style="margin-right: 5px"><b>Version {{ build.version_name }} </b></span> <span style="margin-right: 5px"> on {{ build.date }}</span>
-                    <div class="chip build{{ build.type }}" style="margin-left: 5px">{{ build.type }}</div><br>
-                    <div class="chip" style="margin-left: 5px">{{ build.size }}</div>
+                    <span class="buildDetails"><b>Version {{ build.version_name }} </b></span><span class="buildDetails"> on {{ build.date }}</span>
+                    <div class="chip buildDetails build{{ build.type }}">{{ build.type }}</div><br>
+                    <div class="chip buildDetails">{{ build.size }}</div>
                 </div>
                 <p>{{ build.changelog|safe }}</p>
-                <a href="/store/app/download/{{ package_name }}/{{ build.build_id }}" class="waves-effect waves-light btn z-depth-0 {% if price != 0.0 %}hide{% endif %}" style="background-color: #ff9800; margin-top: 10px; {% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>
+                <a href="/store/app/download/{{ package_name }}/{{ build.build_id }}" class="buildDownloadBtn waves-effect waves-light btn z-depth-0 {% if price != 0.0 %}hide{% endif %}" style="{% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>
                 {% endif %}
                 {% endfor %}
 
@@ -201,7 +197,7 @@
                     <td></td>
                   </tr>
                   <tr class="hide" id="xda_thread_error">
-                    <td>Could not load thread!  <a style="cursor: pointer" id="xda_thread_try_again">Try again</a></td>
+                    <td>Could not load thread!  <a id="xda_thread_try_again">Try again</a></td>
                     <td></td>
                     <td></td>
                   </tr>
@@ -223,37 +219,26 @@
 
           </div>
 
-          <div class="card hide-on-large-only" style="height: 600px">
-            <div class="card-content" style="height: 548px">
-              <span class="card-title" style="padding: 0 0 15px 0">Screenshots</span>
-              <!--<div class="carousel carousel-slider">
-                <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
-                <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
-                <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
-              </div>-->
+          <div class="card screenshotsCard hide-on-large-only">
+            <div class="card-content screenshotCardInner">
+              <span class="card-title screenshotTitle">Screenshots</span>
               {% for item in screenshots %}
-              <div style="height: 100%; width: 100%; text-align: center" class="img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img" src="{{ item.thumbnail.url }}"></div>
+              <div class="screenshotContainer img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img class="screenshotContainerImg responsive-img" src="{{ item.thumbnail.url }}"></div>
               {% endfor %}
-
             </div>
-
           </div>
 
           <div class="card hide-on-large-only {% if other_apps|length == 0 %}hide{% endif %}">
-            <div class="card-content" style="padding: 0px;">
-              <span class="card-title" style="padding: 24px 24px 15px;">Other Apps by Developer</span>
-
+            <div class="card-content otherAppsContent">
+              <span class="card-title otherAppsTitle">Other Apps by Developer</span>
               {% for item in other_apps %}
-
-                <div class="card valign-wrapper z-depth-0 other-apps-line">
-                  <img class="responsive-img" src="{{ item.icon_url}}">
-                  <div>
-                    <p><a href="/store/app/{{ item.package_name }}"><span style="font-size: 16px">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price == 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
-                  </div>
+              <div class="card valign-wrapper z-depth-0 other-apps-line">
+                <img class="responsive-img" src="{{ item.icon_url}}">
+                <div>
+                  <p><a href="/store/app/{{ item.package_name }}"><span class="otherAppByDevTitle">{{ item.title }}</span></a><br><span class="orange-text"><b>$</b></span> {% if item.price == 0.0 %}FREE{% else %}{{ item.price }}{% endif %}  <br><span class="orange-text">&#x2605;</span> {{ item.avg_rating|floatformat:"1" }}</p>
                 </div>
-
+              </div>
               {% endfor %}
-
             </div>
           </div>
 
@@ -261,12 +246,12 @@
             <div class="card-tabs">
               <ul class="tabs tabs-transparent">
                 <li class="tab"><a href="#test1" class="active orange-text">Reviews</a></li>
-                <li class="indicator orange" style="color: blue; right: 109px; left: 108px;"></li>
+                <li class="indicator orange"></li>
               </ul>
             </div>
-            <div class="card-content" style="padding: 0px;">
+            <div class="card-content reviewsContent">
               <div id="test2" class="active">
-                <ul class="collection" style="margin-top: 0px;">
+                <ul class="collection reviewsList">
 
                   <!-- is this correct? -->
                   {% if ratings == 0 %}
@@ -279,7 +264,7 @@
                   <li class="collection-item avatar">
                     <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}"><img src="{% if rating.avatar_url == '' %}/static/images/no_avatar.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle"></a>
 
-                    <p style="margin-right: 24px">by <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}">{{ rating.username }} </a>on {{ rating.date }}
+                    <p class="reviewDetails">by <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}">{{ rating.username }} </a>on {{ rating.date }}
                         <br> {{ rating.review }}
                     </p>
                     <a class="secondary-content"><i class="material-icons orange-text">{% if rating.score > 2.5 %}thumb_up{% else %}thumb_down{% endif %}</i></a>

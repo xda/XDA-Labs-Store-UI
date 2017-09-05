@@ -123,7 +123,6 @@ body, html {
 .buildAlpha {
   color: #F44336 !important;
   color: #ffffff;
-
 }
 
 /* Remove inline styling */
@@ -145,7 +144,6 @@ body, html {
 .screenshotTitle {
   padding: 0 0 15px 0;
 }
-
 .screenshotContainer {
   height: 100%;
   width: 100%;
@@ -154,5 +152,35 @@ body, html {
 .screenshotContainerImg {
   max-height: 100% !important;
   max-width: 100% !important;
-
+}
+.otherAppsContent {
+  padding: 0px !important;
+}
+.otherAppsTitle {
+  padding: 24px 24px 15px;
+}
+.otherAppByDevTitle {
+  font-size: 16px;
+}
+.buildDetails {
+  margin-right: 5px;
+}
+.buildDownloadBtn {
+  background-color: #ff9800;
+  margin-top: 10px;
+}
+#xda_thread_try_again {
+  cursor: pointer;
+}
+.reviewsContent {
+  padding: 0px !important;
+}
+.reviewsList {
+  margin-top: 0px;
+}
+.reviewDetails {
+  margin-right: 24px !important;
+}
+#test3 {
+  display: none;
 }
