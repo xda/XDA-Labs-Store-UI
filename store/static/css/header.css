@@ -8,8 +8,10 @@
   right: 0;
   top: 15px;
   background-color: grey;
+  font-family: "Roboto", sans-serif;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  transition-delay: 0.5s;
   padding: 12px 20px 12px 10px;
   width: 180px;
 }
@@ -19,16 +21,54 @@
   color: black;
   width: 400px;
   border-style: none;
+  transition-delay: 0s;
   z-index: 70;
 }
 
-#headerSearchMobile {
-  border: none;
-  font-size: 16px;
-  width: 100vh;
-  background-color: white;
+.searchResults {
   z-index: 90;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: 54px;
+  width: 400px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  right: 0;
+}
 
+.searchResultsRow {
+  padding: 0 24px;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.searchResults a {
+  color: black;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.searchResults div:hover a {
+  font-weight: 400;
+}
+
+.searchResultsRow:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.searchResultsExpanded {
+  max-height: 800px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.searchStar {
+  float: right;
 }
 
 #searchBarMobile {
@@ -38,6 +78,16 @@
 
 #searchIcon {
   cursor: pointer;
+}
+
+
+#headerSearchMobile {
+  border: none;
+  font-size: 16px;
+  width: 100vh;
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  z-index: 90;
 }
 
 #headerSearchMobile:focus {
