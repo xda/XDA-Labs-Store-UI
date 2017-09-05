@@ -272,7 +272,10 @@
   "xda.html": {
     "banner_url": "https://labs-public-dl.xda-cdn.com/images/b11200e2-d0cf-4e93-90b0-b9328597dcf4.png",
     "price": 0.0,
-    "category_names": ["Productivity", "Tools"],
+    "categories": [
+      ["Productivity", 2],
+      ["Tools", 1]
+    ],
     "xda_forum_url": "http://forum.xda-developers.com/showthread.php?t=2770533",
     "xda_thread_id": "2770533",
     "fingerprint": "055FC93B217E6225BFD7B56FFA3FF4C94DDE179209604D33F585F89C06120ADC",

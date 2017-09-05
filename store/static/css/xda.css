@@ -50,6 +50,10 @@ nav {
     padding: 5px 20px 5px 20px;
 }
 
+.chip a {
+    color: #333333;
+}
+
 body {
     background-color: #EEEEEE;
 

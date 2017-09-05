@@ -105,8 +105,8 @@
             <section class="tab">
               <div class="title"><i class="fa fa-list"></i> Category</div>
               <div class="content">
-                {% for category in category_names_array %}
-                <div class="chip">{{ category }}</div>
+                {% for category in categories %}
+                  <div class="chip"><a href="/store/recent/{{ category.id }}/">{{ category.name }}</a></div>
                 {% endfor %}
               </div>
             </section>
