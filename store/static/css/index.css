@@ -18,6 +18,22 @@
   font-size: 20px;
 }
 
+/* Filter Setting UI */
+
+.filterDropdowns {
+  display: inline-flex;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#categoryInnerA {
+  white-space: nowrap;
+}
+
+#filterUIRow {
+  margin-top: 10px;
+}
+
 
 .activeTag {
   background-color: #ffffff !important;

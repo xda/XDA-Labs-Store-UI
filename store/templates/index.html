@@ -61,7 +61,7 @@
 <body>
 
   {% include "header.html" %}
-
+      <!-- Android App Header -->
       <div id="androidAppHeader" class="row grey darken-3">
         <div class="container">
         <div class="col s12">
@@ -82,13 +82,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Filter Setting UI -->
       <div class="row grey darken-2">
       <div class="container">
-
         <div class="col s12">
-          <div class="row valign-wrapper" style="margin-top: 10px;">
+          <div id="filterUIRow" class="row valign-wrapper">
             <div class="col s6 m6 l6 center sort-container">
-                <div style="display: inline-flex; margin-top: 10px; margin-right: 10px;" class="center">
+                <div class="filterDropdowns center">
                     <a class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='sort_dropdown'>{{ filters.sort_selected }}</a>
                     <ul id='sort_dropdown' class='dropdown-content category-list-item'>
                       <li {% if filters.sort_index == 0 %}class="selected"{% endif %}><a data-slug-name="popularity" class="sort-item grey-text text-darken-2">Popularity</a></li>
@@ -96,8 +97,8 @@
                       <li {% if filters.sort_index == 2 %}class="selected"{% endif %}><a data-slug-name="rating" class="sort-item grey-text text-darken-2">Ratings</a></li>
                     </ul>
                 </div>
-                <div style="display: inline-flex; margin-top: 10px; margin-right: 10px" class="center">
-                    <a style="white-space: nowrap" class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_id >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
+                <div class="filterDropdowns center">
+                    <a id="categoryInnerA" class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_id >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
                     <ul id='category_dropdown' class='dropdown-content category-list-item'>
                       {% for category in categories %}
                         <li {% if category.1 == filters.category_id %}class="selected"{% endif %}><a data-index="{{ category.1 }}" class="category-item grey-text text-darken-2">{{ category.0 }}</a></li>
@@ -115,6 +116,8 @@
         </div>
       </div>
     </div>
+
+    <!-- App Cards Area -->
       <div class="container">
         <div class="row">
           {% for app in apps %}
