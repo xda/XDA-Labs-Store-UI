@@ -119,6 +119,11 @@
 
     <!-- App Cards Area -->
       <div class="container">
+      {% if search_term %}
+        <div style="margin-bottom: 10px">
+          Showing results for '<span style="font-weight: 800;">{{ search_term }}</span>'
+        </div>
+      {% endif %}
         <div class="row">
           {% for app in apps %}
           <div class="col s12 m6 l4 app-parent" data-package-name="{{ app.package_name }}">
@@ -166,6 +171,7 @@
       // 4) Author clicked
 
       let logged_in = {{ logged_in|lower }};
+      let search_term = '{{ search_term }}';
 
       let StoreUrl = {
           sort_slug: "{{ filters.sort_slugname }}",
@@ -195,6 +201,14 @@
                   if (this.filters[f]) {
                       this.url += f + "/"
                   }
+              }
+              return this
+          },
+
+          addSearch: function() {
+              if (search_term !== '') {
+                  search_str = $($.parseHTML(search_term)[0]).text()
+                  this.url += "?" + $.param({'search': search_str})
               }
               return this
           },
@@ -230,7 +244,7 @@
       }
 
       loadIndexUrl = function() {
-          window.location.href = url.getSort().addCategory().addFilters().getUrl()
+          window.location.href = url.getSort().addCategory().addFilters().addSearch().getUrl()
       }
 
       function openSort(s) {
