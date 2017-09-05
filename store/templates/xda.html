@@ -272,6 +272,14 @@
             <div class="card-content" style="padding: 0px;">
               <div id="test2" class="active">
                 <ul class="collection" style="margin-top: 0px;">
+
+                  <!-- is this correct? -->
+                  {% if ratings == 0 %}
+                    <li class="collection-item">
+                      <h5>No reviews.</h5>
+                    </li>
+                  {% endif %}
+
                   {% for rating in ratings %}
                   <li class="collection-item avatar">
                     <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}"><img src="{% if rating.avatar_url == '' %}/static/images/no_avatar.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle"></a>
