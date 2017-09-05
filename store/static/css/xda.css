@@ -125,3 +125,34 @@ body, html {
   color: #ffffff;
 
 }
+
+/* Remove inline styling */
+.appIconHero {
+  float: left;
+  height: 65px;
+  width: 65px;
+}
+.appTitleHero {
+  min-height: 65px;
+  margin-left: 79px;
+}
+.screenshotsCard {
+  height: 600px;
+}
+.screenshotCardInner {
+  height: 548px;
+}
+.screenshotTitle {
+  padding: 0 0 15px 0;
+}
+
+.screenshotContainer {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.screenshotContainerImg {
+  max-height: 100% !important;
+  max-width: 100% !important;
+
+}

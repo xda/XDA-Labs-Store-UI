@@ -87,8 +87,8 @@
               {% endif %}
             </div>
             <div class="card-content">
-              <img src="{{ icon_url }}" style="float: left; height: 65px; width: 65px;">
-              <div style="min-height: 65px; margin-left: 79px">
+              <img class="appIconHero" src="{{ icon_url }}">
+              <div class="appTitleHero">
                 <span class="card-title">{{ title }}</span>
                 <p>by <a href="/?author={{ dev.pk }}">{{ dev.display_name }}</a></p>
               </div>
@@ -119,16 +119,11 @@
 
 
           </div>
-          <div class="card hide-on-med-and-down" style="height: 600px">
-            <div class="card-content" style="height: 548px">
-              <span class="card-title" style="padding: 0 0 15px 0">Screenshots</span>
-              <!--<div class="carousel carousel-slider">
-                <a class="carousel-item active" href="#one!"><img src="images/mainImage.jpg"></a>
-                <a class="carousel-item" href="#two!"><img src="images/shortcuts.jpg"></a>
-                <a class="carousel-item" href="#three!"><img src="images/settings.jpg"></a>
-              </div>-->
+          <div class="card screenshotsCard hide-on-med-and-down">
+            <div class="card-content screenshotCardInner">
+              <span class="card-title screenshotTitle">Screenshots</span>
               {% for item in screenshots %}
-              <div style="height: 100%; width: 100%; text-align: center" class="img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img style="max-height: 100%; max-width: 100%" class="responsive-img" src="{{ item.thumbnail.url }}"></div>
+              <div class="screenshotContainer img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img class="screenshotContainerImg responsive-img" src="{{ item.thumbnail.url }}"></div>
               {% endfor %}
 
             </div>
