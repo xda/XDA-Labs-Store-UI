@@ -1,3 +1,24 @@
+/* Android App Banner */
+
+#androidAppHeader {
+  margin-bottom: 0px;
+}
+
+#androidAppHeader div * * div {
+  margin-top: 20px;
+}
+
+#headerHeroDownload {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#headerHeroPublish h5 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+
 .activeTag {
   background-color: #ffffff !important;
   color: #000000 !important;
