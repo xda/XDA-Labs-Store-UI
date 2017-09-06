@@ -158,3 +158,8 @@
   margin-top: 20px;
   color: #ffffff;
 }
+#logo {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
