@@ -20,6 +20,6 @@ from previewer.views import MockDataTemplateView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url('^', include('previewer.urls')),
-    url('^$', MockDataTemplateView.as_view(template_name="index.html")),
     url('^store/app/(?P<package_name>.+)$', MockDataTemplateView.as_view(template_name='details.html')),
+    url('', MockDataTemplateView.as_view(template_name="index.html")),
 ]
