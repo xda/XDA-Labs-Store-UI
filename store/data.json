@@ -273,8 +273,8 @@
     "banner_url": "https://labs-public-dl.xda-cdn.com/images/b11200e2-d0cf-4e93-90b0-b9328597dcf4.png",
     "price": 0.0,
     "categories": [
-      ["Productivity", 2],
-      ["Tools", 1]
+      {"name": "Productivity", "id": 2},
+      {"name": "Tools", "id": 1}
     ],
     "xda_forum_url": "http://forum.xda-developers.com/showthread.php?t=2770533",
     "xda_thread_id": "2770533",
@@ -595,6 +595,7 @@
     "avg_rating": 4.8,
     "on_watchlist": false,
     "dev": {
+      "pk": 1,
       "username": "blk_jack",
       "display_name": "blk_jack",
       "email": "support@mimic.ca"
