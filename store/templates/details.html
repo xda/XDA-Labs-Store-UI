@@ -113,14 +113,14 @@
             <section class="tab">
               <div class="title"><i class="fa fa-bar-chart"></i> Avg. Rating</div>
               <div class="content">
-                {{ avg_rating|floatformat:"2" }} ({{ total_ratings }} Reviews)
+                {{ avg_rating|floatformat:"2" }} ({{ total_ratings }} Ratings)
               </div>
             </section>
 
 
           </div>
 
-          <div class="card screenshotsCard hide-on-med-and-down">
+          <div class="card screenshotsCard hide-on-med-and-down {% if screenshots|length == 0 %}hide{% endif %}">
             <div class="card-content screenshotCardInner">
               <span class="card-title screenshotTitle">Screenshots</span>
               {% for item in screenshots %}
@@ -219,7 +219,7 @@
 
           </div>
 
-          <div class="card screenshotsCard hide-on-large-only">
+          <div class="card screenshotsCard hide-on-large-only {% if screenshots|length == 0 %}hide{% endif %}">
             <div class="card-content screenshotCardInner">
               <span class="card-title screenshotTitle">Screenshots</span>
               {% for item in screenshots %}
@@ -253,12 +253,11 @@
               <div id="reviews" class="active">
                 <ul class="collection reviewsList">
 
-                  <!-- is this correct? -->
-                  {% if ratings == 0 %}
+                  {% if ratings|length == 0 %}
                     <li class="collection-item">
-                      <h5>No reviews.</h5>
+                      <h6>No reviews.</h6>
                     </li>
-                  {% endif %}
+                  {% else %}
 
                   {% for rating in ratings %}
                   <li class="collection-item avatar">
@@ -270,6 +269,8 @@
                     <a class="secondary-content"><i class="material-icons orange-text">{% if rating.score > 2.5 %}thumb_up{% else %}thumb_down{% endif %}</i></a>
                   </li>
                   {% endfor %}
+
+                  {% endif %}
                 </ul>
 
               </div>
