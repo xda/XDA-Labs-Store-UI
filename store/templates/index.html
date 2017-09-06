@@ -90,7 +90,7 @@
           <div id="filterUIRow" class="row valign-wrapper">
             <div class="col s6 m6 l6 center sort-container">
                 <div class="filterDropdowns center">
-                    <a class='dropdown-button btn white black-text' href='#' data-hover="true" data-beloworigin="true" data-activates='sort_dropdown'>{{ filters.sort_selected }}</a>
+                    <a class='dropdown-button btn white black-text' data-hover="true" data-beloworigin="true" data-activates='sort_dropdown'>{{ filters.sort_selected }}</a>
                     <ul id='sort_dropdown' class='dropdown-content category-list-item'>
                       <li {% if filters.sort_index == 0 %}class="selected"{% endif %}><a data-slug-name="popularity" class="sort-item grey-text text-darken-2">Popularity</a></li>
                       <li {% if filters.sort_index == 1 %}class="selected"{% endif %}><a data-slug-name="recent" class="sort-item grey-text text-darken-2">Recent</a></li>
@@ -98,7 +98,7 @@
                     </ul>
                 </div>
                 <div class="filterDropdowns center">
-                    <a id="categoryInnerA" class='dropdown-button btn white black-text' href='#' data-constrainwidth="false" data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_id >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
+                    <a id="categoryInnerA" class='dropdown-button btn white black-text' data-constrainwidth="false" data-hover="true" data-beloworigin="true" data-activates='category_dropdown'>{% if filters.category_id >= 0 %}{{ filters.category_selected }}{% else %}Categories{% endif %}</a>
                     <ul id='category_dropdown' class='dropdown-content category-list-item'>
                       {% for category in categories %}
                         <li {% if category.1 == filters.category_id %}class="selected"{% endif %}><a data-index="{{ category.1 }}" class="category-item grey-text text-darken-2">{{ category.0 }}</a></li>
@@ -286,7 +286,7 @@
           loadIndexUrl()
       }
 
-      $(".filter-item").on("click", function() {
+      $(".filter-item").on("click", function(e) {
           let filterName = $(this).data("slugName")
           if (!logged_in && (filterName === "watchlist" || filterName === "downloaded")) {
               return
@@ -301,6 +301,7 @@
 
           let isFiltered = $(this).hasClass("activeTag")
           openFilter($(this).data("slugName"), isFiltered)
+          e.stopPropagation()
       })
 
       $(".category-item").on("click", function(e) {
