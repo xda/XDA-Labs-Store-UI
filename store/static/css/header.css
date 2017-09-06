@@ -87,8 +87,11 @@
 
 #searchIcon {
   cursor: pointer;
+  font-size: 2rem;
 }
-
+#searchIconCont {
+  right: 40px;
+}
 
 #headerSearchMobile {
   border: none;
@@ -126,4 +129,32 @@
   h4 {
     margin: 0.8rem 0 .912rem 0;
   }
+}
+
+#mobileSearchForm {
+  z-index: 90;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+#headerLogoImg {
+  height: 100%;
+}
+#logotitle {
+  margin-left: 5px;
+}
+#logotitle span {
+  color: #ff9800;
+}
+#desktopSearchForm {
+  margin-right: 80px; margin-top: -5px;
+}
+#mobileSigninIcon {
+  font-size: 2rem; margin-left: auto; margin-right: 0;
+}
+#desktopSigninText {
+  font-size: 1.6rem;
+  margin-top: 20px;
+  color: #ffffff;
 }
