@@ -34,61 +34,10 @@
   margin-top: 10px;
 }
 
-/* App Card */
-
-.appCard {
-  height: 140px;
-}
-.appBannerImg {
-  height: 140px;
-  width: 100vh;
-  object-fit: cover;
-}
-.appCardContent {
-  padding: 12px !important;
-}
-
-.appTitle {
-  height: 54px;
-  line-height: 18px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-
-.appTitle img {
-  margin-left: 10px;
-  height: 30px;
-  width: 30px;
-  top: 4px;
-  float: right;
-}
-.appTitle span {
-  font-size: 16px;
-  display: block;
-}
-.appDetails {
-  font-size: 12px;
-  line-height: 17px;
-  height: 17px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  overflow: hidden;
-}
-.appRating {
-  float: right; width: 34px;
-}
-.author-item {
-  color: #039be5;
-  display: block;
-  margin-right: 38px;
-  word-break: break-all;
-}
-
 .activeTag {
   background-color: #ffffff !important;
   color: #000000 !important;
 }
-
 
 .category-list-item li > a {
   font-size: 14px;
@@ -114,4 +63,61 @@
 
 .category-link-container span, .author-item, .app-item, .chip {
   cursor: pointer;
+}
+
+
+/* App Card */
+
+.appCard {
+  height: 140px;
+}
+
+.appBannerImg {
+  height: 140px;
+  width: 100vh;
+  object-fit: cover;
+}
+
+.appCardContent {
+  padding: 12px !important;
+}
+
+.appTitle {
+  height: 54px;
+  line-height: 18px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.appTitle img {
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  top: 4px;
+  float: right;
+}
+
+.appTitle span {
+  font-size: 16px;
+  display: block;
+}
+
+.appDetails {
+  font-size: 12px;
+  line-height: 17px;
+  height: 17px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.appRating {
+  float: right; width: 34px;
+}
+
+.author-item {
+  color: #039be5;
+  display: block;
+  margin-right: 38px;
+  word-break: break-all;
 }
