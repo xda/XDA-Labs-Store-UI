@@ -12,7 +12,7 @@ This repo contains a light Django install that renders HTML templates of the XDA
 > ./manage.py runserver
 
 ## Loading templates
-- `http://localhost:8000/` to view and render details.html.
+- `http://localhost:8000/` to view and render index.html.
 - `http://localhost:8000/TEMPLATE_NAME.html` to render any other template
 
 ## Templates and static
