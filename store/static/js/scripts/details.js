@@ -26,7 +26,9 @@ function formatAMPM(date) {
 }
 
 function fetchForumData() {
-    var thread_id = '{{ xda_thread_id }}';
+    /** @namespace thread_id
+     *  @type {String}
+     */
     if (thread_id === '') return;
 
     $("#xda_thread_error").addClass("hide");
