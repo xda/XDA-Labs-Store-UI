@@ -85,7 +85,7 @@
 
 .appBannerImg {
   height: 140px;
-  width: 100vh;
+  width: 100vh !important;
   object-fit: cover;
 }
 
