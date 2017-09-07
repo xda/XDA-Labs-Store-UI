@@ -166,7 +166,7 @@ body, html {
   margin-right: 5px;
 }
 .buildDownloadBtn {
-  background-color: #ff9800;
+  background-color: #ff9800 !important;
   margin-top: 10px;
 }
 #xda_thread_try_again {
