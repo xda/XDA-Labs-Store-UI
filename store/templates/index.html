@@ -173,165 +173,86 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
     <script>
-      // /store/<sort_slugname>/category_id/filter1/filter2/filter3
+    let logged_in = {{ logged_in|lower }};
+    let search_term = '{{ search_term }}';
 
-      // 1) Popularity clicked
-      // 2) Category clicked
-      // 3) Filter clicked
-      // 4) Author clicked
+    let StoreUrl = {
+        sort_slug: "{{ filters.sort_slugname }}",
+        category_id: {{ filters.category_id }},
+        filters: {
+            "paid": {{ filters.paid|lower }},
+            "watchlist": {{ filters.watchlist|lower }},
+            "downloaded": {{ filters.downloaded|lower }}
+        },
+        baseUrl: "/store/",
+        url: this.baseUrl,
+        author_pk: -1,
 
-      let logged_in = {{ logged_in|lower }};
-      let search_term = '{{ search_term }}';
+        getSort: function() {
+            this.url += this.sort_slug + "/"
+            return this
+        },
 
-      let StoreUrl = {
-          sort_slug: "{{ filters.sort_slugname }}",
-          category_id: {{ filters.category_id }},
-          filters: {
-              "paid": {{ filters.paid|lower }},
-              "watchlist": {{ filters.watchlist|lower }},
-              "downloaded": {{ filters.downloaded|lower }}
-          },
-          baseUrl: "/store/",
-          url: this.baseUrl,
-          author_pk: -1,
+        addCategory: function() {
+            if (this.category_id >= 0) {
+                this.url += this.category_id + "/"
+            }
+            return this
+        },
 
-          getSort: function() {
-              this.url += this.sort_slug + "/"
-              return this
-          },
+        addFilters: function() {
+            for (let f in this.filters) {
+                if (this.filters[f]) {
+                    this.url += f + "/"
+                }
+            }
+            return this
+        },
 
-          addCategory: function() {
-              if (this.category_id >= 0) {
-                  this.url += this.category_id + "/"
-              }
-              return this
-          },
+        addQueryParams: function() {
+            let param_dict = {}
+            if (this.author_pk >= 0) {
+                param_dict['author'] = this.author_pk
+            } else if (search_term !== '') {
+                search_str = $($.parseHTML(search_term)[0]).text()
+                param_dict['search'] = search_str
+            }
 
-          addFilters: function() {
-              for (let f in this.filters) {
-                  if (this.filters[f]) {
-                      this.url += f + "/"
-                  }
-              }
-              return this
-          },
+            if (search_term !== '' || this.author_pk >= 0) {
+                this.url += "?" + $.param(param_dict)
+            }
+            return this
+        },
 
-          addQueryParams: function() {
-              let param_dict = {}
-              if (this.author_pk >= 0) {
-                  param_dict['author'] = this.author_pk
-              } else if (search_term !== '') {
-                  search_str = $($.parseHTML(search_term)[0]).text()
-                  param_dict['search'] = search_str
-              }
+        getUrl: function() {
+            return this.url
+        },
 
-              if (search_term !== '' || this.author_pk >= 0) {
-                  this.url += "?" + $.param(param_dict)
-              }
-              return this
-          },
+        newUrl: function() {
+            this.url = this.baseUrl
+            return this
+        },
 
-          getUrl: function() {
-              return this.url
-          },
+        setSort: function(s) {
+            this.sort_slug = s
+            return this
+        },
+        setCategory: function(i) {
+            this.category_id = i
+            return this
+        },
+        setFilter: function(s, b) {
+            this.filters[s] = b
+            return this
+        },
+        setAuthor: function(i) {
+            this.author_pk = i
+            return this
+        }
 
-          newUrl: function() {
-              this.url = this.baseUrl
-              return this
-          },
-
-          setSort: function(s) {
-              this.sort_slug = s
-              return this
-          },
-          setCategory: function(i) {
-              this.category_id = i
-              return this
-          },
-          setFilter: function(s, b) {
-              this.filters[s] = b
-              return this
-          },
-          setAuthor: function(i) {
-              this.author_pk = i
-              return this
-          }
-
-      }
-
-      const url = StoreUrl
-
-      function openApp(s) {
-        window.location.href = "/store/app/" + s
-      }
-
-      loadIndexUrl = function() {
-          window.location.href = url.getSort().addCategory().addFilters().addQueryParams().getUrl()
-      }
-
-      function openSort(s) {
-          url.newUrl().setSort(s)
-          loadIndexUrl()
-      }
-
-      function openCategory(i) {
-          url.newUrl().setCategory(i)
-          loadIndexUrl()
-      }
-
-      function openAuthor(i) {
-          url.newUrl().setAuthor(i)
-          loadIndexUrl()
-      }
-
-      function openFilter(s, b) {
-          url.newUrl().setFilter(s, b)
-          loadIndexUrl()
-      }
-
-      $(".filter-item").on("click", function(e) {
-          let filterName = $(this).data("slugName")
-          if (!logged_in && (filterName === "watchlist" || filterName === "downloaded")) {
-              return
-          }
-          if (filterName === "search") {
-              search_term = ''
-          } else if (filterName === "author") {
-              this.author_pk = -1;
-          } else if (filterName === "category") {
-              openCategory(-1)
-              e.stopPropagation()
-              return
-          }
-
-          $(this).toggleClass("activeTag")
-
-          let isFiltered = $(this).hasClass("activeTag")
-          openFilter($(this).data("slugName"), isFiltered)
-          e.stopPropagation()
-      })
-
-      $(".category-item").on("click", function(e) {
-          openCategory($(this).data("index"))
-          e.stopPropagation()
-      })
-
-      $(".author-item").on("click", function(e) {
-          openAuthor($(this).data("devPk"))
-          e.stopPropagation()
-      })
-
-      $(".sort-item").on("click", function(e) {
-          openSort($(this).data("slugName"))
-          e.stopPropagation()
-      })
-
-      $(".app-item").on("click", function() {
-          let packageName = $(this).closest(".app-parent").data("packageName")
-          openApp(packageName)
-      })
-
+    }
     </script>
+    <script type="text/javascript" src="/static/js/scripts/index.js"></script>
   </main>
 
   {% include "footer.html" %}
