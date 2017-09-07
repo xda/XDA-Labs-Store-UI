@@ -165,6 +165,9 @@ body, html {
 .buildDetails {
   margin-right: 5px;
 }
+.buildSize {
+  white-space: nowrap;
+}
 .buildDownloadBtn {
   background-color: #ff9800 !important;
   margin-top: 10px;
