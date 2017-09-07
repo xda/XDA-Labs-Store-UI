@@ -35,8 +35,17 @@
 }
 
 .activeTag {
-  background-color: #ffffff !important;
+  background-color: #ffbe3c !important;
   color: #000000 !important;
+}
+
+.filter-item:hover {
+  background-color: #e6e6e6;
+  transition: background-color .3s ease-out
+}
+
+.category-list-item::-webkit-scrollbar {
+  display: none;
 }
 
 .category-list-item li > a {
@@ -81,6 +90,13 @@
 
 .appCard {
   height: 140px;
+}
+
+.appCard:hover {
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14),
+              0 3px 14px 2px rgba(0,0,0,0.12),
+              0 5px 5px -3px rgba(0,0,0,0.3);
+  transition: box-shadow .3s ease-in-out
 }
 
 .appBannerImg {
