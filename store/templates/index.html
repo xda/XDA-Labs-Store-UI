@@ -109,6 +109,7 @@
             <div class="col s6 m6 l6 center filter-container">
                 {% if search_term %}<div data-slug-name="search" class="filter-item activeTag chip">Search <i class="close material-icons">close</i></div>{% endif %}
                 {% if author_name %}<div data-slug-name="author" class="filter-item activeTag chip">Dev <i class="close material-icons">close</i></div>{% endif %}
+                {% if filters.category_id >= 0%}<div data-slug-name="category" class="filter-item activeTag chip">Category <i class="close material-icons">close</i></div>{% endif %}
                 <div data-position="bottom" data-delay="40" data-tooltip="Enable watchlist filter by logging in" data-slug-name="watchlist" class="filter-item {% if not logged_in %}tooltipped{% endif %} {% if filters.watchlist %}activeTag {% endif %}chip">Watchlist</div>
                 <div data-slug-name="paid" class="filter-item {% if filters.paid %}activeTag {% endif %}chip">Paid</div>
                 <div data-position="bottom" data-delay="40" data-tooltip="Enable downloaded filter by logging in" data-slug-name="downloaded" class="filter-item {% if not logged_in %}tooltipped{% endif %} {% if filters.downloaded %}activeTag {% endif %}chip">Downloaded</div>
@@ -121,16 +122,15 @@
 
     <!-- App Cards Area -->
       <div class="container">
-        {% if author_name %}
-          <div style="margin-bottom: 10px">
-            Showing apps by <span style="font-weight: 800;">{{ author_name }}</span>
+        {% if author_name or search_term or filters.category_id >= 0 %}
+          <div class="filterTitle">
+            {% if author_name %}Showing apps by <span>{{ author_name }}</span>
+            {% elif search_term %} Showing results for '<span>{{ search_term }}</span>'
+            {% endif %}
+
+            {% if filters.category_id >= 0 %}{% if author_name or search_term %} and{% else %}Showing{% endif %} apps in category <span>{{ filters.category_selected }}</span>{% endif %}
           </div>
         {% endif %}
-      {% if search_term %}
-        <div style="margin-bottom: 10px">
-          Showing results for '<span style="font-weight: 800;">{{ search_term }}</span>'
-        </div>
-      {% endif %}
         <div class="row">
           {% for app in apps %}
           <div class="col s12 m6 l4 app-parent" data-package-name="{{ app.package_name }}">
@@ -295,6 +295,10 @@
               search_term = ''
           } else if (filterName === "author") {
               this.author_pk = -1;
+          } else if (filterName === "category") {
+              openCategory(-1)
+              e.stopPropagation()
+              return
           }
 
           $(this).toggleClass("activeTag")

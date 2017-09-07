@@ -131,3 +131,11 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.filterTitle {
+  margin-bottom: 10px;
+}
+
+.filterTitle span {
+  font-weight: 800;
+}
