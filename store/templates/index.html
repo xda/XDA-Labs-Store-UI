@@ -173,84 +173,84 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
     <script>
-    let logged_in = {{ logged_in|lower }};
-    let search_term = '{{ search_term }}';
+      logged_in = {{ logged_in|lower }};
+      search_term = '{{ search_term }}';
 
-    let StoreUrl = {
-        sort_slug: "{{ filters.sort_slugname }}",
-        category_id: {{ filters.category_id }},
-        filters: {
-            "paid": {{ filters.paid|lower }},
-            "watchlist": {{ filters.watchlist|lower }},
-            "downloaded": {{ filters.downloaded|lower }}
-        },
-        baseUrl: "/store/",
-        url: this.baseUrl,
-        author_pk: -1,
+      StoreUrl = {
+          sort_slug: "{{ filters.sort_slugname }}",
+          category_id: {{ filters.category_id }},
+          filters: {
+              "paid": {{ filters.paid|lower }},
+              "watchlist": {{ filters.watchlist|lower }},
+              "downloaded": {{ filters.downloaded|lower }}
+          },
+          baseUrl: "/store/",
+          url: this.baseUrl,
+          author_pk: -1,
 
-        getSort: function() {
-            this.url += this.sort_slug + "/"
-            return this
-        },
+          getSort: function() {
+              this.url += this.sort_slug + "/"
+              return this
+          },
 
-        addCategory: function() {
-            if (this.category_id >= 0) {
-                this.url += this.category_id + "/"
-            }
-            return this
-        },
+          addCategory: function() {
+              if (this.category_id >= 0) {
+                  this.url += this.category_id + "/"
+              }
+              return this
+          },
 
-        addFilters: function() {
-            for (let f in this.filters) {
-                if (this.filters[f]) {
-                    this.url += f + "/"
-                }
-            }
-            return this
-        },
+          addFilters: function() {
+              for (let f in this.filters) {
+                  if (this.filters[f]) {
+                      this.url += f + "/"
+                  }
+              }
+              return this
+          },
 
-        addQueryParams: function() {
-            let param_dict = {}
-            if (this.author_pk >= 0) {
-                param_dict['author'] = this.author_pk
-            } else if (search_term !== '') {
-                search_str = $($.parseHTML(search_term)[0]).text()
-                param_dict['search'] = search_str
-            }
+          addQueryParams: function() {
+              let param_dict = {}
+              if (this.author_pk >= 0) {
+                  param_dict['author'] = this.author_pk
+              } else if (search_term !== '') {
+                  search_str = $($.parseHTML(search_term)[0]).text()
+                  param_dict['search'] = search_str
+              }
 
-            if (search_term !== '' || this.author_pk >= 0) {
-                this.url += "?" + $.param(param_dict)
-            }
-            return this
-        },
+              if (search_term !== '' || this.author_pk >= 0) {
+                  this.url += "?" + $.param(param_dict)
+              }
+              return this
+          },
 
-        getUrl: function() {
-            return this.url
-        },
+          getUrl: function() {
+              return this.url
+          },
 
-        newUrl: function() {
-            this.url = this.baseUrl
-            return this
-        },
+          newUrl: function() {
+              this.url = this.baseUrl
+              return this
+          },
 
-        setSort: function(s) {
-            this.sort_slug = s
-            return this
-        },
-        setCategory: function(i) {
-            this.category_id = i
-            return this
-        },
-        setFilter: function(s, b) {
-            this.filters[s] = b
-            return this
-        },
-        setAuthor: function(i) {
-            this.author_pk = i
-            return this
-        }
+          setSort: function(s) {
+              this.sort_slug = s
+              return this
+          },
+          setCategory: function(i) {
+              this.category_id = i
+              return this
+          },
+          setFilter: function(s, b) {
+              this.filters[s] = b
+              return this
+          },
+          setAuthor: function(i) {
+              this.author_pk = i
+              return this
+          }
 
-    }
+      }
     </script>
     <script type="text/javascript" src="/static/js/scripts/index.js"></script>
   </main>

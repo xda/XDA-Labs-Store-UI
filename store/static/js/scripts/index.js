@@ -1,10 +1,25 @@
-// /store/<sort_slugname>/category_id/filter1/filter2/filter3
 
-// 1) Popularity clicked
-// 2) Category clicked
-// 3) Filter clicked
-// 4) Author clicked
+/** @namespace logged_in
+ *  @type boolean
+ * */
 
+/** @namespace search_term
+ *  @type string
+ * */
+
+/** @namespace StoreUrl
+ *  @type Object
+ *  @property {function} getSort
+ *  @property {function} addCategory
+ *  @property {function} addFilters
+ *  @property {function} addQueryParams
+ *  @property {function} getSort
+ *  @property {function} newUrl
+ *  @property {function} setSort
+ *  @property {function} setCategory
+ *  @property {function} setAuthor
+ *  @property {function} setFilter
+ * */
 
 const url = StoreUrl
 
@@ -12,7 +27,7 @@ function openApp(s) {
   window.location.href = "/store/app/" + s
 }
 
-loadIndexUrl = function() {
+let loadIndexUrl = function() {
     window.location.href = url.getSort()
                            .addCategory()
                            .addFilters()

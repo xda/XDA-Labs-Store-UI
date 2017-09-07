@@ -285,7 +285,7 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
     <script>
-      $(document).ready(function() {
+      $(document).on('ready', function() {
         runSlide();
         fetchForumData();
 
@@ -315,7 +315,6 @@
           count = 1;
         }
       }
-    }
     </script>
     <script type="text/javascript" src="/static/js/scripts/details.js"></script>
   </main>
