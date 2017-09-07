@@ -55,6 +55,11 @@ function openFilter(s, b) {
     loadIndexUrl()
 }
 
+function openPage(s) {
+    url.newUrl().setPage(s)
+    loadIndexUrl()
+}
+
 $(".filter-item").on("click", function(e) {
     let filterName = $(this).data("slugName")
     if (!logged_in && (filterName === "watchlist" || filterName === "downloaded")) {
@@ -95,4 +100,8 @@ $(".sort-item").on("click", function(e) {
 $(".app-item").on("click", function() {
     let packageName = $(this).closest(".app-parent").data("packageName")
     openApp(packageName)
+})
+
+$(".page-link").on("click", function() {
+    openPage($(this).data("page"))
 })

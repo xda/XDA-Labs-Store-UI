@@ -1,5 +1,13 @@
 {
   "index.html": {
+    "pagination": {
+      "has_previous": false,
+      "has_next": false,
+      "number": 1,
+      "paginator": {
+        "num_pages": 1
+      }
+    },
     "apps": [
       {
         "title": "XDA Feed - All devices",

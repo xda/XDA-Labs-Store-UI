@@ -70,7 +70,7 @@
   font-size: 12px;
 }
 
-.category-link-container span, .author-item, .app-item, .chip {
+.category-link-container span, .author-item, .app-item, .chip, .page-link {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
@@ -78,6 +78,21 @@
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
+}
+
+.page-left {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.page-right {
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.page-row {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .chip {

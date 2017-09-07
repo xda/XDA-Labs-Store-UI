@@ -167,6 +167,19 @@
           {% endfor %}
 
         </div>
+        <div class="page-row row center">
+          {% if pagination.has_previous %}
+            <a class="page-link page-left" data-page="{{ pagination.previous_page_number }}">
+            &lt;
+          </a>
+          {% endif %}
+          <span>Page {{ pagination.number }} of {{ pagination.paginator.num_pages }}</span>
+          {% if pagination.has_next %}
+            <a class="page-link page-right" data-page="{{ pagination.next_page_number }}">
+              &gt;
+            </a>
+          {% endif %}
+        </div>
       </div>
 
     <!--Import jQuery before materialize.js-->
@@ -187,6 +200,7 @@
           baseUrl: "/store/",
           url: this.baseUrl,
           author_pk: -1,
+          page: 1,
 
           getSort: function() {
               this.url += this.sort_slug + "/"
@@ -211,14 +225,23 @@
 
           addQueryParams: function() {
               let param_dict = {}
-              if (this.author_pk >= 0) {
+
+              let has_author = this.author_pk >= 0
+              let has_search = search_term !== ''
+              let has_page = this.page > 1
+              let has_params = has_author || has_search || has_page
+
+              if (has_author) {
                   param_dict['author'] = this.author_pk
-              } else if (search_term !== '') {
+              } else if (has_search) {
                   search_str = $($.parseHTML(search_term)[0]).text()
                   param_dict['search'] = search_str
               }
+              if (has_page) {
+                  param_dict['page'] = this.page
+              }
 
-              if (search_term !== '' || this.author_pk >= 0) {
+              if (has_params) {
                   this.url += "?" + $.param(param_dict)
               }
               return this
@@ -248,6 +271,9 @@
           setAuthor: function(i) {
               this.author_pk = i
               return this
+          },
+          setPage: function(s) {
+              this.page = s;
           }
 
       }
