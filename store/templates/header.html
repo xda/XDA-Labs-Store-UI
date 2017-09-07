@@ -1,0 +1,144 @@
+<header>
+  <div class="navbar-fixed">
+    <nav id="navbarHeader">
+      <div class="hide" id="hiddenSearchMobile">
+        <form id="mobileSearchForm" action="/" class="brand-logo">
+          <input id="headerSearchMobile" type="text" name="search" placeholder="Search...">
+        </form>
+        <div id="headerSearchResultsMobile" class="card card-stacked card-content searchResultsMobile flow-text">
+        </div>
+      </div>
+      <div class="nav-wrapper container">
+        <div class="brand-logo" id="logo">
+          <a href="/">
+            <img id="headerLogoImg" class="left" src="/static/images/ic_web.png" />
+            <h4 class="right" id="logotitle"><b><span>xda</span>labs</b></h4>
+          </a>
+        </div>
+        <form id="desktopSearchForm" action="/"class="hide-on-med-and-down brand-logo right">
+          <input id="headerSearch" autocomplete="off" type="text" name="search" placeholder="Search...">
+            <div id="headerSearchResults" class="card card-stacked card-content searchResults flow-text">
+            </div>
+        </form>
+
+        <div id="searchIconCont" class="brand-logo right hide-on-large-only"><i id="searchIcon" class="medium material-icons">search</i></div>
+
+        {% with logout_url="/store/logout/" login_text="Login" logout_text="Logout" %}
+
+        <div class="brand-logo right hide-on-large-only">
+            <a href="{% if logged_in %}{{ logout_url }}{% else %}{{ xda_authorize_url }}{% endif %}">
+                <i id="mobileSigninIcon" class="medium material-icons">account_circle</i>
+            </a>
+        </div>
+
+        <a href="{% if logged_in %}{{ logout_url }}{% else %}{{ xda_authorize_url }}{% endif %}">
+            <h6 id="desktopSigninText" class="hide-on-med-and-down right brand-logo">{% if logged_in %}{{ logout_text }}{% else %}{{ login_text }}{% endif %}</h6>
+        </a>
+
+      {% endwith %}
+
+      </div>
+    </nav>
+  </div>
+
+</header>
+<script>
+    window.onload = function() {
+        let mobileInput = $("#headerSearchMobile");
+        let desktopInput = $("#headerSearch");
+        let desktopSearchResults = $("#headerSearchResults");
+        let mobileSearchResults = $("#headerSearchResultsMobile");
+
+        $.ajaxSetup({ cache: true });
+
+        $("#searchIconCont").on('click', function () {
+            $("#hiddenSearchMobile").removeClass("hide");
+            mobileInput.focus();
+        });
+
+        mobileInput.keyup(function(k) {
+            if (k.which === 27) {  // ESC
+                clearAndCloseMobileSearch();
+            } else {
+                clearTimeout(timeoutID);
+                timeoutID = setTimeout(() => searchApp($(this).val()), 400);
+            }
+        });
+        mobileInput.blur(function() {
+            setTimeout(() => clearAndCloseMobileSearch(), 100);
+        });
+
+        function clearAndCloseMobileSearch() {
+            $("#hiddenSearchMobile").addClass("hide");
+            hideMobileResults();
+        }
+
+        function hideDesktopResults() {
+            if (desktopSearchResults.hasClass("searchResultsExpanded")) {
+                desktopSearchResults.removeClass("searchResultsExpanded");
+            }
+        }
+
+        function hideMobileResults() {
+            if (mobileSearchResults.hasClass("searchResultsExpanded")) {
+                mobileSearchResults.removeClass("searchResultsExpanded");
+            }
+        }
+
+        desktopInput.blur(function() {
+            hideDesktopResults();
+        });
+
+        desktopInput.on('webkitTransitionEnd otransitionend msTransitionEnd transitionend', function() {
+            let searchVal = desktopInput.val();
+            if (desktopInput.is(":focus")) {
+                if (searchVal !== null) {
+                    searchApp(searchVal);
+                }
+            } else {
+                hideDesktopResults();
+            }
+        });
+
+        let timeoutID = null;
+
+        function searchApp(str) {
+            if (str !== null && str.length > 2) {
+                $.getJSON("/api/1/search?q=" + str, function (r) {
+                    parseSearchResults(r.results);
+                });
+            }
+        }
+
+        function parseSearchResults(rArray) {
+            console.log(rArray);
+            let isMobile = $("#searchIconCont").css('display') !== "none";
+
+            let searchResults;
+
+            if (isMobile) {
+                searchResults = mobileSearchResults;
+            } else {
+                searchResults = desktopSearchResults;
+            }
+            searchResults.empty();
+
+            $.each(rArray, function (i, result) {
+                searchResults.append('<div class="row searchResultsRow" onclick="launchSearch(\'' + result.package_name + '\')"><span>' + result.title + '</span><div class="searchStar"><span class="orange-text">&#x2605;</span>' + result.avg_rating.toFixed(1) + '</div></a></div>');
+            });
+
+            searchResults.delay(100).addClass("searchResultsExpanded");
+        }
+
+        desktopInput.keyup(function() {
+            clearTimeout(timeoutID);
+            timeoutID = setTimeout(() => searchApp($(this).val()), 250);
+        });
+
+    };
+
+    function launchSearch(s) {
+        window.location.href = "/store/app/" + s;
+    }
+
+</script>

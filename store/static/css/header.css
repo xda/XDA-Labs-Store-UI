@@ -1,0 +1,165 @@
+
+#headerSearch {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  top: 15px;
+  background-color: grey;
+  font-family: "Roboto", sans-serif;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  transition-delay: 0.5s;
+  padding: 12px 20px 12px 10px;
+  width: 180px;
+}
+
+#headerSearch:focus {
+  background-color: white;
+  color: black;
+  width: 400px;
+  border-style: none;
+  transition-delay: 0s;
+  z-index: 70;
+}
+
+.searchResults {
+  z-index: 90;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: 54px;
+  width: 400px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  right: 0;
+}
+
+
+.searchResultsMobile {
+  z-index: 90;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: 56px;
+  width: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.searchResultsRow {
+  padding: 0 24px;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.searchResultsRow, .searchResultsMobile {
+  color: black;
+  display: block;
+}
+
+.searchResultsRow:hover {
+  font-weight: 400;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.searchResultsExpanded {
+  max-height: 800px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.searchStar {
+  float: right;
+}
+
+#searchBarMobile {
+  left: 0;
+  width: 100vh;
+}
+
+#searchIcon {
+  cursor: pointer;
+  font-size: 2rem;
+}
+#searchIconCont {
+  right: 40px;
+}
+
+#headerSearchMobile {
+  border: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  padding-left: 20px;
+}
+
+#headerSearchMobile:focus {
+  background-color: white;
+  color: black;
+  border-style: none;
+}
+
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+      left: 1%;
+      -webkit-transform: translateX(-1%);
+      transform: translateX(-1%);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  h4 {
+    margin: 1.1rem 0 .912rem 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h4 {
+    margin: 0.8rem 0 .912rem 0;
+  }
+}
+
+#mobileSearchForm {
+  z-index: 90;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+#headerLogoImg {
+  height: 100%;
+}
+#logotitle {
+  margin-left: 5px;
+}
+#logotitle span {
+  color: #ff9800;
+}
+#desktopSearchForm {
+  margin-right: 80px; margin-top: -5px;
+}
+#mobileSigninIcon {
+  font-size: 2rem; margin-left: auto; margin-right: 0;
+}
+#desktopSigninText {
+  font-size: 1.6rem;
+  margin-top: 20px;
+  color: #ffffff;
+}
+#logo {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}

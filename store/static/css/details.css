@@ -10,7 +10,7 @@ nav {
     border-left: none;
     border-right: none;
     border-bottom: none;
-    border-top: 1px solid #e0e0e0;"
+    border-top: 1px solid #e0e0e0;
 }
 
 .other-apps-line img {
@@ -48,6 +48,10 @@ nav {
 #about_card .content {
     font-size: 14px;
     padding: 5px 20px 5px 20px;
+}
+
+.chip a {
+    color: #333333;
 }
 
 body {
@@ -101,4 +105,92 @@ body, html {
 #overviewText {
   word-break: break-word;
   hyphens: auto;
+}
+
+/* Styling for Build Type Chips */
+
+.buildStable {
+  background-color: #4CAF50 !important;
+  color: #ffffff;
+}
+
+.buildBeta {
+  background-color: #2196F3 !important;
+  color: #ffffff;
+
+}
+
+.buildAlpha {
+  color: #F44336 !important;
+  color: #ffffff;
+}
+
+/* Remove inline styling */
+.appIconHero {
+  float: left;
+  height: 65px;
+  width: 65px;
+}
+.appTitleHero {
+  min-height: 65px;
+  margin-left: 79px;
+}
+.screenshotsCard {
+  height: 600px;
+}
+.screenshotCardInner {
+  height: 548px;
+}
+.screenshotTitle {
+  padding: 0 0 15px 0;
+}
+.screenshotContainer {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.screenshotContainerImg {
+  max-height: 100% !important;
+  max-width: 100% !important;
+}
+.otherAppsContent {
+  padding: 0px !important;
+}
+.otherAppsTitle {
+  padding: 24px 24px 15px;
+}
+.otherAppByDevTitle {
+  font-size: 16px;
+}
+.buildDetails {
+  margin-right: 5px;
+}
+.buildDownloadBtn {
+  background-color: #ff9800;
+  margin-top: 10px;
+}
+#xda_thread_try_again {
+  cursor: pointer;
+}
+.reviewsContent {
+  padding: 0px !important;
+}
+.reviewsList {
+  margin-top: 0px;
+}
+.reviewDetails {
+  margin-right: 24px !important;
+}
+#test3 {
+  display: none;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }

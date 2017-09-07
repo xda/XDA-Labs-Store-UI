@@ -1,2 +1,2 @@
 Django==1.8.18
--e git://github.com/corcoran/django-template-previewer.git@afeaf392cdcdcaa15ff8d6fe87db3ddb231bb3bd#egg=djangotemplatepreviewer-master
+-e git://github.com/corcoran/django-template-previewer.git@31c8cb3916cd34f75ec10988a453cc9027219c30#egg=djangotemplatepreviewer-master

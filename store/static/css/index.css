@@ -1,0 +1,152 @@
+/* Android App Banner */
+
+#androidAppHeader {
+  margin-bottom: 0px;
+}
+
+#androidAppHeader div * * div {
+  margin-top: 20px;
+}
+
+#headerHeroDownload {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#headerHeroPublish h5 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* Filter Setting UI */
+
+.filterDropdowns {
+  display: inline-flex;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#categoryInnerA {
+  white-space: nowrap;
+}
+
+#filterUIRow {
+  margin-top: 10px;
+}
+
+.activeTag {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.category-list-item li > a {
+  font-size: 14px;
+}
+
+.filter-container {
+  margin-top: 20px;
+}
+
+.filter-container div {
+  margin-bottom: 10px;
+}
+
+.category-link-container {
+  vertical-align: bottom;
+  height: 36px;
+  margin-top: 8px;
+  overflow: hidden;
+  line-height: 17px;
+  color: #039be5;
+  font-size: 12px;
+}
+
+.category-link-container span, .author-item, .app-item, .chip {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.chip {
+  color: rgba(0,0,0,0.8);
+  background-color: #cccccc;
+}
+
+
+/* App Card */
+
+.appCard {
+  height: 140px;
+}
+
+.appBannerImg {
+  height: 140px;
+  width: 100vh;
+  object-fit: cover;
+}
+
+.appCardContent {
+  padding: 12px !important;
+}
+
+.appTitle {
+  height: 54px;
+  line-height: 18px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.appTitle img {
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  top: 4px;
+  float: right;
+}
+
+.appTitle span {
+  font-size: 16px;
+  display: block;
+}
+
+.appDetails {
+  font-size: 12px;
+  line-height: 17px;
+  height: 17px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.appRating {
+  float: right; width: 34px;
+}
+
+.author-item {
+  color: #039be5;
+  display: block;
+  margin-right: 38px;
+  word-break: break-all;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.filterTitle {
+  margin-bottom: 10px;
+}
+
+.filterTitle span {
+  font-weight: 800;
+}
