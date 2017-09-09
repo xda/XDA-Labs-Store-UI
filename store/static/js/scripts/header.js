@@ -93,7 +93,7 @@ window.onload = function() {
                     onclick="launchSearch('${result.package_name}')">
                 <span>${result.title}</span>
                 <div class="searchStar">
-                  <span class="orange-text">&#x2605;</span>'
+                  <span class="orange-text">&#x2605;</span>
                    ${result.avg_rating.toFixed(1)}
                  </div>
                </div>`)
