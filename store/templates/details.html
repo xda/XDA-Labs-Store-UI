@@ -52,9 +52,7 @@
 
   <meta property="og:url" content="https://labs.xda-developers.com/store/app/{{ package_name }}" />
   <meta property="og:image" content="{{ banner_square_url }}" />
-  <!-- Might be nice to have a short blurb description in each app's data for this bit of metadata
-    <meta property="og:description" content="A redesign of the XDA Labs app page. Fully responsive Material Design." />
-  -->
+  <meta property="og:description" content="{{ title }} by {{ dev.display_name }}{% if total_ratings > 0 %} - {{ avg_rating|floatformat:"2" }}/5 ({{ total_ratings }} ratings){% endif %}" />
   <link rel="shortcut icon" href="{{ icon_url }}" type="image/x-icon">
   <meta name="theme-color" content="#424242">
 
