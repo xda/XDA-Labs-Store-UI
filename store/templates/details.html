@@ -70,7 +70,7 @@
             <div class="card-image">
               <img src="{{ banner_url }}" />
               {% if price == 0.0 %}
-                <a href="/store/app/download/{{ package_name }}" class="btn-floating btn-large halfway-fab waves-effect waves-light orange"><i class="material-icons">file_download</i></a>
+                <a href="{% if logged_in %}/store/app/download/{{ package_name }}{% else %}#login_modal{% endif %}" class="btn-floating btn-large halfway-fab waves-effect waves-light orange{% if not logged_in %} modal-trigger{% endif %}"><i class="material-icons">file_download</i></a>
               {% else %}
                 <a href="#paid_modal" class="btn-floating btn-large halfway-fab waves-effect waves-light orange modal-trigger"><i class="material-icons">file_download</i></a>
                 <div id="paid_modal" class="modal">
@@ -79,8 +79,8 @@
                     <p>This is a paid app and can't be downloaded via the web (for now!). Please install or load XDA Labs in order to purchase and download this fine app!</p>
                   </div>
                   <div class="modal-footer">
-                    <a href="https://labs.xda-developers.com/latest" class="modal-action modal-close waves-effect waves-green btn-flat">Download Labs</a>
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                    <a href="https://labs.xda-developers.com/latest" class="modal-action modal-close waves-effect waves-orange btn-flat">Download Labs</a>
+                    <a class="modal-action modal-close waves-effect waves-orange btn-flat">Close</a>
                   </div>
                 </div>
 
@@ -162,16 +162,18 @@
 
               <div id="releases">
                 {% for build in builds reversed %}
-                {% if build.timestamp %}
-                <div class="valign-wrapper">
-                  <p class="valign-wrapper">
-                    <span class="buildDetails"><b>Version {{ build.version_name }} </b></span><span class="buildDetails"> on {{ build.date }}</span>
-                    <div class="chip buildDetails build{{ build.type }}">{{ build.type }}</div><br>
-                    <div class="chip buildDetails buildSize">{{ build.size }}</div>
-                </div>
-                <p>{{ build.changelog|safe }}</p>
-                <a href="/store/app/download/{{ package_name }}/{{ build.build_id }}" class="buildDownloadBtn waves-effect waves-light btn z-depth-0 {% if price != 0.0 %}hide{% endif %}" style="{% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>
-                {% endif %}
+                  {% if build.timestamp %}
+                  <div class="valign-wrapper">
+                    <p class="valign-wrapper">
+                      <span class="buildDetails"><b>Version {{ build.version_name }} </b></span><span class="buildDetails"> on {{ build.date }}</span>
+                      <div class="chip buildDetails build{{ build.type }}">{{ build.type }}</div><br>
+                      <div class="chip buildDetails buildSize">{{ build.size }}</div>
+                  </div>
+                  <p>{{ build.changelog|safe }}</p>
+                    {% if price == 0.0 %}
+                      <a href="{% if logged_in %}/store/app/download/{{ package_name }}/{{ build.build_id }}{% else %}#login_modal{% endif %}" class="buildDownloadBtn waves-effect waves-light btn z-depth-0{% if not logged_in %} modal-trigger{% endif %}" style="{% if forloop.last %}{% else %} margin-bottom: 40px;{% endif %}">DOWNLOAD</a>
+                    {% endif %}
+                  {% endif %}
                 {% endfor %}
 
               </div>
@@ -277,6 +279,17 @@
             </div>
           </div>
         </div>
+        <div id="login_modal" class="modal">
+          <div class="modal-content">
+            <h4>Login required</h4>
+            <p>Users need to login with their XDA accounts before they can download apps.</p>
+            <p>If you already have an account with XDA, click the login button.  If you're not part of the XDA Developers community, don't worry, XDA accounts are free and you can sign up with Google.</p>
+          </div>
+          <div class="modal-footer">
+            <a href="https://forum.xda-developers.com/register.php" class="modal-action modal-close waves-effect waves-orange btn-flat">Join XDA Developers</a>
+            <a href="{{ xda_authorize_url }}" class="modal-action modal-close waves-effect waves-orange btn-flat">Login</a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -287,6 +300,7 @@
         runSlide();
         fetchForumData();
 
+        $("#login_modal").modal();
         $("#paid_modal").modal();
       });
 
