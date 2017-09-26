@@ -74,7 +74,7 @@
     <main>
         <div class='row'>
             <div id="dev-details-background" class='col s12 center-align'></div>
-
+            <!-- Dev Details Card -->
             <div id="dev-details-row" class="col s12 center-align">
                 <div class="container">
                     <div class="card">
@@ -103,40 +103,40 @@
                     </div>
                 </div>
             </div>
-        <!-- App Cards Area -->
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m6 l4 app-parent" data-package-name="{{ app.package_name }}">
+            <!-- App Cards Area -->
+            <div class="col s12" id="dev-apps-col">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m6 l4 app-parent" data-package-name="{{ app.package_name }}">
 
-                    <div class="card horizontal appCard">
-                        <div class="app-item card-image">
-                            <img class="appBannerImg" src="https://images.pexels.com/photos/464329/pexels-photo-464329.jpeg?h=350&auto=compress&cs=tinysrgb">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content appCardContent">
-                                <div class="appTitle">
-                                    <img class="app-item" src="https://maxcdn.icons8.com/Share/icon/Operating_Systems//android_os1600.png" />
-                                    <span class="app-item">Appname McAppnameface</span>
+                            <div class="card horizontal appCard">
+                                <div class="app-item card-image">
+                                    <img class="appBannerImg" src="https://images.pexels.com/photos/464329/pexels-photo-464329.jpeg?h=350&auto=compress&cs=tinysrgb">
                                 </div>
-                                <div class="appDetails">
-                                    <div class="appRating">
-                                        <span class="orange-text">&#x2605;</span> 4.9
+                                <div class="card-stacked">
+                                    <div class="card-content appCardContent">
+                                        <div class="appTitle">
+                                            <img class="app-item" src="https://maxcdn.icons8.com/Share/icon/Operating_Systems//android_os1600.png" />
+                                            <span class="app-item">Appname McAppnameface</span>
+                                        </div>
+                                        <div class="appDetails">
+                                            <div class="appRating">
+                                                <span class="orange-text">&#x2605;</span> 4.9
+                                            </div>
+                                            <span data-dev-pk="{{ app.dev.pk }}" class="author-item">Appy McAppyface</span>
+                                        </div>
+                                        <div class="category-link-container">
+                                            <span data-index="{{ category.id }}" class="category-item">Launcher</span>,
+                                            <span data-index="{{ category.id }}" class="category-item">Customization</span>
+
+                                        </div>                                
                                     </div>
-                                    <span data-dev-pk="{{ app.dev.pk }}" class="author-item">Appy McAppyface</span>
                                 </div>
-                                <div class="category-link-container">
-                                    <span data-index="{{ category.id }}" class="category-item">Launcher</span>,
-                                    <span data-index="{{ category.id }}" class="category-item">Customization</span>
-
-                                </div>                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
 
         <!--Import jQuery before materialize.js-->

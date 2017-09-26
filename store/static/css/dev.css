@@ -4,6 +4,11 @@
     padding-right: 0px;
 }
 
+#dev-apps-col {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 #dev-details-background {
     height: 200px;
     background-color: #424242;
