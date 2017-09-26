@@ -623,24 +623,83 @@
           {
         "title": "XDA Feed - All devices",
         "icon_url": "https://labs-public-dl.xda-cdn.com/images/9a4eb6e2-1583-4cdd-8085-70c5b596e9b8.png",
+        "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/f745860a-8424-4d01-9d79-16b879c55709.jpg",
         "avg_rating": 4.8,
         "price": 0.0,
-        "package_name": "com.xda.feed"
+        "package_name": "com.xda.feed",
+        "categories": [
+          {
+            "name": "Productivity",
+            "id": 18
+          },
+          {
+            "name": "Tools",
+            "id": 22
+          }
+        ],
+        "dev": {
+          "pk": 1,
+          "username": "blk_jack",
+          "display_name": "blk_jack",
+          "email": "support@mimic.ca"
+        }
       },
       {
-        "title": "OnePlus 3/3T Feed",
+        "title": "Hangar",
+        "icon_url": "https://labs-public-dl.xda-cdn.com/images/fac64684-3562-44e5-9ef8-9df7a35303c7.png",
+        "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/b11200e2-d0cf-4e93-90b0-b9328597dcf4.png",
+        "avg_rating": 4.6,
+        "price": 0.0,
+        "package_name": "ca.mimic.apphangar",
+        "categories": [
+          {
+            "name": "Entertainment",
+            "id": 1
+          },
+          {
+            "name": "Media & Video",
+            "id": 2
+          },
+          {
+            "name": "Personalization",
+            "id": 3
+          },
+          {
+            "name": "Tools",
+            "id": 4
+          }
+        ],
+        "dev": {
+          "pk": 1,
+          "username": "blk_jack",
+          "display_name": "blk_jack",
+          "email": "support@mimic.ca"
+        }
+      },
+      {
+        "title": "XDA Feed - All devices and long title test",
         "icon_url": "https://labs-public-dl.xda-cdn.com/images/9a4eb6e2-1583-4cdd-8085-70c5b596e9b8.png",
-        "avg_rating": 4.6,
+        "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/f745860a-8424-4d01-9d79-16b879c55709.jpg",
+        "avg_rating": 4.8,
         "price": 0.0,
-        "package_name": "com.xda.feed.oneplus3"
+        "package_name": "com.xda.feed",
+        "categories": [
+          {
+            "name": "Productivity",
+            "id": 18
+          },
+          {
+            "name": "Tools",
+            "id": 22
+          }
+        ],
+        "dev": {
+          "pk": 1,
+          "username": "blk_jack",
+          "display_name": "blk_jack and long name test",
+          "email": "support@mimic.ca"
+        }
       },
-      {
-        "title": "Pixel/Pixel XL Feed",
-        "icon_url": "https://labs-public-dl.xda-cdn.com/images/6d9ad3c5-f720-4580-b9cc-ce643186c25b.png",
-        "avg_rating": 4.6,
-        "price": 0.0,
-        "package_name": "com.xda.feed.pixel"
-      }
       ],
   }
 }
