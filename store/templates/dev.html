@@ -72,11 +72,12 @@
     {% include "header.html" %}
     <main>
         <div class='row'>
-            <div style='min-height: 25vh; background-color: grey;' class='col s12 center-align'>
+            <!-- Might be cool to have a random color picked (from a pre-selected collection) for this background, as we don't have any image background with the current data -->
+            <div style='min-height: 20vh; background-color: grey;' class='col s12 center-align'>
             </div>
 
             <div class='col s12 center-align' style='margin-top: -60px;'>
-                <img class=" circle responsive-img" style="height: 120px;" src="{{ dev_image }}">
+                <img class=" circle responsive-img" style="height: 120px; border: 3px solid white;" src="{{ dev_image }}">
                 <h3>{{ name }}</h3>
             </div>
 
