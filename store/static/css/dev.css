@@ -1,0 +1,41 @@
+#dev-details-row {
+    margin-top: -150px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#dev-details-background {
+    height: 200px;
+    background-color: #424242;
+}
+
+#dev-image {
+    height: 100px;
+}
+
+#dev-details-details {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.detail-icons {
+    color: #ff9800;
+}
+
+#dev-details-details a span {
+    color: black;
+}
+
+@media screen and (max-width: 1115px) {
+    #dev-details-details {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media screen and (max-width: 993px) {
+    #dev-details-details {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

@@ -9,6 +9,7 @@
     <link type="text/css" rel="stylesheet" href="/static/css/details.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/static/css/header.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/static/css/index.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="/static/css/dev.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="/static/css/footer.css" media="screen,projection" />
 
 
@@ -72,28 +73,36 @@
     {% include "header.html" %}
     <main>
         <div class='row'>
-            <!-- Might be cool to have a random color picked (from a pre-selected collection) for this background, as we don't have any image background with the current data -->
-            <div style='min-height: 20vh; background-color: #424242;' class='col s12 center-align'>
+            <div id="dev-details-background" class='col s12 center-align'></div>
+
+            <div id="dev-details-row" class="col s12 center-align">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-content">
+                            <img id="dev-image" class="circle responsive-img" src="https://forum-lw-1.xda-cdn.com/customavatars/thumbs/avatar2637227_1.gif">
+                            <h4>Appy McAppyface</h4>
+                            <h6>App Developer</h6>
+                            <br>
+                            <div class="row" id="dev-details-details">
+                                <div class="col s4">
+                                    <i class="material-icons small detail-icons">thumb_up</i><br>
+                                    <span>10K</span>
+                                </div>
+                        
+                                <div class="col s4">
+                                    <i class="material-icons small detail-icons">location_on</i><br>
+                                    <span>London</span>
+                                </div>
+                        
+                                <div class="col s4">
+                                    <a><i class="material-icons small detail-icons">help</i><br>
+                                       <span>Contact</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class='col s12 center-align' style='margin-top: -130px;'><div class='container'>
-                <div class="card"><div class="card-content"><img class="circle responsive-img" style="height: 100px;" src="{{ dev_image }}">
-                <h4>Appy McAppyface</h4><h6>App Developer</h6><br>
-                    <div class="row" style="padding-left: 200px; padding-right: 200px;">
-                        <div class="col s4"><i class="material-icons small" style="color: #ff9800;">thumb_up</i><br>
-                    <span>10K</span></div>
-                        
-                        <div class="col s4"><i class="material-icons small" style="color: #ff9800;">location_on</i><br>
-                    <span>London</span></div>
-                        
-                        <div class="col s4"><a><i class="material-icons small" style="color: #ff9800;">help</i><br>
-                    <span style="color: black;">Contact</span></a></div>
-                    
-                    </div></div>
-                
-                </div></div>
-
-        </div>
         <!-- App Cards Area -->
         <div class="container">
             <div class="row">
@@ -116,7 +125,7 @@
                                     <span data-dev-pk="{{ app.dev.pk }}" class="author-item">Appy McAppyface</span>
                                 </div>
                                 <div class="category-link-container">
-                                    <span data-index="{{ category.id }}" class="category-item">Launcher</span>
+                                    <span data-index="{{ category.id }}" class="category-item">Launcher</span>,
                                     <span data-index="{{ category.id }}" class="category-item">Customization</span>
 
                                 </div>                                </div>
