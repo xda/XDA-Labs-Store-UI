@@ -615,5 +615,32 @@
     "paid_for": false,
     "package_name": "ca.mimic.apphangar",
     "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/39a3f64a-e653-4fb4-9956-36d8efc2116a.png"
+  },
+  "dev.html": {
+      "name": "Jeff Corcoran",
+      "dev_image": "https://forum-lw-1.xda-cdn.com/customavatars/thumbs/avatar2637227_1.gif",
+      "apps": [
+          {
+        "title": "XDA Feed - All devices",
+        "icon_url": "https://labs-public-dl.xda-cdn.com/images/9a4eb6e2-1583-4cdd-8085-70c5b596e9b8.png",
+        "avg_rating": 4.8,
+        "price": 0.0,
+        "package_name": "com.xda.feed"
+      },
+      {
+        "title": "OnePlus 3/3T Feed",
+        "icon_url": "https://labs-public-dl.xda-cdn.com/images/9a4eb6e2-1583-4cdd-8085-70c5b596e9b8.png",
+        "avg_rating": 4.6,
+        "price": 0.0,
+        "package_name": "com.xda.feed.oneplus3"
+      },
+      {
+        "title": "Pixel/Pixel XL Feed",
+        "icon_url": "https://labs-public-dl.xda-cdn.com/images/6d9ad3c5-f720-4580-b9cc-ce643186c25b.png",
+        "avg_rating": 4.6,
+        "price": 0.0,
+        "package_name": "com.xda.feed.pixel"
+      }
+      ],
   }
 }
