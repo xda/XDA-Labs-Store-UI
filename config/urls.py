@@ -22,4 +22,7 @@ urlpatterns = [
     url('^', include('previewer.urls')),
     url('^store/app/(?P<package_name>.+)$', MockDataTemplateView.as_view(template_name='details.html')),
     url('', MockDataTemplateView.as_view(template_name="index.html")),
+    url('^store/author/(?P<username>.+)$', MockDataTemplateView.as_view(template_name='dev.html')),
+    url('^store/author/(?P<userid>.+)$', MockDataTemplateView.as_view(template_name='dev.html')),
+
 ]

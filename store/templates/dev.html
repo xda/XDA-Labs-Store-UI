@@ -73,47 +73,58 @@
     <main>
         <div class='row'>
             <!-- Might be cool to have a random color picked (from a pre-selected collection) for this background, as we don't have any image background with the current data -->
-            <div style='min-height: 20vh; background-color: grey;' class='col s12 center-align'>
+            <div style='min-height: 20vh; background-color: #424242;' class='col s12 center-align'>
             </div>
 
-            <div class='col s12 center-align' style='margin-top: -60px;'>
-                <img class=" circle responsive-img" style="height: 120px; border: 3px solid white;" src="{{ dev_image }}">
-                <h3>{{ name }}</h3>
-            </div>
+            <div class='col s12 center-align' style='margin-top: -130px;'><div class='container'>
+                <div class="card"><div class="card-content"><img class="circle responsive-img" style="height: 100px;" src="{{ dev_image }}">
+                <h4>Appy McAppyface</h4><h6>App Developer</h6><br>
+                    <div class="row" style="padding-left: 200px; padding-right: 200px;">
+                        <div class="col s4"><i class="material-icons small" style="color: #ff9800;">thumb_up</i><br>
+                    <span>10K</span></div>
+                        
+                        <div class="col s4"><i class="material-icons small" style="color: #ff9800;">location_on</i><br>
+                    <span>London</span></div>
+                        
+                        <div class="col s4"><i class="material-icons small" style="color: #ff9800;">help</i><br>
+                    <span>Contact</span></div>
+                    
+                    </div></div>
+                
+                </div></div>
 
         </div>
         <!-- App Cards Area -->
         <div class="container">
             <div class="row">
-                {% for app in apps %}
                 <div class="col s12 m6 l4 app-parent" data-package-name="{{ app.package_name }}">
 
                     <div class="card horizontal appCard">
                         <div class="app-item card-image">
-                            <img class="appBannerImg" src="{{ app.banner_square_url }}">
+                            <img class="appBannerImg" src="https://images.pexels.com/photos/464329/pexels-photo-464329.jpeg?h=350&auto=compress&cs=tinysrgb">
                         </div>
                         <div class="card-stacked">
                             <div class="card-content appCardContent">
                                 <div class="appTitle">
-                                    <img class="app-item" src="{{ app.icon_url }}" />
-                                    <span class="app-item">{{ app.title }}</span>
+                                    <img class="app-item" src="https://maxcdn.icons8.com/Share/icon/Operating_Systems//android_os1600.png" />
+                                    <span class="app-item">Appname McAppnameface</span>
                                 </div>
                                 <div class="appDetails">
                                     <div class="appRating">
-                                        <span class="orange-text">&#x2605;</span> {{ app.avg_rating|floatformat }}
+                                        <span class="orange-text">&#x2605;</span> 4.9
                                     </div>
-                                    <span data-dev-pk="{{ app.dev.pk }}" class="author-item">{% if app.dev.display_name %}{{ app.dev.display_name }}{% else %}{{ app.dev.username }}{% endif %}</span>
+                                    <span data-dev-pk="{{ app.dev.pk }}" class="author-item">Appy McAppyface</span>
                                 </div>
                                 <div class="category-link-container">
-                                    {% for category in app.categories %}
-                                    <span data-index="{{ category.id }}" class="category-item">{{ category.name }}</span>{% if not forloop.last %}, {% endif %} {% endfor %}
-                                </div>
+                                    <span data-index="{{ category.id }}" class="category-item">Launcher</span>
+                                    <span data-index="{{ category.id }}" class="category-item">Customization</span>
+
+                                </div>                                </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                {% endfor %}
 
             </div>
 
