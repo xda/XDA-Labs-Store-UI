@@ -17,8 +17,8 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="image_src" href="https://labs.xda-developers.com/static/images/ic_web.png">
-    <meta name="thumbnail" content="https://labs.xda-developers.com/static/images/ic_web.png">
+    <link rel="image_src" href="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}">
+    <meta name="thumbnail" content="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}">
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -31,10 +31,10 @@
         {
             "@context": "http://schema.org",
             "@type": "Organization",
-            "name": "XDA Labs {{ title }}",
-            "image": "https://labs.xda-developers.com/static/images/ic_web.png",
-            "url": "https://labs.xda-developers.com/",
-            "logo": "https://labs.xda-developers.com/static/images/ic_web.png"
+            "name": "XDA Labs | {{ username }}",
+            "image": "{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}",
+            "url": "https://labs.xda-developers.com/store/author/{{ username }}",
+            "logo": "{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}"
         }
 
     </script>
@@ -57,12 +57,12 @@
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>XDA Labs{{ title }}</title>
-    <meta property="og:title" content="XDA Labs{{ title }} %}" />
+    <meta property="og:title" content="XDA Labs | {{ username }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://labs.xda-developers.com/" />
-    <meta property="og:image" content="https://labs.xda-developers.com/static/images/ic_web.png" />
+    <meta property="og:url" content="https://labs.xda-developers.com/store/author/{{ username }}" />
+    <meta property="og:image" content="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}" />
     <meta property="og:description" content="XDA Labs is a platform for independent Android development.  Support indie devs!" />
-    <link rel="shortcut icon" href="https://labs.xda-developers.com/static/images/ic_web.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}" type="image/x-icon">
     <meta name="theme-color" content="#424242">
 
 
@@ -79,8 +79,8 @@
                 <div class="container">
                     <div class="card">
                         <div class="card-content">
-                            <img id="dev-image" class="circle responsive-img" src="https://jacksonhayes.me/jack.png">
-                            <h4>Appy McAppyface</h4>
+                            <img id="dev-image" class="circle responsive-img" src="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}">
+                            <h4>{{ username }}</h4>
                             <h6>App Developer</h6>
                             <br>
                             <div class="row" id="dev-details-details">
@@ -142,121 +142,6 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="/static/js/materialize.min.js"></script>
-        <script>
-            logged_in = {
-                {
-                    logged_in | lower
-                }
-            };
-            search_term = '{{ search_term }}';
-
-            StoreUrl = {
-                sort_slug: "{{ filters.sort_slugname }}",
-                category_id: {
-                    {
-                        filters.category_id
-                    }
-                },
-                filters: {
-                    "paid": {
-                        {
-                            filters.paid | lower
-                        }
-                    },
-                    "watchlist": {
-                        {
-                            filters.watchlist | lower
-                        }
-                    },
-                    "downloaded": {
-                        {
-                            filters.downloaded | lower
-                        }
-                    }
-                },
-                baseUrl: "/store/",
-                url: this.baseUrl,
-                author_pk: -1,
-                page: 1,
-
-                getSort: function() {
-                    this.url += this.sort_slug + "/"
-                    return this
-                },
-
-                addCategory: function() {
-                    if (this.category_id >= 0) {
-                        this.url += this.category_id + "/"
-                    }
-                    return this
-                },
-
-                addFilters: function() {
-                    for (let f in this.filters) {
-                        if (this.filters[f]) {
-                            this.url += f + "/"
-                        }
-                    }
-                    return this
-                },
-
-                addQueryParams: function() {
-                    let param_dict = {}
-
-                    let has_author = this.author_pk >= 0
-                    let has_search = search_term !== ''
-                    let has_page = this.page > 1
-                    let has_params = has_author || has_search || has_page
-
-                    if (has_author) {
-                        param_dict['author'] = this.author_pk
-                    } else if (has_search) {
-                        search_str = $($.parseHTML(search_term)[0]).text()
-                        param_dict['search'] = search_str
-                    }
-                    if (has_page) {
-                        param_dict['page'] = this.page
-                    }
-
-                    if (has_params) {
-                        this.url += "?" + $.param(param_dict)
-                    }
-                    return this
-                },
-
-                getUrl: function() {
-                    return this.url
-                },
-
-                newUrl: function() {
-                    this.url = this.baseUrl
-                    return this
-                },
-
-                setSort: function(s) {
-                    this.sort_slug = s
-                    return this
-                },
-                setCategory: function(i) {
-                    this.category_id = i
-                    return this
-                },
-                setFilter: function(s, b) {
-                    this.filters[s] = b
-                    return this
-                },
-                setAuthor: function(i) {
-                    this.author_pk = i
-                    return this
-                },
-                setPage: function(s) {
-                    this.page = s;
-                }
-
-            }
-
-        </script>
-        <script type="text/javascript" src="/static/js/scripts/index.js"></script>
     </main>
 
     {% include "footer.html" %}
