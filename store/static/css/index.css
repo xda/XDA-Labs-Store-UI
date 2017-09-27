@@ -60,26 +60,6 @@
   margin-bottom: 10px;
 }
 
-.category-link-container {
-  vertical-align: bottom;
-  height: 36px;
-  margin-top: 8px;
-  overflow: hidden;
-  line-height: 17px;
-  color: #039be5;
-  font-size: 12px;
-}
-
-.category-link-container span, .author-item, .app-item, .chip, .page-link {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  cursor: pointer;
-}
-
 .page-left {
   font-weight: 500;
   margin-right: 10px;
@@ -98,80 +78,6 @@
 .chip {
   color: rgba(0,0,0,0.8);
   background-color: #cccccc;
-}
-
-
-/* App Card */
-
-.appCard {
-  height: 140px;
-}
-
-.appCard:hover {
-  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14),
-              0 3px 14px 2px rgba(0,0,0,0.12),
-              0 5px 5px -3px rgba(0,0,0,0.3);
-  transition: box-shadow .3s ease-in-out
-}
-
-.appBannerImg {
-  height: 140px;
-  width: 100vh !important;
-  object-fit: cover;
-}
-
-.appCardContent {
-  padding: 12px !important;
-}
-
-.appTitle {
-  height: 54px;
-  line-height: 18px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-
-.appTitle img {
-  margin-left: 10px;
-  height: 30px;
-  width: 30px;
-  top: 4px;
-  float: right;
-}
-
-.appTitle span {
-  font-size: 16px;
-  display: block;
-}
-
-.appDetails {
-  font-size: 12px;
-  line-height: 17px;
-  height: 17px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  overflow: hidden;
-}
-
-.appRating {
-  float: right; width: 34px;
-}
-
-.author-item {
-  color: #039be5;
-  display: block;
-  margin-right: 38px;
-  word-break: break-all;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
 }
 
 .filterTitle {
