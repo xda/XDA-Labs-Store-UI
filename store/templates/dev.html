@@ -17,8 +17,8 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="image_src" href="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}">
-    <meta name="thumbnail" content="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}">
+    <link rel="image_src" href="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/no_avatar.png {% endif %}">
+    <meta name="thumbnail" content="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/no_avatar.png {% endif %}">
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -32,9 +32,9 @@
             "@context": "http://schema.org",
             "@type": "Organization",
             "name": "XDA Labs | {{ username }}",
-            "image": "{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}",
+            "image": "{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/no_avatar.png {% endif %}",
             "url": "https://labs.xda-developers.com/store/author/{{ username }}",
-            "logo": "{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}"
+            "logo": "{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/no_avatar.png {% endif %}"
         }
 
     </script>
@@ -60,9 +60,9 @@
     <meta property="og:title" content="XDA Labs | {{ username }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://labs.xda-developers.com/store/author/{{ username }}" />
-    <meta property="og:image" content="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}" />
+    <meta property="og:image" content="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/no_avatar.png {% endif %}" />
     <meta property="og:description" content="XDA Labs is a platform for independent Android development.  Support indie devs!" />
-    <link rel="shortcut icon" href="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/no_avatar.png {% endif %}" type="image/x-icon">
     <meta name="theme-color" content="#424242">
 
 
@@ -79,7 +79,7 @@
                 <div class="container">
                     <div class="card">
                         <div class="card-content">
-                            <img id="dev-image" class="circle responsive-img" src="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/ic_web.png {% endif %}">
+                            <img id="dev-image" class="circle responsive-img" src="{% if avatar_url %} {{ avatar_url }} {% else %} https://labs.xda-developers.com/static/images/no_avatar.png  {% endif %}">
                             <h4>{{ username }}</h4>
                             <h6>App Developer</h6>
                             <br>
@@ -95,7 +95,7 @@
                                 </div>
                         
                                 <div class="col s4">
-                                    <a href="https://forum.xda-developers.com/member.php?u={{ userid }}"><i class="material-icons small detail-icons">help</i><br>
+                                    <a href="https://forum.xda-developers.com/member.php?u={{ userid }}"><i class="material-icons small detail-icons">account_circle</i><br>
                                        <span>Contact</span></a>
                                 </div>
                             </div>
