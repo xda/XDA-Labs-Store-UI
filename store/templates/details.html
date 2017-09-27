@@ -307,40 +307,6 @@
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
-    <script>
-      $(document).on('ready', function() {
-        runSlide();
-        fetchForumData();
-
-        $("#login_modal").modal();
-        $("#paid_modal").modal();
-      });
-
-      let num = {{ screenshots|length }};
-      let count = 2;
-      thread_id = '{{ xda_thread_id }}';
-
-      function runSlide() {
-        if (num === 1) return;
-
-        setInterval(swapSlide, 5000);
-      }
-
-      function swapSlide() {
-        for (let i = 1; i <= num; i++) {
-          let image = $('.img' + i);
-          if (count === i) {
-            image.removeClass('hide');
-          } else {
-            image.addClass('hide');
-          }
-        }
-        count++;
-        if (count > num) {
-          count = 1;
-        }
-      }
-    </script>
     <script type="text/javascript" src="/static/js/scripts/details.js"></script>
     <!-- Slick Script Reqs -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
