@@ -134,37 +134,9 @@
           </div>
         {% endif %}
         <div class="row">
-          {% for app in apps %}
-          <div class="col s12 m6 l4 app-parent" data-package-name="{{ app.package_name }}">
-
-            <div class="card horizontal appCard">
-              <div class="app-item card-image">
-                <img class="appBannerImg" src="{{ app.banner_square_url }}">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content appCardContent">
-                  <div class="appTitle">
-                      <img class="app-item" src="{{ app.icon_url }}" />
-                      <span class="app-item">{{ app.title }}</span>
-                  </div>
-                  <div class="appDetails">
-                      <div class="appRating">
-                          <span class="orange-text">&#x2605;</span> {{ app.avg_rating|floatformat }}
-                      </div>
-                      <span data-dev-pk="{{ app.dev.pk }}" class="author-item">{% if app.dev.display_name %}{{ app.dev.display_name }}{% else %}{{ app.dev.username }}{% endif %}</span>
-                  </div>
-                  <div class="category-link-container">
-                  {% for category in app.categories %}
-                    <span data-index="{{ category.id }}" class="category-item">{{ category.name }}</span>{% if not forloop.last %}, {% endif %}
-                  {% endfor %}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
+            {% for app in apps %}
+                {% include "app_card.html" with app=app %}
+            {% endfor %}
         </div>
         <div class="page-row row center">
           {% if pagination.has_previous %}
