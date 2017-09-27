@@ -265,7 +265,7 @@
 
                   {% for rating in ratings %}
                   <li class="collection-item avatar">
-                    <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}"><img src="{% if rating.avatar_url == '' %}/static/images/no_avatar.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle"></a>
+                    <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}"><img src="{% if rating.avatar_url == '' %}/static/images/xda_logo.png{% else %}{{ rating.avatar_url }}{% endif %}" alt="" class="circle"></a>
 
                     <p class="reviewDetails">by <a href="https://forum.xda-developers.com/member.php?u={{ rating.userid }}">{{ rating.username }} </a>on {{ rating.date }}
                         <br> {{ rating.review }}
