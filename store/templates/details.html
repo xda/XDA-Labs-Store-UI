@@ -9,6 +9,11 @@
   <link type="text/css" rel="stylesheet" href="/static/css/details.css" media="screen,projection" />
   <link type="text/css" rel="stylesheet" href="/static/css/footer.css" media="screen,projection" />
 
+  <!-- Slick Slider CSS -->
+  <link rel="stylesheet" type="text/css" href="/static/slick/slick.css"/>
+  <!-- Add the new slick-theme.css if you want the default styling -->
+  <link rel="stylesheet" type="text/css" href="/static/slick/slick-theme.css"/>
+    
   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -123,9 +128,13 @@
           <div class="card screenshotsCard hide-on-med-and-down {% if screenshots|length == 0 %}hide{% endif %}">
             <div class="card-content screenshotCardInner">
               <span class="card-title screenshotTitle">Screenshots</span>
-              {% for item in screenshots %}
-              <div class="screenshotContainer img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img class="screenshotContainerImg responsive-img" src="{{ item.thumbnail.url }}"></div>
-              {% endfor %}
+                <div class="screenshotSlickSlider center-align">
+                     {% for item in screenshots %}
+                        <div class="screenshotContainer"><img class="screenshotContainerImg responsive-img" src="{{ item.thumbnail.url }}"></div>
+                     {% endfor %}
+  
+                </div>
+             
             </div>
           </div>
 
@@ -224,9 +233,12 @@
           <div class="card screenshotsCard hide-on-large-only {% if screenshots|length == 0 %}hide{% endif %}">
             <div class="card-content screenshotCardInner">
               <span class="card-title screenshotTitle">Screenshots</span>
-              {% for item in screenshots %}
-              <div class="screenshotContainer img{{ forloop.counter }} {% if forloop.counter > 1 %}hide{% endif %}"><img class="screenshotContainerImg responsive-img" src="{{ item.thumbnail.url }}"></div>
-              {% endfor %}
+              <div class="screenshotSlickSlider center-align">
+                     {% for item in screenshots %}
+                        <div class="screenshotContainer"><img class="screenshotContainerImg responsive-img" src="{{ item.thumbnail.url }}"></div>
+                     {% endfor %}
+  
+                </div>
             </div>
           </div>
 
@@ -330,6 +342,21 @@
       }
     </script>
     <script type="text/javascript" src="/static/js/scripts/details.js"></script>
+    <!-- Slick Script Reqs -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/slick/slick.min.js"></script>
+      <script>
+        $(document).ready(function(){
+            $('.screenshotSlickSlider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerMode: true,
+                
+            });
+        });
+      </script>
   </main>
 
   {% include "footer.html" %}

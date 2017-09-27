@@ -18,10 +18,10 @@ nav {
 
 /* Screenshots Card */
 .screenshotsCard {
-  height: 600px;
+  height: 620px;
 }
 .screenshotCardInner {
-  height: 548px;
+  height: 600px;
 }
 .screenshotTitle {
   padding: 0 0 15px 0;
@@ -30,10 +30,14 @@ nav {
   height: 100%;
   width: 100%;
   text-align: center;
+    border: 1px solid #ff9800;
 }
 .screenshotContainerImg {
   max-height: 100% !important;
   max-width: 100% !important;
+}
+prevArrow {
+    color: black;
 }
 
 /* Other Apps Card */
