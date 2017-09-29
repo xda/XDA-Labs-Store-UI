@@ -82,7 +82,7 @@
                             <img id="dev-image" class="circle responsive-img" src="{% if avatar_url %} {{ avatar_url }} {% else %} /static/images/xda_logo.png  {% endif %}">
                             <h4>{{ display_name }}</h4>
                             <h6 id="dev-title" class="hide">Unknown</h6>
-                            <h6 id="dev-loading">Loading details..</h6>
+                            <h6 id="dev-loading" class="hide">Loading details..</h6>
                             <br>
                             <div class="row" id="dev-details-details">
                                 <div class="col s3 tooltipped default-cursor" data-tooltip="Number of thanks">
@@ -126,7 +126,13 @@
         <script type="text/javascript" src="/static/js/materialize.min.js"></script>
         <script type="text/javascript" src="/static/js/scripts/dev.js"></script>
         <script>
+          cacheResponse = sessionStorage.getItem('dev-' + {{ userid }} + '-response');
+
+          if (cacheResponse !== null) {
+            showDevDetails(JSON.parse(cacheResponse), true)
+          } else {
             fetchDevData({{ userid }});
+          }
         </script>
 
     </main>

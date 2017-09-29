@@ -19,6 +19,7 @@
  *  @property {function} setCategory
  *  @property {function} setAuthor
  *  @property {function} setFilter
+ *  @property {function} setPage
  * */
 
 const url = StoreUrl
@@ -45,9 +46,8 @@ function openCategory(i) {
     loadIndexUrl()
 }
 
-function openAuthor(i) {
-    url.newUrl().setAuthor(i)
-    loadIndexUrl()
+function openAuthor(s) {
+    window.location.href = "/store/author/" + s
 }
 
 function openFilter(s, b) {
@@ -88,7 +88,7 @@ $(".category-item").on("click", function(e) {
 })
 
 $(".author-item").on("click", function(e) {
-    openAuthor($(this).data("devPk"))
+    openAuthor($(this).data("devUsername"))
     e.stopPropagation()
 })
 

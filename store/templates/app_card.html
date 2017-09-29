@@ -15,7 +15,7 @@
                     <div class="appRating">
                         <span class="orange-text">&#x2605;</span> {{ app.avg_rating|floatformat }}
                     </div>
-                    <span data-dev-pk="{{ app.dev.pk }}" class="author-item">{% if app.dev.display_name %}{{ app.dev.display_name }}{% else %}{{ app.dev.username }}{% endif %}</span>
+                    <span data-dev-username="{{ app.dev.username }}" class="author-item">{% if app.dev.display_name %}{{ app.dev.display_name }}{% else %}{{ app.dev.username }}{% endif %}</span>
                 </div>
                 <div class="category-link-container">
                     {% for category in app.categories %}
