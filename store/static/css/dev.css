@@ -28,8 +28,21 @@
     color: #ff9800;
 }
 
+#dev-details-details {
+    margin-bottom: 0;
+    display: none;
+}
+
 #dev-details-details a span {
     color: black;
+}
+
+#dev-details-details .pointer-cursor {
+    cursor: pointer;
+}
+
+#dev-details-details .default-cursor {
+    cursor: default;
 }
 
 @media screen and (max-width: 1115px) {
