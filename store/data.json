@@ -617,33 +617,35 @@
     "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/39a3f64a-e653-4fb4-9956-36d8efc2116a.png"
   },
   "dev.html": {
-      "name": "Jeff Corcoran",
-      "dev_image": "https://forum-lw-1.xda-cdn.com/customavatars/thumbs/avatar2637227_1.gif",
-      "apps": [
-          {
-        "title": "XDA Feed - All devices",
-        "icon_url": "https://labs-public-dl.xda-cdn.com/images/9a4eb6e2-1583-4cdd-8085-70c5b596e9b8.png",
-        "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/f745860a-8424-4d01-9d79-16b879c55709.jpg",
-        "avg_rating": 4.8,
-        "price": 0.0,
-        "package_name": "com.xda.feed",
-        "categories": [
-          {
-            "name": "Productivity",
-            "id": 18
-          },
-          {
-            "name": "Tools",
-            "id": 22
+    "userid": 1,
+    "username": "blk_jack",
+    "display_name": "blk_jack",
+    "avatar_url": "https://forum-lw-1.xda-cdn.com/customavatars/thumbs/avatar2637227_1.gif",
+    "apps": [
+        {
+          "title": "XDA Feed - All devices",
+          "icon_url": "https://labs-public-dl.xda-cdn.com/images/9a4eb6e2-1583-4cdd-8085-70c5b596e9b8.png",
+          "banner_square_url": "https://labs-public-dl.xda-cdn.com/images/f745860a-8424-4d01-9d79-16b879c55709.jpg",
+          "avg_rating": 4.8,
+          "price": 0.0,
+          "package_name": "com.xda.feed",
+          "categories": [
+            {
+              "name": "Productivity",
+              "id": 18
+            },
+            {
+              "name": "Tools",
+              "id": 22
+            }
+          ],
+          "dev": {
+            "pk": 1,
+            "username": "blk_jack",
+            "display_name": "blk_jack",
+            "email": "support@mimic.ca"
           }
-        ],
-        "dev": {
-          "pk": 1,
-          "username": "blk_jack",
-          "display_name": "blk_jack",
-          "email": "support@mimic.ca"
-        }
-      },
+        },
       {
         "title": "Hangar",
         "icon_url": "https://labs-public-dl.xda-cdn.com/images/fac64684-3562-44e5-9ef8-9df7a35303c7.png",
@@ -699,7 +701,7 @@
           "display_name": "blk_jack and long name test",
           "email": "support@mimic.ca"
         }
-      },
-      ],
+      }
+    ]
   }
 }
