@@ -23,7 +23,7 @@
         {
             "@context": "http://schema.org",
             "@type": "ImageObject",
-            "contentUrl": "https://labs.xda-developers.com/static/images/ic_web.png"
+            "contentUrl": "{% if avatar_url %}{{ avatar_url }}{% else %}https://labs.xda-developers.com/static/images/ic_web.png{% endif %}"
         }
 
     </script>
@@ -32,9 +32,9 @@
             "@context": "http://schema.org",
             "@type": "Organization",
             "name": "XDA Labs | {{ display_name }}",
-            "image": "{% if avatar_url %} {{ avatar_url }} {% else %} /static/images/xda_logo.png {% endif %}",
+            "image": "{% if avatar_url %}{{ avatar_url }}{% else %}/static/images/xda_logo.png{% endif %}",
             "url": "https://labs.xda-developers.com/store/author/{{ username }}",
-            "logo": "{% if avatar_url %} {{ avatar_url }} {% else %} /static/images/xda_logo.png {% endif %}"
+            "logo": "{% if avatar_url %}{{ avatar_url }}{% else %}/static/images/xda_logo.png{% endif %}"
         }
 
     </script>
@@ -56,13 +56,13 @@
 
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>XDA Labs{{ title }}</title>
+    <title>XDA Labs | {{ display_name }}</title>
     <meta property="og:title" content="XDA Labs | {{ display_name }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://labs.xda-developers.com/store/author/{{ username }}" />
-    <meta property="og:image" content="{% if avatar_url %} {{ avatar_url }} {% else %} /static/images/xda_logo.png {% endif %}" />
+    <meta property="og:image" content="{% if avatar_url %}{{ avatar_url }}{% else %} /static/images/xda_logo.png{% endif %}" />
     <meta property="og:description" content="XDA Labs is a platform for independent Android development.  Support indie devs!" />
-    <link rel="shortcut icon" href="{% if avatar_url %} {{ avatar_url }} {% else %} /static/images/xda_logo.png {% endif %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% if avatar_url %}{{ avatar_url }}{% else %}/static/images/xda_logo.png{% endif %}" type="image/x-icon">
     <meta name="theme-color" content="#424242">
 
 
